@@ -1,0 +1,98 @@
+@use "./variables" as *;
+@use "./global" as *;
+
+// Screen Sizes
+@mixin tablet {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+@mixin desktop {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+// Flex Directions
+@mixin column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@mixin row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+// Text styles
+@mixin mobile__pagehead {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+    font-weight: 600;
+}
+@mixin mobile__subhead {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+}
+@mixin mobile__label {
+    font-size: 0.813rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+}
+@mixin mobile__tablehead {
+    font-size: 0.688rem;
+    line-height: 1rem;
+    font-weight: 400;
+}
+@mixin mobile__body--large {
+    font-size: 0.938rem;
+    line-height: 1.625rem;
+    font-weight: 400;
+}
+@mixin mobile__body--med {
+    font-size: 0.813rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+}
+@mixin mobile__body--small {
+    font-size: 0.688rem;
+    line-height: 1rem;
+    font-weight: 400;
+}
+@mixin tablet__pagehead {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    font-weight: 600;
+}
+@mixin tablet__subhead {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 600;
+}
+@mixin tablet__label {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-weight: 600;
+}
+@mixin tablet__tablehead {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+}
+@mixin tablet__body--large {
+    font-size: 1rem;
+    line-height: 1.75rem;
+    font-weight: 400;
+}
+@mixin tablet__body--med {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-weight: 400;
+}
+@mixin tablet__body--small {
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    font-weight: 400;
+}
