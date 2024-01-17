@@ -1,4 +1,10 @@
+@use 'fonts';
+
 *, *::before, *::after {
-    margin: none;
-    padding: none;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Titillium Web', Verdana, Geneva, Tahoma, sans-serif;
 }
