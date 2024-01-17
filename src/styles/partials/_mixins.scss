@@ -1,5 +1,12 @@
 @use "./variables" as *;
-@use "./global" as *;
+
+@mixin font {
+    @font-face {
+        font-family: 'Titillium Web';
+        src: url('../../assets/typography/TitilliumWeb-Regular.ttf') format ("truetype");
+        src: url('../../assets/typography/TitilliumWeb-SemiBold.ttf') format ("truetype");
+    }
+}
 
 // Screen Sizes
 @mixin tablet {
