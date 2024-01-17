@@ -1,9 +1,19 @@
-console.log("Header.js");
-
+import { Link, NavLink } from 'react-router-dom';
+import logo from '../../assets/logos/InStock-Logo_1x.png';
+import './Header.scss';
 
 function Header () {
     return (
-        <header>this is our header yay</header>
+        <header className='header'>
+            <Link to='/'>
+                <img className='header__logo' src={logo} alt="InStock Logo"/>
+            </Link>
+
+            <nav className="nav">
+                <NavLink to='/'>Warehouses</NavLink>
+                <NavLink to='/inventory'>Inventory</NavLink>
+            </nav>
+        </header>
     )
 }
 
