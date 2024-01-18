@@ -19,7 +19,7 @@ function WarehouseAddPage() {
 
     let navigate = useNavigate();
 
-    function handleCancelClick(event) {
+    function handleCancelClick() {
         navigate('/');
     }
 
