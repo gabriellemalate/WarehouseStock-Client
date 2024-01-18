@@ -110,6 +110,15 @@
             margin-bottom: 1.5rem;
         }
 
+        &:focus {
+            outline: none;
+            border: 1px solid $Instock-Indigo;
+        }
+
+        &--invalid {
+            outline: none;
+            border: 1px solid $Red;
+        }
     }
 
     &__bottom {
