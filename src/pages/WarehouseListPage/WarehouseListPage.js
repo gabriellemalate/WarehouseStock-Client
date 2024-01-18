@@ -34,27 +34,33 @@ function WarehouseListPage() {
                     <section className="warehouses-list">
                         <div className="warehouses-list-eq">
                             <article className="warehouses-list__tablet">
-                                <div className="warehouses-list__tablet-label">
-                                    WAREHOUSE
-                                    <img className="warehouses-list__tablet-sort" alt="sort warehouses" src={Sort} />
+                                <div className="warehouses-list__tablet-left">
+                                    <div className="warehouses-list__tablet-label">
+                                        WAREHOUSE
+                                        <img className="warehouses-list__tablet-sort" alt="sort warehouses" src={Sort} />
+                                    </div>
+                                    <div className="warehouses-list__tablet-label">
+                                        ADDRESS
+                                        <img className="warehouses-list__tablet-sort" alt="sort addresses" src={Sort} />
+                                    </div>
                                 </div>
-                                <div className="warehouses-list__tablet-label">
-                                    ADDRESS
-                                    <img className="warehouses-list__tablet-sort" alt="sort addresses" src={Sort} />
+                                <div className="warehouses-list__tablet-end">
+                                <div className="warehouses-list__tablet-right">
+                                    <div className="warehouses-list__tablet-label">
+                                        CONTACT NAME
+                                        <img className="warehouses-list__tablet-sort" alt="sort contacts" src={Sort} />
+                                    </div>
+                                    <div className="warehouses-list__tablet-label">
+                                        CONTACT INFORMATION
+                                        <img className="warehouses-list__tablet-sort" alt="sort contact information" src={Sort} />
+                                    </div>
                                 </div>
-                                <div className="warehouses-list__tablet-label">
-                                    CONTACT NAME
-                                    <img className="warehouses-list__tablet-sort" alt="sort contacts" src={Sort} />
-                                </div>
-                                <div className="warehouses-list__tablet-label">
-                                    CONTACT INFORMATION
-                                    <img className="warehouses-list__tablet-sort" alt="sort contact information" src={Sort} />
-                                </div>
-                                <h3 className="warehouses-list__tablet-label">
+                                <h3 className="warehouses-list__tablet-label warehouses-list__tablet-label-acts">
                                     ACTIONS
                                 </h3>
+                                </div>
                             </article>
-                            <WarehouseOption/>
+                            <WarehouseOption />
                         </div>
                     </section>
                 </div>
