@@ -1,4 +1,6 @@
 @use 'fonts';
+@use "./variables" as *;
+@use "./mixins" as *;
 
 *, *::before, *::after {
     margin: 0;

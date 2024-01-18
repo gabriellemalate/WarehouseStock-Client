@@ -1,9 +1,9 @@
-console.log("Header.js");
+import "./Header.scss"
 
 
 function Header () {
     return (
-        <header>this is our header yay</header>
+        <header className="header">Warehouses. this is our header yay</header>
     )
 }
 
