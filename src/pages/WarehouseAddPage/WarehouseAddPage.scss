@@ -44,9 +44,12 @@
 }
 
 .form {
-
-    @include tablet {
-        @include row;
+    &__middle {
+        @include tablet {
+            border-top: 1px solid $Cloud;
+            @include row;
+            padding: 1.5rem 0 0.5rem;
+        }
     }
 
     &__fieldset {
@@ -55,7 +58,9 @@
         padding: 1rem 1.5rem 0.4rem;
 
         @include tablet {
+            border: none;
             padding: 0 $tablet-side-margin;
+            flex: 1;
         }
 
         @include desktop {
@@ -71,11 +76,20 @@
     &__legend {
         @include mobile__subhead;
         padding-bottom: 1.5rem;
+
+        @include tablet {
+            @include tablet__subhead;
+            padding-bottom: 2rem;
+        }
     }
 
     &__label {
         @include mobile__label;
         margin-bottom: 0.25rem;
+
+        @include tablet {
+            @include tablet__label;
+        }
     }
 
     &__input {
@@ -89,6 +103,7 @@
 
         @include tablet {
             @include tablet__body--med;
+            margin-bottom: 1.5rem;
         }
 
     }
@@ -100,7 +115,8 @@
         column-gap: 1rem;
 
         @include tablet {
-            padding: 0 $tablet-side-margin;
+            padding: 1rem $tablet-side-margin;
+            justify-content: flex-end;
         }
 
         @include desktop {
@@ -116,6 +132,12 @@
         flex: 1;
         padding: 0.45rem;
         @include mobile__label;
+
+        @include tablet {
+            @include tablet__label;
+            flex: 0 0 auto;
+            padding: 0.45rem 0.8rem;
+        }
 
         &--secondary {
             color: $Slate;
