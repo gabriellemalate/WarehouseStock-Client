@@ -9,9 +9,9 @@ function WarehouseAddPage() {
 
             <form className="form">
                 <fieldset className="form__fieldset">
-                    <legend className="form__legend">
+                    <h2 className="form__legend">
                         Warehouse Details
-                    </legend>
+                    </h2>
                     <label htmlFor="warehouseName" className="form__label">Warehouse Name</label>
                     <input 
                         type="text"
@@ -46,9 +46,9 @@ function WarehouseAddPage() {
                     />
                 </fieldset>
                 <fieldset className="form__fieldset">
-                    <legend className="form__legend">
+                    <h2 className="form__legend">
                         Contact Details
-                    </legend>
+                    </h2>
                     <label htmlFor="contactName" className="form__label">Contact Name</label>
                     <input 
                         type="text"
@@ -84,7 +84,7 @@ function WarehouseAddPage() {
                 </fieldset>
                 <div className="form__bottom">
                     <button type="button" className="form__button form__button--secondary">Cancel</button>
-                    <button type="submit" className="form__button">+ Add Warehosue</button>
+                    <button type="submit" className="form__button">+ Add Warehouse</button>
                 </div>
             </form>
 

@@ -4,27 +4,94 @@
 .main {
     background-color: $White;
     margin: 0 $mobile-spacing;
-    padding: 0 $mobile-spacing;
     box-shadow: $shadow;
 
     @include tablet {
         margin: 0 $tablet-side-margin;
-        padding: 0 $tablet-side-margin;
     }
 
     @include desktop {
         width: 63.75rem;
         margin: 0 auto;
-        padding: 0 2.5rem;
     }
 
     &__title {
         @include mobile__pagehead;
-        padding-top: 1.5rem;
+        padding: 1.5rem $mobile-spacing 0;
+        
 
         @include tablet {
             @include tablet__pagehead;
-            padding-top: 2rem;
+            padding: 2rem $tablet-side-margin 0;
+        }
+
+        @include desktop {
+            padding: 2rem 2.5rem 0;
+        }
+    }
+}
+
+.form {
+
+
+    &__fieldset {
+        border: none;
+        border-top: 1px solid $Cloud;
+        padding: 0 $mobile-spacing;
+
+        @include tablet {
+            padding: 0 $tablet-side-margin;
+        }
+
+        @include desktop {
+            padding: 0 2.5rem;
+        }
+
+        & > * {
+            display: block;
+        }
+
+    }
+
+    &__legend {
+        @include mobile__subhead;
+    }
+
+    &__label {
+        @include mobile__label;
+        margin-bottom: 0.25rem;
+    }
+
+    &__input {
+        box-sizing: border-box;
+        padding: 0.5rem 0.72rem;
+        border-radius: 1.25rem;
+        width: 100%;
+        border: 1px solid $Cloud;
+        @include mobile__body--med;
+
+        @include tablet {
+            @include tablet__body--med;
+        }
+
+    }
+
+    &__bottom {
+        padding: 0 $mobile-spacing;
+
+        @include tablet {
+            padding: 0 $tablet-side-margin;
+        }
+
+        @include desktop {
+            padding: 0 2.5rem;
+        }
+    }
+
+    &__button {
+
+        &--secondary {
+
         }
     }
 }
