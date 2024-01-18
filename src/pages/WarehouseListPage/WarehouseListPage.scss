@@ -56,6 +56,10 @@
                 max-width: 43.8vh;
             }
 
+            @include desktop {
+                max-width: 52vh;
+            }
+
             &-search {
                 width: 90%;
                 padding: 0 0 .8rem;
@@ -63,6 +67,10 @@
                 @include tablet {
                     width: 22vh;
                     padding: 0;
+                }
+
+                @include desktop {
+                    width: 30vh;
                 }
 
                 &-eq {
@@ -81,6 +89,9 @@
                         position: relative;
                         left: 18vh;
                         top: 0;
+                    }
+                    @include desktop {
+                        left: 25.5vh;
                     }
                 }
                 &-box {

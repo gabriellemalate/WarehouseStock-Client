@@ -119,6 +119,9 @@
                     @include tablet {
                         width: 13vh;
                     }
+                    @include desktop {
+                        width: 98%;
+                    }
                 }
                 &-warehouse {
                     @include row;

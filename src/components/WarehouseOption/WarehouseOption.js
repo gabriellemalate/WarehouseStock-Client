@@ -22,7 +22,7 @@ function WarehouseOption() {
                                 </div>
                                 <div className="warehouses-list__item-detail">
                                     <h4 className="warehouses-list__item-detail-label">ADDRESS</h4>
-                                    <p className="warehouses-list__item-detail-value warehouses-list__item-detail-address">503 Broadway, New York, USA
+                                    <p className="warehouses-list__item-detail-value warehouses-list__item-detail-address">890 Brannan Street, San Francisco, USA
                                     </p>
                                 </div>
                             </div>
