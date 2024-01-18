@@ -1,0 +1,26 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+main {
+    background-color: $White;
+    border-radius: 0.1875rem;
+    margin: 0 1rem;
+
+    h1 {
+        color: blue;
+    }
+
+    @include tablet {
+        margin: 0 2rem;
+
+        h1 {
+            color: red;
+        }
+    }
+
+    @include desktop {
+        max-width: 63.75rem;
+        margin: auto;
+    }
+
+}
