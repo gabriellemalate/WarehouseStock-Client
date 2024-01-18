@@ -47,7 +47,7 @@
                 }
                 &-icon {
                     position: absolute;
-                    left: 16rem;
+                    left: 82.5%;
                     top: 6.3rem;
                 }
                 &-box {
@@ -57,6 +57,7 @@
                     font-family: $fontface;
                     height: 1rem;
                     border-color: $Cloud;
+                    resize: none;
                     &:active, &:focus {
                         border-color: $Instock-Indigo;
                         outline: none;
@@ -82,9 +83,6 @@
     }
     &-list {
         width: 100%;
-        &-eq {
-
-        }
         &__tablet {
             display: none;
 
@@ -112,8 +110,9 @@
             &-core {
                 @include row;
                 align-items: flex-start;
-                padding: 1rem 0;
+                padding: 1rem 0 0;
                 width: 92%;
+
             }
             &-detail {
                 &-label {
@@ -132,6 +131,7 @@
                     @include column;
                     align-items: flex-start;
                     margin: 0;
+                    padding: .2rem 0 .8rem;
                 }
                 &-warehouse {
                     @include row;
