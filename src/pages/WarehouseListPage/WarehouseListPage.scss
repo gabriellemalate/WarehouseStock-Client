@@ -1,0 +1,152 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.warehouses {
+    font-family: $fontface;
+    border-radius: .2rem;
+    background-color: $White;
+    margin: 0 1rem;
+    @include column;
+
+        @include tablet {
+            margin: 0 2rem;
+        }
+        @include desktop {
+            max-width: 95%;
+        }
+    &-eq {
+        width: 90%;
+        @include column;
+        padding: 1.6rem 0 2rem;
+    }
+    &-top {
+        @include column;
+        width: 112%;
+        border-bottom: .09rem solid $Cloud;
+        padding: 0 0 1.4rem;
+
+        &__head {
+            @include mobile__pagehead;
+            margin: 0;
+            align-self: flex-start;
+            padding: 0 0 1rem 1rem;
+        }
+        &__action {
+            @include column;
+            width: 100%;
+
+            &-search {
+                width: 90%;
+                padding: 0 0 .8rem;
+                &-eq {
+                    width: 100%;
+
+                    @include tablet {
+                        @include row;
+                    }
+                }
+                &-icon {
+                    position: absolute;
+                    left: 16rem;
+                    top: 6.3rem;
+                }
+                &-box {
+                    @include mobile__field;
+                    padding: .5rem 0  .5rem 1rem;
+                    width: 94%;
+                    font-family: $fontface;
+                    height: 1rem;
+                    border-color: $Cloud;
+                    &:active, &:focus {
+                        border-color: $Instock-Indigo;
+                        outline: none;
+                    }
+                }
+            }
+            &-button {
+                @include mobile__field;
+                border: 0;
+                background-color: $Instock-Indigo;
+                color: white;
+                @include mobile__label;
+                width: 90%;
+                &:hover {
+                    background-color: $Graphite;
+                }
+
+                @include tablet {
+                    @include tablet__field;
+                }
+            }
+        }
+    }
+    &-list {
+        width: 100%;
+        &-eq {
+
+        }
+        &__tablet {
+            display: none;
+
+            @include tablet {
+                @include row;
+            }
+            &-label {
+                
+            }
+            &-sort {
+
+            }
+        }
+        &__items {
+            width: 50%;
+        }
+        &__item {
+            @include column;
+            &-eq {
+                border-bottom: $Cloud .08rem solid;
+                width: 112%;
+                @include column;
+                padding: 0 0 1.4rem;
+            }
+            &-core {
+                @include row;
+                align-items: flex-start;
+                padding: 1rem 0;
+                width: 92%;
+            }
+            &-detail {
+                &-label {
+                    @include mobile__tablehead;
+                    color: $Slate;
+                    margin: 0;
+
+                    @include tablet {
+                        display: none;
+                    }
+                }
+                &-value {
+                    @include mobile__body--med;
+                    font-weight: 400;
+                    color: $Instock-Black;
+                    @include column;
+                    align-items: flex-start;
+                    margin: 0;
+                }
+                &-warehouse {
+                    @include row;
+                    color: $Instock-Indigo;
+                    font-weight: 600;
+                }
+                &-arrow {
+                    margin-left: .25rem;
+                }
+            }
+        }
+        &__actions {
+            @include row;
+            justify-content: space-between;
+            width: 90%;
+        }
+    }
+}
