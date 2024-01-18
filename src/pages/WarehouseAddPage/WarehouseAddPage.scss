@@ -1,2 +1,30 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
+
+.main {
+    background-color: $White;
+    margin: 0 $mobile-spacing;
+    padding: 0 $mobile-spacing;
+    box-shadow: $shadow;
+
+    @include tablet {
+        margin: 0 $tablet-side-margin;
+        padding: 0 $tablet-side-margin;
+    }
+
+    @include desktop {
+        width: 63.75rem;
+        margin: 0 auto;
+        padding: 0 2.5rem;
+    }
+
+    &__title {
+        @include mobile__pagehead;
+        padding-top: 1.5rem;
+
+        @include tablet {
+            @include tablet__pagehead;
+            padding-top: 2rem;
+        }
+    }
+}
