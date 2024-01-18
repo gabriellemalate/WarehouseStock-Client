@@ -1,4 +1,7 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/global';
+
 
 .header {
     background-color: $Graphite;
@@ -58,13 +61,13 @@
 
 
         &:hover {
-            color: $white;
+            color: $White;
             text-decoration: underline;
         }
 
         &.active {
             background-color: $Instock-Black;
-            color: $white;
+            color: $White;
 
             &:hover {
                 text-decoration: underline;

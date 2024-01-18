@@ -1,4 +1,7 @@
 @use 'variables' as *;
+@use "./mixins" as *;
+@use 'fonts';
+
 
 *, *::before, *::after {
     margin: 0;
@@ -8,4 +11,7 @@
 a {
     text-decoration: none;
     color: inherit;
+}
+body {
+    font-family: 'Titillium Web', Verdana, Geneva, Tahoma, sans-serif;
 }
