@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../../assets/logos/InStock-Logo_1x.png';
+import logo from '../../assets/logos/InStock-Logo_2x.png';
 import './Header.scss';
 
 function Header () {
@@ -10,8 +10,8 @@ function Header () {
             </Link>
 
             <nav className="nav">
-                <NavLink to='/'>Warehouses</NavLink>
-                <NavLink to='/inventory'>Inventory</NavLink>
+                <NavLink to='/' className="nav__link">Warehouses</NavLink>
+                <NavLink to='/inventory' className="nav__link">Inventory</NavLink>
             </nav>
         </header>
     )
