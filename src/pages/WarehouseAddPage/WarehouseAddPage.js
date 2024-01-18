@@ -3,6 +3,13 @@ import backArrow from '../../assets/icons/arrow_back-24px.svg';
 import './WarehouseAddPage.scss';
 
 function WarehouseAddPage() {
+
+    /* 
+    vaildate all fields nonempty
+    validate phonenumber and email are valid
+    example phone number: +1 (919) 797-2875
+    */
+
     return (
         <main className="main">
             <div className="main__page-header">
