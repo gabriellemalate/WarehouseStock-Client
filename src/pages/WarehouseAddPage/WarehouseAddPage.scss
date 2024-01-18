@@ -61,6 +61,10 @@
             border: none;
             padding: 0 $tablet-side-margin;
             flex: 1;
+
+            &:last-child {
+                border-left: 1px solid $Cloud;
+            }
         }
 
         @include desktop {
