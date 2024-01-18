@@ -16,7 +16,7 @@
     }
 
     &__page-header {
-        padding: 2rem $mobile-spacing 1.5rem;
+        padding: 2rem 1.5rem 1.4rem;
         @include row;
         column-gap: 0.5rem;
 
@@ -32,11 +32,6 @@
 
     &__back-button {
         margin-top: 0.5rem;
-        margin-left: 0.5rem;
-
-        @include tablet {
-            margin-left: 0;
-        }
     }
 
     &__title {
@@ -50,11 +45,14 @@
 
 .form {
 
+    @include tablet {
+        @include row;
+    }
 
     &__fieldset {
         border: none;
         border-top: 1px solid $Cloud;
-        padding: 0 $mobile-spacing;
+        padding: 1rem 1.5rem 0.4rem;
 
         @include tablet {
             padding: 0 $tablet-side-margin;
@@ -72,6 +70,7 @@
 
     &__legend {
         @include mobile__subhead;
+        padding-bottom: 1.5rem;
     }
 
     &__label {
@@ -81,10 +80,11 @@
 
     &__input {
         box-sizing: border-box;
-        padding: 0.5rem 0.72rem;
+        padding: 0.45rem 1rem;
         border-radius: 1.25rem;
         width: 100%;
         border: 1px solid $Cloud;
+        margin-bottom: 1rem;
         @include mobile__body--med;
 
         @include tablet {
@@ -106,6 +106,7 @@
     }
 
     &__button {
+
         &--secondary {
 
         }
