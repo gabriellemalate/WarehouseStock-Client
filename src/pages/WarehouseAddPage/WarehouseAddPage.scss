@@ -144,6 +144,7 @@
         background-color: $Instock-Indigo;
         flex: 1;
         padding: 0.45rem;
+        cursor: pointer;
         @include mobile__label;
 
         @include tablet {

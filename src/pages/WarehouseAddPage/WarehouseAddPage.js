@@ -1,8 +1,37 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import backArrow from '../../assets/icons/arrow_back-24px.svg';
 import './WarehouseAddPage.scss';
 
 function WarehouseAddPage() {
+    const defaults = {
+        warehouseName: '',
+        address: '',
+        city: '',
+        country: '',
+        contactName: '',
+        position: '',
+        phoneNumber: '',
+        email: ''
+    }
+    let [ inputs, setInputs ] = useState(defaults);
+    let { warehouseName, address, city, country, contactName, position, phoneNumber, email} = inputs;
+
+    let navigate = useNavigate();
+
+    function handleCancelClick(event) {
+        navigate('/');
+    }
+
+    function handleFormSubmition(event) {
+        event.preventDefault();
+        console.log(inputs);
+    }
+
+    function handleInputChange(event){
+        const { name, value } = event.target;
+        setInputs({...inputs, [name]: value});
+    }
 
     /* 
     vaildate all fields nonempty
@@ -21,7 +50,7 @@ function WarehouseAddPage() {
                 </h1>
             </div>
 
-            <form className="form">
+            <form className="form" onSubmit={handleFormSubmition}>
                 <div className="form__middle">
                     <fieldset className="form__fieldset">
                         <h2 className="form__legend">
@@ -34,6 +63,8 @@ function WarehouseAddPage() {
                             id="warehouseName" 
                             className="form__input"
                             placeholder="Warehouse Name"
+                            value={warehouseName}
+                            onChange={handleInputChange}
                         />
                         <label htmlFor="address" className="form__label">Street Address</label>
                         <input 
@@ -42,6 +73,8 @@ function WarehouseAddPage() {
                             id="address" 
                             className="form__input" 
                             placeholder="Street Address"
+                            value={address}
+                            onChange={handleInputChange}
                         />
                         <label htmlFor="city" className="form__label">City</label>
                         <input 
@@ -50,6 +83,8 @@ function WarehouseAddPage() {
                             id="city" 
                             className="form__input" 
                             placeholder="City"
+                            value={city}
+                            onChange={handleInputChange}
                         />
                         <label htmlFor="country" className="form__label">Country</label>
                         <input 
@@ -58,6 +93,8 @@ function WarehouseAddPage() {
                             id="country" 
                             className="form__input" 
                             placeholder="Country"
+                            value={country}
+                            onChange={handleInputChange}
                         />
                     </fieldset>
                     <fieldset className="form__fieldset">
@@ -71,6 +108,8 @@ function WarehouseAddPage() {
                             id="contactName" 
                             className="form__input" 
                             placeholder="Contact Name"
+                            value={contactName}
+                            onChange={handleInputChange}
                         />
                         <label htmlFor="position" className="form__label">Position</label>
                         <input 
@@ -79,6 +118,8 @@ function WarehouseAddPage() {
                             id="position" 
                             className="form__input" 
                             placeholder="Position"
+                            value={position}
+                            onChange={handleInputChange}
                         />
                         <label htmlFor="phoneNumber" className="form__label">Phone Number</label>
                         <input 
@@ -87,19 +128,23 @@ function WarehouseAddPage() {
                             id="phoneNumber" 
                             className="form__input" 
                             placeholder="Phone Number"
+                            value={phoneNumber}
+                            onChange={handleInputChange}
                         />
                         <label htmlFor="email" className="form__label">Email</label>
                         <input 
-                            type="email"
-                            name="email "
+                            type="text"
+                            name="email"
                             id="email" 
                             className="form__input" 
                             placeholder="Email"
+                            value={email}
+                            onChange={handleInputChange}
                         />
                     </fieldset>
                 </div>
                 <div className="form__bottom">
-                    <button type="button" className="form__button form__button--secondary">Cancel</button>
+                    <button type="button" className="form__button form__button--secondary" onClick={handleCancelClick}>Cancel</button>
                     <button type="submit" className="form__button">+ Add Warehouse</button>
                 </div>
             </form>
