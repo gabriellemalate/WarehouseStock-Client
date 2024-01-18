@@ -1,20 +1,51 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-main {
+.inventory {
+    
     background-color: $White;
     border-radius: 0.1875rem;
     margin: 0 1rem;
 
+    &-container {
+        // width: calc(100% - 2*(1.5rem));
+        // margin: auto;
+        margin: 0 1.5rem;
+
+        @include tablet {
+            margin: 0 2rem;
+        }
+
+        @include desktop {
+            margin: 0 2.25rem;
+        }
+        
+    }
+
+    &__title-bar, &__actions {
+        @include tablet {
+            @include row;
+            justify-content: space-between;
+        }
+    }
+
+    // &__actions {
+
+    // }
+
     h1 {
-        color: blue;
+        // color: blue;
+        font-weight: 600;
+        font-size: 1.75rem;
+        padding-top: 1.75rem;
     }
 
     @include tablet {
         margin: 0 2rem;
 
         h1 {
-            color: red;
+            // color: red;
+            font-size: 2rem;
         }
     }
 
