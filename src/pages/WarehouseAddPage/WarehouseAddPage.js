@@ -1,11 +1,18 @@
+import { Link } from 'react-router-dom';
+import backArrow from '../../assets/icons/arrow_back-24px.svg';
 import './WarehouseAddPage.scss';
 
 function WarehouseAddPage() {
     return (
         <main className="main">
-            <h1 className="main__title">
-                Add New Warehouse
-            </h1>
+            <div className="main__page-header">
+                <Link to='/' className="main__back-link">
+                    <img src={backArrow} alt="back arrow" className="main__back-button" />
+                </Link>
+                <h1 className="main__title">
+                    Add New Warehouse
+                </h1>
+            </div>
 
             <form className="form">
                 <fieldset className="form__fieldset">

@@ -15,18 +15,23 @@
         margin: 0 auto;
     }
 
-    &__title {
-        @include mobile__pagehead;
+    &__page-header {
         padding: 1.5rem $mobile-spacing 0;
-        
 
         @include tablet {
-            @include tablet__pagehead;
             padding: 2rem $tablet-side-margin 0;
         }
 
         @include desktop {
             padding: 2rem 2.5rem 0;
+        }
+    }
+
+    &__title {
+        @include mobile__pagehead;
+
+        @include tablet {
+            @include tablet__pagehead; 
         }
     }
 }
@@ -89,7 +94,6 @@
     }
 
     &__button {
-
         &--secondary {
 
         }
