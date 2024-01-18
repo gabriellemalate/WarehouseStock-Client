@@ -13,17 +13,14 @@ function formIsValid(inputs) {
 function getInputError(input, inputType) {
     switch(inputType) {
         case 'email':
-            return emailIsValid(input) ? 
-                {valid: true, error: null} :
-                {valid: false, error: 'Email must be in the format yourname@example.com'};
+            return emailIsValid(input) ? null : 
+                'Email must be in the format yourname@example.com';
         case 'phoneNumber':
-            return phoneNumberIsValid(input) ? 
-                {valid: true, error: null} :
-                {valid: false, error: 'Phone Number must be in the format +1 (234) 567-8910'};
+            return phoneNumberIsValid(input) ? null :
+                'Phone Number must be in the format +1 (234) 567-8910';
         default:
-            return defaultInputIsValid(input) ?
-                {valid: true, error: null} :
-                {valid: false, error: 'This field is required'};
+            return defaultInputIsValid(input) ? null :
+                'This field is required';
     }
 }
 
