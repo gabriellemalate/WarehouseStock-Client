@@ -1,1 +1,1 @@
-console.log("Inventory.js");
+console.log('inventory.js');
