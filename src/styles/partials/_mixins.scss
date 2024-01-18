@@ -1,11 +1,17 @@
 @use "./variables" as *;
 
-@mixin font {
-    @font-face {
-        font-family: 'Titillium Web';
-        src: url('../../assets/typography/TitilliumWeb-Regular.ttf') format ("truetype");
-        src: url('../../assets/typography/TitilliumWeb-SemiBold.ttf') format ("truetype");
-    }
+// Buttons & Fields
+
+@mixin mobile__field {
+    height: 2.25rem;
+    width: 100%;
+    border-radius: 1.25rem;
+}
+
+@mixin tablet__field {
+    height: 2.375rem;
+    padding: 0 1rem;
+    border-radius: 1.25rem;
 }
 
 // Screen Sizes
@@ -46,12 +52,12 @@
 @mixin mobile__label {
     font-size: 0.813rem;
     line-height: 1.25rem;
-    font-weight: 700;
+    font-weight: 600;
 }
 @mixin mobile__tablehead {
     font-size: 0.688rem;
     line-height: 1rem;
-    font-weight: 400;
+    font-weight: 600;
 }
 @mixin mobile__body--large {
     font-size: 0.938rem;
@@ -81,12 +87,12 @@
 @mixin tablet__label {
     font-size: 0.875rem;
     line-height: 1.375rem;
-    font-weight: 600;
+    font-weight: 400;
 }
 @mixin tablet__tablehead {
     font-size: 0.75rem;
     line-height: 1.25rem;
-    font-weight: 400;
+    font-weight: 600;
 }
 @mixin tablet__body--large {
     font-size: 1rem;
