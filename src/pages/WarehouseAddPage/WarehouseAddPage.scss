@@ -94,7 +94,10 @@
     }
 
     &__bottom {
-        padding: 0 $mobile-spacing;
+        padding: 1rem 1.5rem;
+        background-color: rgba(247, 248, 249, 0.70);
+        @include row;
+        column-gap: 1rem;
 
         @include tablet {
             padding: 0 $tablet-side-margin;
@@ -106,9 +109,18 @@
     }
 
     &__button {
+        border-radius: 2rem;
+        border: none;
+        color: $White;
+        background-color: $Instock-Indigo;
+        flex: 1;
+        padding: 0.45rem;
+        @include mobile__label;
 
         &--secondary {
-
+            color: $Slate;
+            background-color: $White;
+            border: 1px solid $Cloud;
         }
     }
 }
