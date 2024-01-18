@@ -139,10 +139,20 @@
             padding: 0.45rem 0.8rem;
         }
 
+        &:hover {
+            background-color: $Graphite;
+        }
+
         &--secondary {
             color: $Slate;
             background-color: $White;
             border: 1px solid $Cloud;
+
+            &:hover {
+                background-color: $White;
+                color: $Instock-Indigo;
+                border: 1px solid $Instock-Indigo;
+            }
         }
     }
 }
