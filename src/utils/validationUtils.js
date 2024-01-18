@@ -60,3 +60,5 @@ function phoneNumberIsValid(number) {
 
     return true;
 }
+
+export { inputIsValid, getInputError, formIsValid };

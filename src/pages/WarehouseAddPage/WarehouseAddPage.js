@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { inputIsValid, getInputError, formIsValid } from '../../utils/validationUtils';
 import backArrow from '../../assets/icons/arrow_back-24px.svg';
 import './WarehouseAddPage.scss';
 
 function WarehouseAddPage() {
-    const defaults = {
+    let [ inputs, setInputs ] = useState({
         warehouseName: '',
         address: '',
         city: '',
@@ -12,10 +13,29 @@ function WarehouseAddPage() {
         contactName: '',
         position: '',
         phoneNumber: '',
-        email: ''
-    }
-    let [ inputs, setInputs ] = useState(defaults);
+        email: '',
+    });
     let { warehouseName, address, city, country, contactName, position, phoneNumber, email} = inputs;
+
+    let [ errors, setErrors ] = useState({
+        warehouseName: null,
+        address: null,
+        city: null,
+        country: null,
+        contactName: null,
+        position: null,
+        phoneNumber: null,
+        email: null,
+    });
+    let { warehouseName: warehouseNameError, 
+        address: addressError, 
+        city: cityError, 
+        country: countryError, 
+        contactName: contactNameError, 
+        position: positionError, 
+        phoneNumber: phoneNumberError, 
+        email: emailError
+    } = errors;
 
     let navigate = useNavigate();
 
@@ -25,19 +45,19 @@ function WarehouseAddPage() {
 
     function handleFormSubmition(event) {
         event.preventDefault();
-        console.log(inputs);
+
+        if(formIsValid(inputs)) {
+            // axios call here
+            console.log(inputs);
+            //navigate('/');
+        }
     }
 
     function handleInputChange(event){
         const { name, value } = event.target;
         setInputs({...inputs, [name]: value});
+        setErrors({...errors, [name]: getInputError(value, name)})
     }
-
-    /* 
-    vaildate all fields nonempty
-    validate phonenumber and email are valid
-    example phone number: +1 (919) 797-2875
-    */
 
     return (
         <main className="main">
@@ -61,7 +81,7 @@ function WarehouseAddPage() {
                             type="text"
                             name="warehouseName"
                             id="warehouseName" 
-                            className="form__input"
+                            className={`form__input ${warehouseNameError && 'form__input--invalid'}`}
                             placeholder="Warehouse Name"
                             value={warehouseName}
                             onChange={handleInputChange}
@@ -71,7 +91,7 @@ function WarehouseAddPage() {
                             type="text"
                             name="address"
                             id="address" 
-                            className="form__input" 
+                            className={`form__input ${addressError && 'form__input--invalid'}`} 
                             placeholder="Street Address"
                             value={address}
                             onChange={handleInputChange}
@@ -81,7 +101,7 @@ function WarehouseAddPage() {
                             type="text"
                             name="city"
                             id="city" 
-                            className="form__input" 
+                            className={`form__input ${cityError && 'form__input--invalid'}`}
                             placeholder="City"
                             value={city}
                             onChange={handleInputChange}
@@ -91,7 +111,7 @@ function WarehouseAddPage() {
                             type="text"
                             name="country"
                             id="country" 
-                            className="form__input" 
+                            className={`form__input ${countryError && 'form__input--invalid'}`} 
                             placeholder="Country"
                             value={country}
                             onChange={handleInputChange}
@@ -106,7 +126,7 @@ function WarehouseAddPage() {
                             type="text"
                             name="contactName"
                             id="contactName" 
-                            className="form__input" 
+                            className={`form__input ${contactNameError && 'form__input--invalid'}`}
                             placeholder="Contact Name"
                             value={contactName}
                             onChange={handleInputChange}
@@ -116,7 +136,7 @@ function WarehouseAddPage() {
                             type="text"
                             name="position"
                             id="position" 
-                            className="form__input" 
+                            className={`form__input ${positionError && 'form__input--invalid'}`}
                             placeholder="Position"
                             value={position}
                             onChange={handleInputChange}
@@ -126,7 +146,7 @@ function WarehouseAddPage() {
                             type="text"
                             name="phoneNumber"
                             id="phoneNumber" 
-                            className="form__input" 
+                            className={`form__input ${phoneNumberError && 'form__input--invalid'}`} 
                             placeholder="Phone Number"
                             value={phoneNumber}
                             onChange={handleInputChange}
@@ -136,7 +156,7 @@ function WarehouseAddPage() {
                             type="text"
                             name="email"
                             id="email" 
-                            className="form__input" 
+                            className={`form__input ${emailError && 'form__input--invalid'}`}
                             placeholder="Email"
                             value={email}
                             onChange={handleInputChange}
