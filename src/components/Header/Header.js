@@ -5,14 +5,16 @@ import './Header.scss';
 function Header () {
     return (
         <header className='header'>
-            <Link to='/'>
-                <img className='header__logo' src={logo} alt="InStock Logo"/>
-            </Link>
+            <div className="header__container">
+                <Link to='/'>
+                    <img className='header__logo' src={logo} alt="InStock Logo"/>
+                </Link>
 
-            <nav className="nav">
-                <NavLink to='/' className="nav__link">Warehouses</NavLink>
-                <NavLink to='/inventory' className="nav__link">Inventory</NavLink>
-            </nav>
+                <nav className="nav">
+                    <NavLink to='/' className="nav__link">Warehouses</NavLink>
+                    <NavLink to='/inventory' className="nav__link">Inventory</NavLink>
+                </nav>
+            </div>
         </header>
     )
 }
