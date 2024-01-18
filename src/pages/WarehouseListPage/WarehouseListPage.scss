@@ -21,23 +21,50 @@
     }
     &-top {
         @include column;
-        width: 112%;
+        width: 111.2%;
         border-bottom: .09rem solid $Cloud;
         padding: 0 0 1.4rem;
+
+        &-eq {
+            width: 100%;
+
+            @include tablet {
+                @include row;
+                justify-content: space-between;
+                width: 90%;
+            }
+        }
 
         &__head {
             @include mobile__pagehead;
             margin: 0;
             align-self: flex-start;
             padding: 0 0 1rem 1rem;
+
+            @include tablet {
+                padding: 0;
+            }
         }
         &__action {
             @include column;
             width: 100%;
 
+            @include tablet {
+                @include row;
+                width: 70%;
+                justify-content: space-between;
+                max-width: 43.8vh;
+            }
+
             &-search {
                 width: 90%;
                 padding: 0 0 .8rem;
+
+                @include tablet {
+                    width: 22vh;
+                    padding: 0;
+                }
+
                 &-eq {
                     width: 100%;
 
@@ -47,8 +74,14 @@
                 }
                 &-icon {
                     position: absolute;
-                    left: 82.5%;
+                    left: 80%;
                     top: 6.3rem;
+
+                    @include tablet {
+                        position: relative;
+                        left: 18vh;
+                        top: 0;
+                    }
                 }
                 &-box {
                     @include mobile__field;
@@ -61,6 +94,11 @@
                     &:active, &:focus {
                         border-color: $Instock-Indigo;
                         outline: none;
+                    }
+
+                    @include tablet {
+                        height: 1.2rem;
+                        width: 100%;
                     }
                 }
             }
@@ -77,35 +115,73 @@
 
                 @include tablet {
                     @include tablet__field;
+                    width: 20vh;
                 }
             }
         }
     }
     &-list {
         width: 100%;
+
+        &-container {
+            width: 80%;
+        }
+
         &__tablet {
             display: none;
 
             @include tablet {
                 @include row;
+                width: 100%;
+                justify-content: space-between;
             }
             &-label {
-                
+                @include row;
+                @include tablet__tablehead;
+                color: $Slate;
             }
             &-sort {
-
+                padding: 0 0 0 .25rem;
             }
         }
         &__items {
             width: 50%;
+
+            @include tablet {
+                @include row;
+                justify-content: space-between;
+            }
+
+            &-left {
+                @include tablet {
+                    width: 44%;
+                    max-width: 38vh;
+                }
+
+            }
+            &-right {
+                @include tablet {
+                    width: 50%;
+                    max-width: 41.5vh;
+                }
+            }
         }
         &__item {
             @include column;
             &-eq {
-                border-bottom: $Cloud .08rem solid;
-                width: 112%;
                 @include column;
+                border-bottom: $Cloud .08rem solid;
+                width: 111.2%;
                 padding: 0 0 1.4rem;
+            }
+            &-container {
+                @include column;
+
+                @include tablet {
+                    @include row;
+                    justify-content: space-between;
+                    width: 89%;
+                }
             }
             &-core {
                 @include row;
@@ -113,8 +189,22 @@
                 padding: 1rem 0 0;
                 width: 92%;
 
+                @include tablet {
+                    width: 85%;
+                    justify-content: space-between;
+                    align-items: center;
+                    max-width: 91vh;
+                }
+
+                @include desktop {
+                    background-color: gray;
+                }
             }
             &-detail {
+                @include tablet {
+                    width: fit-content;
+                }
+
                 &-label {
                     @include mobile__tablehead;
                     color: $Slate;
@@ -132,6 +222,21 @@
                     align-items: flex-start;
                     margin: 0;
                     padding: .2rem 0 .8rem;
+
+                    @include tablet {
+                        align-items: center;
+                        text-align: start;
+                        @include tablet__body--med;
+                    }
+                    &-info {
+                        @include column;
+                        align-items: flex-start;;
+                    }
+                }
+                &-address {
+                    @include tablet {
+                        width: 13vh;
+                    }
                 }
                 &-warehouse {
                     @include row;
@@ -147,6 +252,10 @@
             @include row;
             justify-content: space-between;
             width: 90%;
+
+            @include tablet {
+                width: 7vh;
+            }
         }
     }
 }
