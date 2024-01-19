@@ -87,10 +87,10 @@ function WarehouseAddPage() {
                             value={warehouseName}
                             onChange={handleInputChange}
                         />
-                        {warehouseNameError && <p className="form__error">
-                            <img src={errorIcon} alt="" className="form__error-icon" />
+                        <p className="form__error">
+                            {warehouseNameError && <img src={errorIcon} alt="" className="form__error-icon" />}
                             {warehouseNameError}
-                        </p>}
+                        </p>
                         <label htmlFor="address" className="form__label">Street Address</label>
                         <input 
                             type="text"
@@ -101,10 +101,10 @@ function WarehouseAddPage() {
                             value={address}
                             onChange={handleInputChange}
                         />
-                        {addressError && <p className="form__error">
-                            <img src={errorIcon} alt="" className="form__error-icon" />
+                        <p className="form__error">
+                            {addressError && <img src={errorIcon} alt="" className="form__error-icon" />}
                             {addressError}
-                        </p>}
+                        </p>
                         <label htmlFor="city" className="form__label">City</label>
                         <input 
                             type="text"
@@ -115,10 +115,10 @@ function WarehouseAddPage() {
                             value={city}
                             onChange={handleInputChange}
                         />
-                        {cityError && <p className="form__error">
-                            <img src={errorIcon} alt="" className="form__error-icon" />
+                        <p className="form__error">
+                            {cityError && <img src={errorIcon} alt="" className="form__error-icon" />}
                             {cityError}
-                        </p>}
+                        </p>
                         <label htmlFor="country" className="form__label">Country</label>
                         <input 
                             type="text"
@@ -129,10 +129,10 @@ function WarehouseAddPage() {
                             value={country}
                             onChange={handleInputChange}
                         />
-                        {countryError && <p className="form__error">
-                            <img src={errorIcon} alt="" className="form__error-icon" />
+                        <p className="form__error">
+                            {countryError && <img src={errorIcon} alt="" className="form__error-icon" />}
                             {countryError}
-                        </p>}
+                        </p>
                     </fieldset>
                     <fieldset className="form__fieldset">
                         <h2 className="form__legend">
@@ -148,10 +148,10 @@ function WarehouseAddPage() {
                             value={contactName}
                             onChange={handleInputChange}
                         />
-                        {contactNameError && <p className="form__error">
-                            <img src={errorIcon} alt="" className="form__error-icon" />
+                        <p className="form__error">
+                            {contactNameError && <img src={errorIcon} alt="" className="form__error-icon" />}
                             {contactNameError}
-                        </p>}
+                        </p>
                         <label htmlFor="position" className="form__label">Position</label>
                         <input 
                             type="text"
@@ -162,10 +162,10 @@ function WarehouseAddPage() {
                             value={position}
                             onChange={handleInputChange}
                         />
-                        {positionError && <p className="form__error">
-                            <img src={errorIcon} alt="" className="form__error-icon" />
+                        <p className="form__error">
+                            {positionError && <img src={errorIcon} alt="" className="form__error-icon" />}
                             {positionError}
-                        </p>}
+                        </p>
                         <label htmlFor="phoneNumber" className="form__label">Phone Number</label>
                         <input 
                             type="text"
@@ -176,10 +176,10 @@ function WarehouseAddPage() {
                             value={phoneNumber}
                             onChange={handleInputChange}
                         />
-                        {phoneNumberError && <p className="form__error">
-                            <img src={errorIcon} alt="" className="form__error-icon" />
+                        <p className="form__error">
+                            {phoneNumberError && <img src={errorIcon} alt="" className="form__error-icon" />}
                             {phoneNumberError}
-                        </p>}
+                        </p>
                         <label htmlFor="email" className="form__label">Email</label>
                         <input 
                             type="text"
@@ -190,10 +190,10 @@ function WarehouseAddPage() {
                             value={email}
                             onChange={handleInputChange}
                         />
-                        {emailError && <p className="form__error">
-                            <img src={errorIcon} alt="" className="form__error-icon" />
+                        <p className="form__error">
+                            {emailError && <img src={errorIcon} alt="" className="form__error-icon" />}
                             {emailError}
-                        </p>}
+                        </p>
                     </fieldset>
                 </div>
                 <div className="form__bottom">

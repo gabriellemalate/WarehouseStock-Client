@@ -102,12 +102,10 @@
         border-radius: 1.25rem;
         width: 100%;
         border: 1px solid $Cloud;
-        margin-bottom: 1rem;
         @include mobile__body--med;
 
         @include tablet {
             @include tablet__body--med;
-            margin-bottom: 1.5rem;
         }
 
         &:focus {
@@ -125,6 +123,12 @@
         @include mobile__body--small;
         color: $Red;
         @include row;
+
+        height: 1rem;
+        @include tablet {
+            height: 1.5rem;
+        }
+
     }
 
     &__error-icon {
