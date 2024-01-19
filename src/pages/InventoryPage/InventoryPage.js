@@ -44,24 +44,24 @@ function InventoryPage() {
             </section>
 
             <article className="inventory__list">
-                <h2 className="inventory-container">list header</h2>
+                <h2 className="inventory-container inventory__list-header">list header</h2>
                 {inventoryItems.map(item => (
-                    <article className='inventory-container' key={item.id}>
-                        <div className="">
-                            <div>
-                                <div className="left">
+                    <article className='inventory-container inventory__list-item' key={item.id}>
+                        {/* <div className=""> */}
+                            <div className="inventory__item-info">
+                                <div className="inventory__item-info--left">
                                     <Link to={`/`} className=''>
                                         <h3>{item.item_name}</h3>
                                     </Link>
                                     <p>{item.category}</p>
                                 </div>
-                                <div className="center">
+                                <div className="inventory__item-info--center">
                                     <p>{item.status}</p>
                                     <p>{item.quantity}</p>
                                     <p>{item.warehouse_name}</p>
                                 </div>
                             </div>
-                            <div>
+                            <div className="inventory__item-actions">
                                 <Link to={`/inventory/${item.id}/delete`} className=''>
                                     <img src={Delete} alt="Delete Icon" />
                                 </Link>
@@ -69,7 +69,7 @@ function InventoryPage() {
                                     <img src={Edit} alt="Edit Icon" />
                                 </Link>
                             </div>
-                        </div>
+                        {/* </div> */}
                     </article>
 
                 ))}

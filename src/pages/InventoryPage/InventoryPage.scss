@@ -8,6 +8,8 @@
     border-radius: 0.1875rem;
     margin: 0 1rem;
 
+    box-shadow: 0 0.125rem 0.3125rem #13182C1A;
+
     // &-containerx {
     //     // margin: 0 1.5rem;
     //     width: calc(100% - 2*(1.5rem));
@@ -122,6 +124,59 @@
         @include tablet {
             height: 2.375rem;
             width: auto;
+        }
+    }
+
+    &__list {
+        &-header {
+            display: none;
+            background-color: #fafbfb;
+
+            @include tablet {
+                display: block;
+            }
+        }
+
+        &-item {
+            @include column;
+
+            @include tablet {
+                @include row;
+            }
+        }
+    }
+
+    &__item {
+        &-info {
+            // color: red;
+            @include row;
+
+            &--left {
+                background-color: lightblue;
+                width: 50%;
+                @include tablet {
+                    width: auto;
+                }
+            }
+            
+            &--center {
+                background-color: lightcoral;
+                width: 50%;
+                @include tablet {
+                    width: auto;
+                }
+            }
+        }
+
+        &-actions {
+            // background-color: lightgreen;
+            @include row;
+            width: 100%;
+            justify-content: space-between;
+
+            @include tablet {
+                width: 4rem;
+            }
         }
     }
 
