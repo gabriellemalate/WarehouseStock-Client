@@ -9,7 +9,7 @@ import RightArrow from "../../assets/icons/chevron_right-24px.svg"
 import { Link } from "react-router-dom";
 import "./InventoryPage.scss"
 
-const BASE_URL = "http://localhost:1234"; // need to make this dynamic
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 function InventoryPage() {
     const [inventoryItems, setInventoryItems] = useState(null);
