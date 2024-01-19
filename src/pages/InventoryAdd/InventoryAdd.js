@@ -112,7 +112,11 @@ function InventoryAdd() {
                             onChange={handleInputChange}
                         >
                             <option value='' disabled>Please Select</option>
-                            <option value='category1'>Category 1</option>
+                            <option value='accessories'>Accessories</option>
+                            <option value='apparel'>Apparel</option>
+                            <option value='electronics'>Electronics</option>
+                            <option value='gear'>Gear</option>
+                            <option value='health'>Health</option>
                         </select>
                         <p className="inv-add-form__error">
                             {categoryError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
@@ -154,7 +158,8 @@ function InventoryAdd() {
                             {statusError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
                             {statusError}
                         </p>
-
+                        {status === 'inStock' && (
+                        <>
                         <label htmlFor="quantity" className="inv-add-form__label">Quantity</label>
                         <input 
                             type="number"
@@ -162,10 +167,11 @@ function InventoryAdd() {
                             name="quantity"
                             id="quantity" 
                             className={`inv-add-form__input ${quantityError && 'inv-add-form__input--invalid'}`}
-                            // placeholder="0"
                             value={quantity}
                             onChange={handleInputChange}
                         />
+                        </>
+                        )}
                         <p className="inv-add-form__error">
                             {quantityError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
                             {quantityError}
