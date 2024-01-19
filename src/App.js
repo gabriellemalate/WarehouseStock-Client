@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from './components/Header/Header';
-import InventoryAdd from "./pages/InventoryAdd/InventoryAdd"
+import InventoryAdd from "./pages/InventoryAdd/InventoryAdd";
 import WarehouseListPage from "./pages/WarehouseListPage/WarehouseListPage";
 import WarehouseEditPage from './pages/WarehouseEditPage/WarehouseEditPage';
 import WarehouseAddPage from './pages/WarehouseAddPage/WarehouseAddPage';
