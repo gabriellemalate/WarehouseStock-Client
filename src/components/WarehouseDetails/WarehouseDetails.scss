@@ -24,7 +24,6 @@
 
     @include tablet {
       @include tablet__subhead;
-      
     }
   }
 
@@ -40,12 +39,11 @@
   }
 
   &-container {
-
     width: 100%;
     border-top: 0.09rem solid $Cloud;
 
     @include tablet {
-      @include tablet__body--med
+      @include tablet__body--med;
     }
   }
 
@@ -58,7 +56,6 @@
   }
 
   &-container__inventory-tablet {
-    
     padding: 1rem;
     width: 90%;
   }
@@ -79,13 +76,12 @@
       @include row;
       justify-content: space-between;
       @include tablet__body--med;
-       
     }
 
-    &-list__tablet-label{
-        @include column;
-        align-items: flex-start;
-        @include tablet__body--med;
+    &-list__tablet-label {
+      @include column;
+      align-items: flex-start;
+      @include tablet__body--med;
     }
   }
 
@@ -96,7 +92,7 @@
     width: 90%;
 
     @include tablet {
-        display: none;
+      display: none;
     }
 
     &-left {
@@ -104,10 +100,8 @@
       align-items: flex-start;
       gap: 1rem;
       @include tablet {
-        
         @include row;
         justify-content: space-between;
-        
       }
 
       &-item {
@@ -127,15 +121,11 @@
       gap: 1rem;
       @include tablet {
         @include row;
-        
-
       }
 
       &-status {
         @include column;
         align-items: flex-start;
-
-
       }
 
       &-qty {
@@ -155,6 +145,4 @@
       display: none;
     }
   }
-
-
 }

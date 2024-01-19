@@ -10,8 +10,8 @@ import WarehouseListPage from "./pages/WarehouseListPage/WarehouseListPage"
                     <Header />
                     <Routes>
                         <Route path="/" element={<WarehouseListPage />} />
-                        {/* <Route path="/:warehouseId" element={<WarehousePage />} />
-                        <Route path="/:warehouseId/edit" element={<WarehouseEditPage />} />
+                        <Route path="/:warehouseId" element={<WarehouseDetailsPage />} />
+                        {/*<Route path="/:warehouseId/edit" element={<WarehouseEditPage />} />
                         <Route path="/add" element={<WarehouseAddPage />} />
                         <Route path="/inventory" element={<InventoryPage />} />
                         <Route path="/warehouse" element={<WarehouseListPage />} />
