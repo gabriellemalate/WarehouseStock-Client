@@ -5,6 +5,7 @@
     background-color: $White;
     margin: 0 $mobile-spacing;
     box-shadow: $shadow;
+    border-radius: 0.2rem;
 
     @include tablet {
         margin: 0 $tablet-side-margin;

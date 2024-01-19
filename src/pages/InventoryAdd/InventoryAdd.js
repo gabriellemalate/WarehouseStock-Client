@@ -30,13 +30,125 @@ function InventoryAdd() {
     return (
         <>
             <main className="inv-add">
+                <div className="inv-add__page-header">
+                    <Link to='/inventory' className="main__back-link">
+                        <img src={Back} alt="back arrow" className="inv-add__back-button" />
+                    </Link>
+                    <h1 className="inv-add__title">
+                        Add New Inventory Item
+                    </h1>
+                </div>
+
+                <form className="form" >
+                <div className="form__middle">
+                    <fieldset className="form__fieldset">
+                        <h2 className="form__legend">
+                            Item Details
+                        </h2>
+                        <label htmlFor="itemName" className="form__label">Item Name</label>
+                        <input 
+                            type="text"
+                            name="itemName"
+                            id="itemName" 
+                            className='form__input'
+                            // className={`form__input ${itemNameError && 'form__input--invalid'}`}
+                            placeholder="Item Name"
+                            // value={itemeName}
+                            // onChange={handleInputChange}
+                        />
+                        <p className="form__error">
+                            {/* {itemNameError && <img src={errorIcon} alt="" className="form__error-icon" />}
+                            {itemNameError} */}
+                        </p>
+                        <label htmlFor="description" className="form__label">Description</label>
+                        <textarea 
+                            name="description"
+                            id="description" 
+                            className='form__input'
+                            // className={`form__input ${descriptionError && 'form__input--invalid'}`} 
+                            placeholder="Please enter a brief item description..."
+                            // value={description}
+                            // onChange={handleInputChange}
+                        />
+                        <p className="form__error">
+                            {/* {descriptionError && <img src={errorIcon} alt="" className="form__error-icon" />}
+                            {descriptionError} */}
+                        </p>
+                        <label htmlFor="category" className="form__label">Category</label>
+                        <input 
+                            type="text"
+                            name="category"
+                            id="category"
+                            className='form__input'
+                            // className={`form__input ${categoryError && 'form__input--invalid'}`}
+                            placeholder="Category"
+                            // value={category}
+                            // onChange={handleInputChange}
+                        />
+                        <p className="form__error">
+                            {/* {categoryError && <img src={errorIcon} alt="" className="form__error-icon" />}
+                            {categoryError} */}
+                        </p>
+                    </fieldset>
+                    <fieldset className="form__fieldset">
+                        <h2 className="form__legend">
+                            Item Availability
+                        </h2>
+                        <label htmlFor="status" className="form__label">Status</label>
+                        <input 
+                            type="text"
+                            name="status"
+                            id="status" 
+                            className='form__input'
+                            // className={`form__input ${statusError && 'form__input--invalid'}`}
+                            // placeholder="Contact Name"
+                            // value={status}
+                            // onChange={handleInputChange}
+                        />
+                        <p className="form__error">
+                            {/* {statusError && <img src={errorIcon} alt="" className="form__error-icon" />}
+                            {statusError} */}
+                        </p>
+                        <label htmlFor="quantity" className="form__label">Quantity</label>
+                        <input 
+                            type="number"
+                            name="quantity"
+                            id="quantity" 
+                            className='form__input'
+                            // className={`form__input ${quantityError && 'form__input--invalid'}`}
+                            // placeholder="Position"
+                            // value={quantity}
+                            // onChange={handleInputChange}
+                        />
+                        <p className="form__error">
+                            {/* {quantityError && <img src={errorIcon} alt="" className="form__error-icon" />}
+                            {quantityError} */}
+                        </p>
+                        <label htmlFor="warehouse" className="form__label">Warehouse</label>
+                        <input 
+                            type="text"
+                            name="warehouse"
+                            id="warehouse" 
+                            className='form__input'
+                            // className={`form__input ${warehouseError && 'form__input--invalid'}`} 
+                            // placeholder="Phone Number"
+                            // value={warehouse}
+                            // onChange={handleInputChange}
+                        />
+                        <p className="form__error">
+                            {/* {warehouseError && <img src={errorIcon} alt="" className="form__error-icon" />}
+                            {warehouseError} */}
+                        </p>
+                    </fieldset>
+                </div>
+                <div className="form__bottom">
+                    <button type="button" className="form__button form__button--secondary" onClick={''}>Cancel</button>
+                    <button type="submit" className="form__button">+ Add Warehouse</button>
+                </div>
+            </form>
+
+
                 <div className="inv-add-eq">
-                    <article className="inv-add-top">
-                        <div className="inv-add-top-eq">
-                            <img className="inv-add-top__return" src={Back} alt="Go Back" />
-                            <h1 className="inv-add-top__title">Add New Inventory Item</h1>
-                        </div>
-                    </article>
                     <form className="inv-add__form">
                         <div className="inv-add__sections">
                             <section className="inv-add-details">

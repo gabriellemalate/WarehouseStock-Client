@@ -1,6 +1,52 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
+
+
+.inv-add {
+    background-color: $White;
+    margin: 0 $mobile-spacing;
+    box-shadow: $shadow;
+    border-radius: 0.2rem;
+
+    @include tablet {
+        margin: 0 $tablet-side-margin;
+    }
+
+    @include desktop {
+        width: 63.75rem;
+        margin: 0 auto;
+    }
+
+    &__page-header {
+        padding: 2rem 1.5rem 1.4rem;
+        @include row;
+        column-gap: 0.5rem;
+
+        @include tablet {
+            padding: 2rem $tablet-side-margin 1.4rem;
+            column-gap: 0.55rem;
+        }
+
+        @include desktop {
+            padding: 2rem 2.5rem 1.4rem;
+        }
+    }
+
+    &__back-button {
+        margin-top: 0.5rem;
+    }
+
+    &__title {
+        @include mobile__pagehead;
+
+        @include tablet {
+            @include tablet__pagehead; 
+        }
+    }
+}
+
+
 .inv-add {
     background-color: $White;
     @include column;
@@ -132,6 +178,7 @@
                 color: $Slate;
                 -webkit-appearance: none;
                 -moz-appearance: none;
+                appearance: none;
                 &:focus, &:active {
                     border-color: $Instock-Indigo;
                     outline: 0;
@@ -223,6 +270,7 @@
                 color: $Slate;
                 -webkit-appearance: none;
                 -moz-appearance: none;
+                appearance: none;
                 &:focus, &:active {
                     border-color: $Instock-Indigo;
                     outline: 0;
