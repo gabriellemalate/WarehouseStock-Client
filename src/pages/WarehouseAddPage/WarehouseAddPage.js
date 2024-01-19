@@ -42,7 +42,7 @@ function WarehouseAddPage() {
     let navigate = useNavigate();
 
     function handleCancelClick() {
-        navigate('/');
+        navigate('/warehouse');
     }
 
     async function postWarehouse(warehouse) {
@@ -72,7 +72,7 @@ function WarehouseAddPage() {
 
         if(formIsValid(inputs)) {
             await postWarehouse(warehouse);
-            navigate('/');
+            navigate('/warehouse');
         }
     }
 
@@ -85,7 +85,7 @@ function WarehouseAddPage() {
     return (
         <main className="main">
             <div className="main__page-header">
-                <Link to='/' className="main__back-link">
+                <Link to='/warehouse' className="main__back-link">
                     <img src={backArrow} alt="back arrow" className="main__back-button" />
                 </Link>
                 <h1 className="main__title">

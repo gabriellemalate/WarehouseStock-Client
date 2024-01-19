@@ -43,7 +43,7 @@ function WarehouseOption({ id }) {
                         </div>
                         <div className="warehouses-list__actions">
                             <img src={Trash} alt="Delete" />
-                            <Link to={`/${id}/edit`}><img src={Pencil} alt="Edit" /></Link>
+                            <Link to={`/warehouse/${id}/edit`}><img src={Pencil} alt="Edit" /></Link>
                         </div>
                     </div>
                 </div>
