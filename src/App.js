@@ -1,9 +1,10 @@
-import './App.scss';
-import Header from './components/Header/Header';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from './components/Header/Header';
 import WarehouseListPage from "./pages/WarehouseListPage/WarehouseListPage";
-import WarehouseAddPage from './pages/WarehouseAddPage/WarehouseAddPage';
 import WarehouseEditPage from './pages/WarehouseEditPage/WarehouseEditPage';
+import WarehouseAddPage from './pages/WarehouseAddPage/WarehouseAddPage';
+import Footer from "./components/Footer/Footer";
+import './App.scss';
 
     function App() {
         return (
@@ -21,7 +22,7 @@ import WarehouseEditPage from './pages/WarehouseEditPage/WarehouseEditPage';
                         <Route path="/inventory/add" element={<ItemAddPage />} />
                         <Route path="*" element={<NotFoundPage />} /> */}
                     </Routes>
-                    {/* <Footer /> */}
+                    <Footer />
                 </BrowserRouter>
             </>
         );
