@@ -2,15 +2,38 @@ import React, { useState } from "react";
 import "./InventoryAdd.scss";
 import Back from "../../assets/icons/arrow_back-24px.svg";
 import Down from "../../assets/icons/arrow_drop_down-24px.svg";
+import errorIcon from '../../assets/icons/error-24px.svg';
 import { Link } from "react-router-dom";
 
 function InventoryAdd() {
-    const [itemName, setItemName] = useState("");
-    const [warehouse, setWarehouse] = useState("");
-    const [inputErrors, setInputErrors] = useState({
-        item: "",
-        warehouse: "",
+    const [warehouseList, setWarehouseList] = useState("");
+
+    let [ inputs, setInputs ] = useState({
+        itemName: '',
+        description: '',
+        category: '',
+        status: true,
+        quantity: 1,
+        warehouse: '',
+    })
+    let { itemName, description, category, status, quantity, warehouse } = inputs;
+
+    let [inputErrors, setInputErrors] = useState({
+        itemName: null,
+        description: null,
+        category: null,
+        status: null,
+        quantity: null,
+        warehouse: null,
     });
+    let { 
+        itemName: itemNameError, 
+        description: descriptionError, 
+        category: categoryError, 
+        status: statusError, 
+        quantity: quantityError, 
+        warehouse: warehouseError, 
+    } = inputErrors;
 
     const handleSubmit = () => {
 
@@ -49,47 +72,43 @@ function InventoryAdd() {
                             type="text"
                             name="itemName"
                             id="itemName" 
-                            className='inv-add-form__input'
-                            // className={`inv-add-form__input ${itemNameError && 'inv-add-form__input--invalid'}`}
+                            className={`inv-add-form__input ${itemNameError && 'inv-add-form__input--invalid'}`}
                             placeholder="Item Name"
-                            // value={itemeName}
+                            value={itemName}
                             // onChange={handleInputChange}
                         />
                         <p className="inv-add-form__error">
-                            {/* {itemNameError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
-                            {itemNameError} */}
+                            {itemNameError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
+                            {itemNameError}
                         </p>
                         <label htmlFor="description" className="inv-add-form__label">Description</label>
                         <textarea 
                             name="description"
                             id="description" 
-                            className='inv-add-form__input inv-add-form__input--large'
-                            // className={`inv-add-form__input ${descriptionError && 'inv-add-form__input--invalid'}`} 
+                            className={`inv-add-form__input ${descriptionError && 'inv-add-form__input--invalid'}`} 
                             placeholder="Please enter a brief item description..."
-                            // value={description}
-                            // onChange={handleInputChange}
+                            value={description}
+                            //onChange={handleInputChange}
                         />
                         <p className="inv-add-form__error">
-                            {/* {descriptionError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
-                            {descriptionError} */}
+                            {descriptionError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
+                            {descriptionError}
                         </p>
                         <label htmlFor="category" className="inv-add-form__label">Category</label>
                         <select
                             name="category"
                             id="category"
-                            className='inv-add-form__input'
-                            // className={`inv-add-form__input ${categoryError && 'inv-add-form__input--invalid'}`} 
+                            className={`inv-add-form__input ${categoryError && 'inv-add-form__input--invalid'}`} 
                             placeholder="Please Select"
-                            // value={category}
-                            value=''
-                            // onChange={handleInputChange}
+                            value={category}
+                            //onChange={handleInputChange}
                         >
                             <option value='' disabled>Please Select</option>
                             <option value='category1'>Category 1</option>
                         </select>
                         <p className="inv-add-form__error">
-                            {/* {categoryError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
-                            {categoryError} */}
+                            {categoryError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
+                            {categoryError}
                         </p>
                     </fieldset>
                     <fieldset className="inv-add-form__fieldset">
@@ -105,7 +124,7 @@ function InventoryAdd() {
                                     name='status' 
                                     className="inv-add-form__radio"
                                     value={true}
-                                    checked
+                                    checked={status}
                                 />
                                 In Stock
                             </label>
@@ -115,14 +134,15 @@ function InventoryAdd() {
                                     id='outOfStock' 
                                     name='status' 
                                     className="inv-add-form__radio"
-                                    value={false} 
+                                    value={false}
+                                    checked={!status}
                                 />
                                 Out of Stock
                             </label>
                         </div>
                         <p className="inv-add-form__error">
-                            {/* {statusError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
-                            {statusError} */}
+                            {statusError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
+                            {statusError}
                         </p>
 
                         <label htmlFor="quantity" className="inv-add-form__label">Quantity</label>
@@ -130,33 +150,30 @@ function InventoryAdd() {
                             type="number"
                             name="status"
                             id="quantity" 
-                            className='inv-add-form__input'
-                            // className={`inv-add-form__input ${quantityError && 'inv-add-form__input--invalid'}`}
+                            className={`inv-add-form__input ${quantityError && 'inv-add-form__input--invalid'}`}
                             placeholder="0"
-                            // value={quantity}
-                            // onChange={handleInputChange}
+                            value={quantity}
+                            //onChange={handleInputChange}
                         />
                         <p className="inv-add-form__error">
-                            {/* {quantityError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
-                            {quantityError} */}
+                            {quantityError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
+                            {quantityError}
                         </p>
                         <label htmlFor="warehouse" className="inv-add-form__label">Warehouse</label>
                         <select
                             name="warehouse"
                             id="warehouse"
-                            className='inv-add-form__input'
-                            // className={`inv-add-form__input ${warehouseError && 'inv-add-form__input--invalid'}`} 
+                            className={`inv-add-form__input ${warehouseError && 'inv-add-form__input--invalid'}`} 
                             placeholder="Please Select"
-                            // value={warehouse}
-                            value=''
+                            value={warehouse}
                             // onChange={handleInputChange}
                         >
                             <option value='' disabled>Please Select</option>
                             <option value='warehouse1'>Warehouse 1</option>
                         </select>
                         <p className="inv-add-form__error">
-                            {/* {warehouseError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
-                            {warehouseError} */}
+                            {warehouseError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
+                            {warehouseError}
                         </p>
                     </fieldset>
                 </div>
