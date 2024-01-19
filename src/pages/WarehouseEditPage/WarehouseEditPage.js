@@ -133,7 +133,7 @@ function WarehouseEditPage() {
                     <img src={backArrow} alt="back arrow" className="main__back-button" />
                 </Link>
                 <h1 className="main__title">
-                    Add New Warehouse
+                    Edit Warehouse
                 </h1>
             </div>
 
@@ -264,7 +264,7 @@ function WarehouseEditPage() {
                 </div>
                 <div className="form__bottom">
                     <button type="button" className="form__button form__button--secondary" onClick={handleCancelClick}>Cancel</button>
-                    <button type="submit" className="form__button">+ Add Warehouse</button>
+                    <button type="submit" className="form__button">Save</button>
                 </div>
             </form>
 
