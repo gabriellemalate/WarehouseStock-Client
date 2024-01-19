@@ -133,11 +133,13 @@
             background-color: #fafbfb;
 
             @include tablet {
-                display: block;
+                @include row;
+                justify-content: space-between;
             }
         }
 
         &-item {
+            border-bottom: solid 0.0625rem $Cloud;
             @include column;
 
             @include tablet {
@@ -147,24 +149,34 @@
     }
 
     &__item {
+        
         &-info {
             // color: red;
             @include row;
+            justify-content: space-between;
+            width: 100%;
+            align-items: flex-start;
 
             &--left {
                 background-color: lightblue;
                 width: 50%;
                 @include tablet {
-                    width: auto;
+                    // width: auto;
+                    @include row;
                 }
             }
             
             &--center {
                 background-color: lightcoral;
-                width: 50%;
+                width: 47%;
                 @include tablet {
-                    width: auto;
+                    // width: auto;
+                    @include row;
                 }
+            }
+
+            &--right {
+                background-color: lightgreen;
             }
         }
 
@@ -173,9 +185,56 @@
             @include row;
             width: 100%;
             justify-content: space-between;
+            padding: 1rem 0;
 
             @include tablet {
                 width: 4rem;
+            }
+        }
+
+        &-label {
+            color: $Slate;
+            @include mobile__tablehead;
+            padding-top: 1rem;
+            padding-bottom: 0.25rem;
+
+            @include tablet {
+                @include tablet__tablehead;
+
+                // .mobile-only {
+                //     display: none;
+                //     background-color: yellow;
+                // }
+            }
+
+            &--mobile {
+                @include tablet {
+                    display: none;
+                }
+            }
+
+            &--title {
+                @include row;
+                color: $Instock-Indigo;
+                @include mobile__label;
+
+                @include tablet {
+                    @include tablet__label;
+                }
+            }
+
+            &--text {
+                color: $Instock-Black;
+                @include mobile__body--med;
+
+                @include tablet {
+                    @include tablet__body--med;
+                }
+            }
+
+            &--arrow {
+                width: 1.25rem;
+                padding-left: 0.25rem;
             }
         }
     }
