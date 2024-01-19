@@ -3,6 +3,7 @@ import Header from './components/Header/Header';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import WarehouseListPage from "./pages/WarehouseListPage/WarehouseListPage";
 import WarehouseAddPage from './pages/WarehouseAddPage/WarehouseAddPage';
+import WarehouseEditPage from './pages/WarehouseEditPage/WarehouseEditPage';
 
     function App() {
         return (
@@ -11,8 +12,8 @@ import WarehouseAddPage from './pages/WarehouseAddPage/WarehouseAddPage';
                     <Header />
                     <Routes>
                         <Route path="/" element={<WarehouseListPage />} />
-                        {/* <Route path="/:warehouseId" element={<WarehousePage />} />
-                        <Route path="/:warehouseId/edit" element={<WarehouseEditPage />} /> */}
+                        {/* <Route path="/:warehouseId" element={<WarehousePage />} /> */}
+                        <Route path="/:warehouseId/edit" element={<WarehouseEditPage />} />
                         <Route path="/add" element={<WarehouseAddPage />} />
                         {/* <Route path="/inventory" element={<InventoryPage />} />
                         <Route path="/inventory/:itemId" element={<ItemPage />} />
