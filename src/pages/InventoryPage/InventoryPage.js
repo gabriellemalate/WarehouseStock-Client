@@ -47,25 +47,25 @@ function InventoryPage() {
             <article className="inventory__list">
                 <div className="inventory-container inventory__list-header">
                     <div className="inventory__item-info--left">
-                        <h4 className="inventory__item-label">
+                        <h4 className="inventory__item-label spacing-1">
                             INVENTORY ITEM
                             <img className="inventory__item-label--sort" src={Sort} alt="Sort Column" />
                         </h4>
-                        <h4 className="inventory__item-label">
+                        <h4 className="inventory__item-label spacing-2">
                             CATEGORY
                             <img className="inventory__item-label--sort" src={Sort} alt="Sort Column" />
                         </h4>
                     </div>
                     <div className="inventory__item-info--center">
-                        <h4 className="inventory__item-label">
+                        <h4 className="inventory__item-label spacing-3">
                             STATUS
                             <img className="inventory__item-label--sort" src={Sort} alt="Sort Column" />
                         </h4>
-                        <h4 className="inventory__item-label">
+                        <h4 className="inventory__item-label spacing-4">
                             QTY
                             <img className="inventory__item-label--sort" src={Sort} alt="Sort Column" />
                         </h4>
-                        <h4 className="inventory__item-label">
+                        <h4 className="inventory__item-label spacing-5">
                             WAREHOUSE
                             <img className="inventory__item-label--sort" src={Sort} alt="Sort Column" />
                         </h4>
@@ -80,21 +80,24 @@ function InventoryPage() {
                         <div className="inventory__item-info">
                             <div className="inventory__item-info--left">
                                 <h4 className="inventory__item-label inventory__item-label--mobile">INVENTORY ITEM</h4>
-                                <Link to={`/inventory/${item.id}`} className='inventory__item-label--title'>
+                                <Link to={`/inventory/${item.id}`} className='inventory__item-label--title spacing-1'>
                                     <h3 className="inventory__item-label--title">{item.item_name}</h3>
                                     <img className="inventory__item-label--arrow" src={RightArrow} alt="See More" />
                                     {/* <span><img className="inventory__item-label--arrow" src={RightArrow} alt="See More" /></span> */}
                                 </Link>
                                 <h4 className="inventory__item-label inventory__item-label--mobile">CATEGORY</h4>
-                                <p className="inventory__item-label--text">{item.category}</p>
+                                <p className="inventory__item-label--text spacing-2">{item.category}</p>
                             </div>
                             <div className="inventory__item-info--center">
                                 <h4 className="inventory__item-label inventory__item-label--mobile">STATUS</h4>
-                                <p className={"inventory__item-label--text tag--" + (item.quantity ? "in-stock" : "out-of-stock")}>{item.status.toUpperCase()}</p>
+                                <div className="inventory__item-label--tag-holder spacing-3">
+                                    <p className={"inventory__item-label--text  tag--" + (item.quantity ? "in-stock" : "out-of-stock")}>{item.status.toUpperCase()}</p>
+                                    
+                                </div>
                                 <h4 className="inventory__item-label inventory__item-label--mobile">QTY</h4>
-                                <p className="inventory__item-label--text">{item.quantity}</p>
+                                <p className="inventory__item-label--text spacing-4">{item.quantity}</p>
                                 <h4 className="inventory__item-label inventory__item-label--mobile">WAREHOUSE</h4>
-                                <p className="inventory__item-label--text">{item.warehouse_name}</p>
+                                <p className="inventory__item-label--text spacing-5">{item.warehouse_name}</p>
                             </div>
                         </div>
                         <div className="inventory__item-actions">
