@@ -17,7 +17,6 @@ function InventoryPage() {
     async function getItems() {
         try {
             const response = await axios.get(`${BASE_URL}/inventory`);
-            // console.log("successfully fetched /inventory");
             setInventoryItems(response.data);
         } catch (error) {
             console.log("Error getting all inventory items:", error);
@@ -76,14 +75,12 @@ function InventoryPage() {
                 </div>
                 {inventoryItems.map(item => (
                     <article className='inventory-container inventory__list-item' key={item.id}>
-                        {/* <div className=""> */}
                         <div className="inventory__item-info">
                             <div className="inventory__item-info--left">
                                 <h4 className="inventory__item-label inventory__item-label--mobile">INVENTORY ITEM</h4>
                                 <Link to={`/inventory/${item.id}`} className='inventory__item-label--title spacing-1'>
                                     <h3 className="inventory__item-label--title">{item.item_name}</h3>
                                     <img className="inventory__item-label--arrow" src={RightArrow} alt="See More" />
-                                    {/* <span><img className="inventory__item-label--arrow" src={RightArrow} alt="See More" /></span> */}
                                 </Link>
                                 <h4 className="inventory__item-label inventory__item-label--mobile">CATEGORY</h4>
                                 <p className="inventory__item-label--text spacing-2">{item.category}</p>
@@ -108,7 +105,6 @@ function InventoryPage() {
                                 <img src={Edit} alt="Edit Icon" />
                             </Link>
                         </div>
-                        {/* </div> */}
                     </article>
 
                 ))}
