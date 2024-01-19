@@ -75,16 +75,19 @@ function InventoryAdd() {
                             {descriptionError} */}
                         </p>
                         <label htmlFor="category" className="form__label">Category</label>
-                        <input 
-                            type="text"
+                        <select
                             name="category"
                             id="category"
                             className='form__input'
-                            // className={`form__input ${categoryError && 'form__input--invalid'}`}
-                            placeholder="Category"
+                            // className={`form__input ${categoryError && 'form__input--invalid'}`} 
+                            placeholder="Please Select"
                             // value={category}
+                            value=''
                             // onChange={handleInputChange}
-                        />
+                        >
+                            <option value='' disabled>Please Select</option>
+                            <option value='category1'>Category 1</option>
+                        </select>
                         <p className="form__error">
                             {/* {categoryError && <img src={errorIcon} alt="" className="form__error-icon" />}
                             {categoryError} */}
@@ -109,32 +112,43 @@ function InventoryAdd() {
                             {/* {statusError && <img src={errorIcon} alt="" className="form__error-icon" />}
                             {statusError} */}
                         </p>
-                        <label htmlFor="quantity" className="form__label">Quantity</label>
+
+                        <p htmlFor="quantity" className="form__label">Quantity</p>
                         <input 
-                            type="number"
-                            name="quantity"
-                            id="quantity" 
-                            className='form__input'
-                            // className={`form__input ${quantityError && 'form__input--invalid'}`}
-                            // placeholder="Position"
-                            // value={quantity}
-                            // onChange={handleInputChange}
+                            type="radio" 
+                            id='inStock' 
+                            name='quantity' 
+                            className="form__input"
+                            value={true}
                         />
+                        <label htmlFor="inStock" className="form__option">In Stock</label>
+                        <input 
+                            type="radio" 
+                            id='outOfStock' 
+                            name='quantity' 
+                            className="form__input"
+                            value={false} 
+                        />
+                        <label htmlFor="outOfStock" className="form__option">Out of Stock</label>
+
                         <p className="form__error">
                             {/* {quantityError && <img src={errorIcon} alt="" className="form__error-icon" />}
                             {quantityError} */}
                         </p>
                         <label htmlFor="warehouse" className="form__label">Warehouse</label>
-                        <input 
-                            type="text"
+                        <select
                             name="warehouse"
-                            id="warehouse" 
+                            id="warehouse"
                             className='form__input'
                             // className={`form__input ${warehouseError && 'form__input--invalid'}`} 
-                            // placeholder="Phone Number"
+                            placeholder="Please Select"
                             // value={warehouse}
+                            value=''
                             // onChange={handleInputChange}
-                        />
+                        >
+                            <option value='' disabled>Please Select</option>
+                            <option value='warehouse1'>Warehouse 1</option>
+                        </select>
                         <p className="form__error">
                             {/* {warehouseError && <img src={errorIcon} alt="" className="form__error-icon" />}
                             {warehouseError} */}
@@ -143,7 +157,7 @@ function InventoryAdd() {
                 </div>
                 <div className="form__bottom">
                     <button type="button" className="form__button form__button--secondary" onClick={''}>Cancel</button>
-                    <button type="submit" className="form__button">+ Add Warehouse</button>
+                    <button type="submit" className="form__button">+ Add Item</button>
                 </div>
             </form>
 
