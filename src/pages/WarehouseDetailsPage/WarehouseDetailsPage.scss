@@ -29,148 +29,149 @@
     width: 90%;
     @include column;
     padding: 1.6rem 0 2rem;
-  }
+  
 }
 
-//     &__head {
-//       @include mobile__pagehead;
-//       margin: 0;
-//       align-self: flex-start;
-//       padding: 0;
+    &__head {
+      @include mobile__pagehead;
+      margin: 0;
+      align-self: flex-start;
+      padding: 0;
 
-//       @include tablet {
-//         padding: 0;
-//       }
-//     }
-//     &__action {
-//       @include column;
-//       width: 100%;
+      @include tablet {
+        padding: 0;
+      }
+    }
+    &__action {
+      @include column;
+      width: 100%;
 
-//       @include tablet {
-//         @include row;
-//         width: 70%;
-//         justify-content: space-between;
-//         max-width: 43.8vh;
-//       }
+      @include tablet {
+        @include row;
+        width: 70%;
+        justify-content: space-between;
+        max-width: 43.8vh;
+      }
 
-//       @include desktop {
-//         max-width: 54vh;
-//       }
+      @include desktop {
+        max-width: 54vh;
+      }
 
-//       &-search {
-//         width: 90%;
-//         padding: 0 0 0.8rem;
+      &-search {
+        width: 90%;
+        padding: 0 0 0.8rem;
 
-//         @include tablet {
-//           width: 22vh;
-//           padding: 0;
-//         }
+        @include tablet {
+          width: 22vh;
+          padding: 0;
+        }
 
-//         @include desktop {
-//           width: 33vh;
-//         }
+        @include desktop {
+          width: 33vh;
+        }
 
-//         &-eq {
-//           width: 100%;
+        &-eq {
+          width: 100%;
 
-//           @include tablet {
-//             @include row;
-//           }
-//         }
-//         &-icon {
-//           position: absolute;
-//           left: 80%;
-//           top: 6.3rem;
+          @include tablet {
+            @include row;
+          }
+        }
+        &-icon {
+          position: absolute;
+          left: 80%;
+          top: 6.3rem;
 
-//           @include tablet {
-//             position: relative;
-//             left: 18vh;
-//             top: 0;
-//           }
-//           @include desktop {
-//             left: 28.6vh;
-//           }
-//         }
-//         &-box {
-//           @include mobile__field;
-//           padding: 0.5rem 0 0.5rem 1rem;
-//           width: 94%;
-//           font-family: $fontface;
-//           height: 1rem;
-//           border-color: $Cloud;
-//           resize: none;
-//           &:active,
-//           &:focus {
-//             border-color: $Instock-Indigo;
-//             outline: none;
-//           }
+          @include tablet {
+            position: relative;
+            left: 18vh;
+            top: 0;
+          }
+          @include desktop {
+            left: 28.6vh;
+          }
+        }
+        &-box {
+          @include mobile__field;
+          padding: 0.5rem 0 0.5rem 1rem;
+          width: 94%;
+          font-family: $fontface;
+          height: 1rem;
+          border-color: $Cloud;
+          resize: none;
+          &:active,
+          &:focus {
+            border-color: $Instock-Indigo;
+            outline: none;
+          }
 
-//           @include tablet {
-//             height: 1.2rem;
-//             width: 100%;
-//           }
-//         }
-//       }
-//       &-button {
-//         @include mobile__field;
-//         border: 0;
-//         background-color: $Instock-Indigo;
-//         color: white;
-//         @include mobile__label;
-//         width: 90%;
-//         &:hover {
-//           background-color: $Graphite;
-//         }
+          @include tablet {
+            height: 1.2rem;
+            width: 100%;
+          }
+        }
+      }
+      &-button {
+        @include mobile__field;
+        border: 0;
+        background-color: $Instock-Indigo;
+        color: white;
+        @include mobile__label;
+        width: 90%;
+        &:hover {
+          background-color: $Graphite;
+        }
 
-//         @include tablet {
-//           @include tablet__field;
-//           width: 11rem;
-//         }
-//       }
-//     }
-//   }
-//   &-list {
-//     &__tablet {
-//       display: none;
+        @include tablet {
+          @include tablet__field;
+          width: 11rem;
+        }
+      }
+    }
+  
 
-//       @include tablet {
-//         @include row;
-//         width: 100%;
-//         justify-content: space-between;
-//       }
+  &-list {
+    &__tablet {
+      display: none;
 
-//       &-left {
-//         @include row;
-//         justify-content: space-between;
-//         width: 32vw;
-//         max-width: 20rem;
-//       }
-//       &-right {
-//         @include row;
-//         width: 28vw;
-//         justify-content: space-between;
-//         max-width: 24.6rem;
-//       }
-//       &-end {
-//         @include row;
-//         width: 60%;
-//         max-width: 51.5vh;
-//         justify-content: space-between;
-//       }
-//       &-label {
-//         @include row;
-//         @include tablet__tablehead;
-//         color: $Slate;
-//         padding-right: 1rem;
-//         width: fit-content;
-//         white-space: nowrap;
-//         &-acts {
-//           padding-right: 0;
-//         }
-//       }
-//       &-sort {
-//         padding: 0 0 0 0.25rem;
-//       }
-//     }
-//   }
-// }
+      @include tablet {
+        @include row;
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      &-left {
+        @include row;
+        justify-content: space-between;
+        width: 32vw;
+        max-width: 20rem;
+      }
+      &-right {
+        @include row;
+        width: 28vw;
+        justify-content: space-between;
+        max-width: 24.6rem;
+      }
+      &-end {
+        @include row;
+        width: 60%;
+        max-width: 51.5vh;
+        justify-content: space-between;
+      }
+      &-label {
+        @include row;
+        @include tablet__tablehead;
+        color: $Slate;
+        padding-right: 1rem;
+        width: fit-content;
+        white-space: nowrap;
+        &-acts {
+          padding-right: 0;
+        }
+      }
+      &-sort {
+        padding: 0 0 0 0.25rem;
+      }
+    }
+  }
+}
