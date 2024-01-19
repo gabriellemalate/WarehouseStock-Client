@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { getInputError, formIsValid } from '../../utils/validationUtils';
@@ -44,13 +45,34 @@ function WarehouseAddPage() {
         navigate('/');
     }
 
-    function handleFormSubmition(event) {
+    async function postWarehouse(warehouse) {
+        try {
+            let response = await axios.post(`${process.env.REACT_APP_API_URL}/warehouses`, warehouse);
+
+            return response;
+
+        } catch (error) {
+            console.log('Error creating warehouse', error);
+        }
+    }
+
+    async function handleFormSubmition(event) {
         event.preventDefault();
+        
+        const warehouse = {
+            warehouse_name: warehouseName,
+            address: address,
+            city: city,
+            country: country,
+            contact_name: contactName,
+            contact_position: position,
+            contact_phone: phoneNumber,
+            contact_email: email
+        }
 
         if(formIsValid(inputs)) {
-            // axios call here
-            console.log(inputs);
-            //navigate('/');
+            await postWarehouse(warehouse);
+            navigate('/');
         }
     }
 
