@@ -32,22 +32,22 @@ function InventoryPage() {
     return (
         <main className="inventory">
 
-            <div className="inventory-container">
-                <section className="inventory__title-bar">
-                    <h1>Inventory</h1>
-                    <div className="inventory__actions">
-                        <form className="inventory__search">
-                            <img className="inventory__search-icon" src={MagnifyingGlass} alt="Search" />
-                            <input className="inventory__search-field" type="search" placeholder="Search..." />
-                        </form>
-                        <button>+ Add New Item</button>
+            <div className="inventory-containers">
+                <section className="inventory-containerx inventory__title-bar">
+                        <h1>Inventory</h1>
+                        <div className="inventory__actions">
+                            <form className="inventory__search">
+                                <img className="inventory__search-icon" src={MagnifyingGlass} alt="Search" />
+                                <input className="inventory__search-field" type="search" placeholder="Search..." />
+                            </form>
+                            <button>+ Add New Item</button>
                     </div>
                 </section>
 
                 <article className="inventory__list">
-                    <h2>list header</h2>
+                    <h2 className="inventory-container">list header</h2>
                     {inventoryItems.map(item => (
-                        <article className='' key={item.id}>
+                        <article className='inventory-container' key={item.id}>
                             <div className="">
                                 <div>
                                     <div className="left">
