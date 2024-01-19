@@ -117,9 +117,7 @@ function WarehouseEditPage() {
     return (
         <main className="main">
             <div className="main__page-header">
-                {/* <Link to={`/warehouse/${warehouseId}`} className="main__back-link"> */}
-                    <img src={backArrow} alt="back arrow" className="main__back-button" onClick={handleCancelClick}/>
-                {/* </Link> */}
+                <img src={backArrow} alt="back arrow" className="main__back-button" onClick={handleCancelClick}/>
                 <h1 className="main__title">
                     Edit Warehouse
                 </h1>
