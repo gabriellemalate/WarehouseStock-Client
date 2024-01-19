@@ -78,22 +78,11 @@
     }
 
     &__legend {
-        @include mobile__subhead;
-        padding-bottom: 1.5rem;
-
-        @include tablet {
-            @include tablet__subhead;
-            padding-bottom: 2rem;
-        }
+        @include form__section-title;
     }
 
     &__label {
-        @include mobile__label;
-        margin-bottom: 0.25rem;
-
-        @include tablet {
-            @include tablet__label;
-        }
+        @include form__label;
     }
 
     &__input {
@@ -101,15 +90,8 @@
     }
 
     &__error {
-        @include mobile__body--small;
-        color: $Red;
+        @include form__error-message;
         @include row;
-        height: 1rem;
-
-        @include tablet {
-            height: 1.5rem;
-        }
-
     }
 
     &__error-icon {
