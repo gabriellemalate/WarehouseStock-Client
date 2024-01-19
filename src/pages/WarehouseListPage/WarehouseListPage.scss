@@ -80,7 +80,7 @@
                 &-icon {
                     position: relative;
                     left: 86%;
-                    z-index: 2;
+                    z-index: 1;
 
                     @include tablet {
                         left: 18vh;
