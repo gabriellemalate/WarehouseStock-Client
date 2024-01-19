@@ -31,7 +31,7 @@ function WarehouseEditPage() {
                 return response.data;
     
             } catch (error) {
-                console.log('Error creating warehouse', error);
+                console.log('Error getting warehouse details', error);
 
                 let data = {
                     id: 1,
@@ -86,17 +86,17 @@ function WarehouseEditPage() {
     let navigate = useNavigate();
 
     function handleCancelClick() {
-        navigate('/');
+        navigate(-1);
     }
 
     async function updateWarehouse(id, warehouse) {
         try {
-            let response = await axios.post(`${process.env.REACT_APP_API_URL}/warehouses/${id}`, warehouse);
+            let response = await axios.put(`${process.env.REACT_APP_API_URL}/warehouses/${id}`, warehouse);
 
             return response;
 
         } catch (error) {
-            console.log('Error creating warehouse', error);
+            console.log('Error updating warehouse warehouse', error);
         }
     }
 
@@ -116,7 +116,7 @@ function WarehouseEditPage() {
 
         if(formIsValid(inputs)) {
             await updateWarehouse(warehouseId, warehouse);
-            navigate('/');
+            navigate(-1);
         }
     }
 
