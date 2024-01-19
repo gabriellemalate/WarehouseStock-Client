@@ -7,6 +7,7 @@
   background-color: $White;
   margin: 0 1rem;
   @include column;
+  @include mobile__body--med;
 
   @include tablet {
     margin: 0 2rem;
@@ -20,6 +21,11 @@
     @include column;
     @include mobile__tablehead;
     padding: 1.6rem 0 2rem;
+
+    @include tablet {
+      @include tablet__subhead;
+      
+    }
   }
 
   &__top {
@@ -34,10 +40,13 @@
   }
 
   &-container {
-    @include mobile__body--med;
 
     width: 100%;
     border-top: 0.09rem solid $Cloud;
+
+    @include tablet {
+      @include tablet__body--med
+    }
   }
 
   &-container__warehouse {
@@ -49,6 +58,7 @@
   }
 
   &-container__inventory-tablet {
+    
     padding: 1rem;
     width: 90%;
   }
@@ -68,12 +78,14 @@
     @include tablet {
       @include row;
       justify-content: space-between;
+      @include tablet__body--med;
        
     }
 
     &-list__tablet-label{
         @include column;
         align-items: flex-start;
+        @include tablet__body--med;
     }
   }
 
@@ -92,6 +104,7 @@
       align-items: flex-start;
       gap: 1rem;
       @include tablet {
+        
         @include row;
         justify-content: space-between;
         

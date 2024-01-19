@@ -79,14 +79,14 @@ function WarehouseDetails() {
                   src={Sort}
                 />
                 <p className="warehouses-details-list__inventory-tablet-value">
-                {" "}
-                Insert Item
-                <img
-                  className="warehouses-details-list__inventory-tablet-arrow"
-                  src={Right}
-                  alt="See More"
-                />
-              </p>
+                  {" "}
+                  Insert Item
+                  <img
+                    className="warehouses-details-list__inventory-tablet-arrow"
+                    src={Right}
+                    alt="See More"
+                  />
+                </p>
               </div>
               <div className="warehouses-details-list__tablet-label">
                 CATEGORY
@@ -95,9 +95,9 @@ function WarehouseDetails() {
                   alt="sort contact information"
                   src={Sort}
                 />
-                 <p className="warehouses-details-list__inventory-tablet-value">
-                Insert Category
-              </p>
+                <p className="warehouses-details-list__inventory-tablet-value">
+                  Insert Category
+                </p>
               </div>
 
               <div className="warehouses-details-list__tablet-label">
@@ -107,9 +107,9 @@ function WarehouseDetails() {
                   alt="sort contact information"
                   src={Sort}
                 />
-                 <p className="warehouses-details-list__inventory-tablet-value">
-                Insert Status
-              </p>
+                <p className="warehouses-details-list__inventory-tablet-value">
+                  Insert Status
+                </p>
               </div>
               <div className="warehouses-details-list__tablet-label">
                 QUANTITY
@@ -119,8 +119,8 @@ function WarehouseDetails() {
                   src={Sort}
                 />
                 <p className="warehouses-details-list__inventory-tablet-value">
-                Insert Quantity
-              </p>
+                  Insert Quantity
+                </p>
               </div>
 
               <div className="warehouses-details-list__tablet-label">
@@ -131,13 +131,11 @@ function WarehouseDetails() {
                   src={Sort}
                 />
                 <div className="warehouses-details-list__actions-tablet">
-          <img src={Trash} alt="Delete" />
-          <img src={Pencil} alt="Edit" />
-        </div>
+                  <img src={Trash} alt="Delete" />
+                  <img src={Pencil} alt="Edit" />
+                </div>
               </div>
             </div>
-
-           
           </div>
         </div>
 
