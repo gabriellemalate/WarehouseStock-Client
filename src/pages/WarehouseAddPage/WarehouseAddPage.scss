@@ -121,6 +121,17 @@
         }
     }
 
+    &__error {
+        @include mobile__body--small;
+        color: $Red;
+        @include row;
+    }
+
+    &__error-icon {
+        width: 1rem;
+        margin-right: 0.25rem;
+    }
+
     &__bottom {
         padding: 1rem 1.5rem;
         background-color: rgba(247, 248, 249, 0.70);
