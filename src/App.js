@@ -10,10 +10,10 @@ import WarehouseAddPage from './pages/WarehouseAddPage/WarehouseAddPage';
                 <BrowserRouter>
                     <Header />
                     <Routes>
-                        <Route path="/" element={<WarehouseListPage />} />
-                        {/* <Route path="/:warehouseId" element={<WarehousePage />} />
-                        <Route path="/:warehouseId/edit" element={<WarehouseEditPage />} /> */}
-                        <Route path="/add" element={<WarehouseAddPage />} />
+                        <Route path="/warehouses" element={<WarehouseListPage />} />
+                        {/* <Route path="/warehouses/:warehouseId" element={<WarehousePage />} />
+                        <Route path="/warehouses/:warehouseId/edit" element={<WarehouseEditPage />} /> */}
+                        <Route path="/warehouses/add" element={<WarehouseAddPage />} />
                         {/* <Route path="/inventory" element={<InventoryPage />} />
                         <Route path="/inventory/:itemId" element={<ItemPage />} />
                         <Route path="/inventory/:itemId/edit" element={<ItemEditPage />} />
