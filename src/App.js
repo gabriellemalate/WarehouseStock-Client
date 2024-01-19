@@ -12,17 +12,10 @@ import './App.scss';
                 <BrowserRouter>
                     <Header />
                     <Routes>
-<<<<<<< HEAD
                         <Route path="/warehouse" element={<WarehouseListPage />} />
-                        {/* <Route path="/warehouse/:warehouseId" element={<WarehousePage />} />
-                        <Route path="/warehouse/:warehouseId/edit" element={<WarehouseEditPage />} /> */}
                         <Route path="/warehouse/add" element={<WarehouseAddPage />} />
-=======
-                        <Route path="/" element={<WarehouseListPage />} />
-                        {/* <Route path="/:warehouseId" element={<WarehousePage />} /> */}
-                        <Route path="/:warehouseId/edit" element={<WarehouseEditPage />} />
-                        <Route path="/add" element={<WarehouseAddPage />} />
->>>>>>> develop
+                        {/* <Route path="/warehouse/:warehouseId" element={<WarehousePage />} /> */}
+                        <Route path="/warehouse/:warehouseId/edit" element={<WarehouseEditPage />} />
                         {/* <Route path="/inventory" element={<InventoryPage />} />
                         <Route path="/inventory/:itemId" element={<ItemPage />} />
                         <Route path="/inventory/:itemId/edit" element={<ItemEditPage />} />
