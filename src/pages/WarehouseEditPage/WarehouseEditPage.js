@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { getInputError, formIsValid } from '../../utils/validationUtils';
 import errorIcon from '../../assets/icons/error-24px.svg'
@@ -7,7 +7,6 @@ import backArrow from '../../assets/icons/arrow_back-24px.svg';
 import './WarehouseEditPage.scss';
 
 function WarehouseEditPage() {
-
     let { warehouseId } = useParams();
 
     let [ inputs, setInputs ] = useState({
@@ -21,6 +20,48 @@ function WarehouseEditPage() {
         email: '',
     });
     let { warehouseName, address, city, country, contactName, position, phoneNumber, email} = inputs;
+
+
+    useEffect(() => {
+
+        async function getWarehouse(id) {
+            try {
+                let response = await axios.get(`${process.env.REACT_APP_API_URL}/warehouses/${id}`);
+    
+                return response.data;
+    
+            } catch (error) {
+                console.log('Error creating warehouse', error);
+
+                let data = {
+                    id: 1,
+                    warehouse_name: "Brooklyn",
+                    address: "918 Morris Lane",
+                    city: "Brooklyn",
+                    country: "USA",
+                    contact_name: "Parmin Aujla",
+                    contact_position: "Warehouse Manager",
+                    contact_phone: "+1 (646) 123-1234",
+                    contact_email: "paujla@instock.com"
+                }
+
+                setInputs({
+                    warehouseName: data.warehouse_name,
+                    address: data.address,
+                    city: data.city,
+                    country: data.country,
+                    contactName: data.contact_name,
+                    position: data.contact_position,
+                    phoneNumber: data.contact_phone,
+                    email: data.contact_email,
+                });
+            }
+        }
+
+        getWarehouse(warehouseId);
+
+    }, []);
+
 
     let [ errors, setErrors ] = useState({
         warehouseName: null,
