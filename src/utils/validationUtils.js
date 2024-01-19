@@ -43,7 +43,7 @@ function defaultInputIsValid(input) {
 function emailIsValid(email) {
     // matches on emails like:
     // something123!>@something123.something
-    if(!(/^[^\s@\.]+@[^\s@\.]+\.[\w]+$/.test(email))) {
+    if(!(/^[^\s@.]+@[^\s@.]+\.[\w]+$/.test(email))) {
         return false;
     }
 
