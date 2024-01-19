@@ -97,26 +97,7 @@
     }
 
     &__input {
-        box-sizing: border-box;
-        padding: 0.45rem 1rem;
-        border-radius: 1.25rem;
-        width: 100%;
-        border: 1px solid $Cloud;
-        @include mobile__body--med;
-
-        @include tablet {
-            @include tablet__body--med;
-        }
-
-        &:focus {
-            outline: none;
-            border: 1px solid $Instock-Indigo;
-        }
-
-        &--invalid {
-            outline: none;
-            border: 1px solid $Red;
-        }
+        @include form__input--small;
     }
 
     &__error {
@@ -153,35 +134,15 @@
     }
 
     &__button {
-        border-radius: 2rem;
-        border: none;
-        color: $White;
-        background-color: $Instock-Indigo;
+        @include form__button--primary;
         flex: 1;
-        padding: 0.45rem;
-        cursor: pointer;
-        @include mobile__label;
 
         @include tablet {
-            @include tablet__label;
             flex: 0 0 auto;
-            padding: 0.45rem 0.8rem;
-        }
-
-        &:hover {
-            background-color: $Graphite;
         }
 
         &--secondary {
-            color: $Slate;
-            background-color: $White;
-            border: 1px solid $Cloud;
-
-            &:hover {
-                background-color: $White;
-                color: $Instock-Indigo;
-                border: 1px solid $Instock-Indigo;
-            }
+            @include form__button--secondary;
         }
     }
 }
