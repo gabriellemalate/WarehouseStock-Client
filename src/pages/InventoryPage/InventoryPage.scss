@@ -2,29 +2,30 @@
 @use "../../styles/partials/mixins" as *;
 
 .inventory {
+    box-sizing: border-box;
     
     background-color: $White;
     border-radius: 0.1875rem;
     margin: 0 1rem;
 
-    &-container {
-        // margin: 0 1.5rem;
-        width: calc(100% - 2*(1.5rem));
-        margin: auto;
+    // &-containerx {
+    //     // margin: 0 1.5rem;
+    //     width: calc(100% - 2*(1.5rem));
+    //     margin: auto;
 
-        @include tablet {
-            // margin: 0 2rem;
-            width: calc(100% - 2*(2rem));
-        }
+    //     @include tablet {
+    //         // margin: 0 2rem;
+    //         width: calc(100% - 2*(2rem));
+    //     }
 
-        @include desktop {
-            // margin: 0 2.25rem;
-            width: calc(100% - 2*(2.25rem));
-        }
+    //     @include desktop {
+    //         // margin: 0 2.25rem;
+    //         width: calc(100% - 2*(2.25rem));
+    //     }
         
-    }
+    // }
 
-    &-containerx {
+    &-container {
         // margin: 0 1.5rem;
         padding: 0 1.5rem;
         // width: calc(100% - 2*(1.5rem));
@@ -44,26 +45,23 @@
         @include tablet {
             @include row;
             justify-content: space-between;
+            align-items: flex-end;
         }
     }
 
     &__title-bar {
-        // margin: 0 1.5rem;
-
-        // @include tablet {
-        //     margin: 0 2rem;
-        // }
-
-        // @include desktop {
-        //     margin: 0 2.25rem;
-        // }
+        padding-bottom: 1.5rem;
+        border-bottom: solid 0.0625rem $Cloud;
+        @include tablet {
+            padding-bottom: 1.125rem;
+            border: none;
+        }
     }
 
     &__actions {
-        // @include tablet {
-        //     @include row;
-        //     justify-content: space-between;
-        // }
+        @include tablet {
+            padding-bottom: 0.5rem;
+        }
     }
 
     &__search {
@@ -100,6 +98,7 @@
                 height: 2.375rem;
                 width: auto;
                 margin-right: 1rem;
+                margin-bottom: 0rem;
             }
         }
     }

@@ -32,50 +32,48 @@ function InventoryPage() {
     return (
         <main className="inventory">
 
-            <div className="inventory-containers">
-                <section className="inventory-containerx inventory__title-bar">
-                        <h1>Inventory</h1>
-                        <div className="inventory__actions">
-                            <form className="inventory__search">
-                                <img className="inventory__search-icon" src={MagnifyingGlass} alt="Search" />
-                                <input className="inventory__search-field" type="search" placeholder="Search..." />
-                            </form>
-                            <button>+ Add New Item</button>
-                    </div>
-                </section>
+            <section className="inventory-container inventory__title-bar">
+                    <h1>Inventory</h1>
+                    <div className="inventory__actions">
+                        <form className="inventory__search">
+                            <img className="inventory__search-icon" src={MagnifyingGlass} alt="Search" />
+                            <input className="inventory__search-field" type="search" placeholder="Search..." />
+                        </form>
+                        <button>+ Add New Item</button>
+                </div>
+            </section>
 
-                <article className="inventory__list">
-                    <h2 className="inventory-container">list header</h2>
-                    {inventoryItems.map(item => (
-                        <article className='inventory-container' key={item.id}>
-                            <div className="">
-                                <div>
-                                    <div className="left">
-                                        <Link to={`/`} className=''>
-                                            <h3>{item.item_name}</h3>
-                                        </Link>
-                                        <p>{item.category}</p>
-                                    </div>
-                                    <div className="center">
-                                        <p>{item.status}</p>
-                                        <p>{item.quantity}</p>
-                                        <p>{item.warehouse_name}</p>
-                                    </div>
+            <article className="inventory__list">
+                <h2 className="inventory-container">list header</h2>
+                {inventoryItems.map(item => (
+                    <article className='inventory-container' key={item.id}>
+                        <div className="">
+                            <div>
+                                <div className="left">
+                                    <Link to={`/`} className=''>
+                                        <h3>{item.item_name}</h3>
+                                    </Link>
+                                    <p>{item.category}</p>
                                 </div>
-                                <div>
-                                    <Link to={`/inventory/${item.id}/delete`} className=''>
-                                        <img src={Delete} alt="Delete Icon" />
-                                    </Link>
-                                    <Link to={`/inventory/${item.id}/edit`} className=''>
-                                        <img src={Edit} alt="Edit Icon" />
-                                    </Link>
+                                <div className="center">
+                                    <p>{item.status}</p>
+                                    <p>{item.quantity}</p>
+                                    <p>{item.warehouse_name}</p>
                                 </div>
                             </div>
-                        </article>
+                            <div>
+                                <Link to={`/inventory/${item.id}/delete`} className=''>
+                                    <img src={Delete} alt="Delete Icon" />
+                                </Link>
+                                <Link to={`/inventory/${item.id}/edit`} className=''>
+                                    <img src={Edit} alt="Edit Icon" />
+                                </Link>
+                            </div>
+                        </div>
+                    </article>
 
-                    ))}
-                </article>
-            </div>
+                ))}
+            </article>
 
         </main>
     )
