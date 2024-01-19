@@ -27,34 +27,22 @@ function WarehouseEditPage() {
         async function getWarehouse(id) {
             try {
                 let response = await axios.get(`${process.env.REACT_APP_API_URL}/warehouses/${id}`);
-    
+
+                setInputs({
+                    warehouseName: response.data.warehouse_name,
+                    address: response.data.address,
+                    city: response.data.city,
+                    country: response.data.country,
+                    contactName: response.data.contact_name,
+                    position: response.data.contact_position,
+                    phoneNumber: response.data.contact_phone,
+                    email: response.data.contact_email,
+                });
+
                 return response.data;
     
             } catch (error) {
                 console.log('Error getting warehouse details', error);
-
-                let data = {
-                    id: 1,
-                    warehouse_name: "Brooklyn",
-                    address: "918 Morris Lane",
-                    city: "Brooklyn",
-                    country: "USA",
-                    contact_name: "Parmin Aujla",
-                    contact_position: "Warehouse Manager",
-                    contact_phone: "+1 (646) 123-1234",
-                    contact_email: "paujla@instock.com"
-                }
-
-                setInputs({
-                    warehouseName: data.warehouse_name,
-                    address: data.address,
-                    city: data.city,
-                    country: data.country,
-                    contactName: data.contact_name,
-                    position: data.contact_position,
-                    phoneNumber: data.contact_phone,
-                    email: data.contact_email,
-                });
             }
         }
 
