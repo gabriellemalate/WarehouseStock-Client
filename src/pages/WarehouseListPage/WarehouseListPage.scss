@@ -61,7 +61,7 @@
             }
 
             &-search {
-                width: 90%;
+                width: 95%;
                 padding: 0 0 .8rem;
 
                 @include tablet {
@@ -75,18 +75,14 @@
 
                 &-eq {
                     width: 100%;
-
-                    @include tablet {
-                        @include row;
-                    }
+                    @include row;
                 }
                 &-icon {
-                    position: absolute;
-                    left: 80%;
-                    top: 6.3rem;
+                    position: relative;
+                    left: 86%;
+                    z-index: 1;
 
                     @include tablet {
-                        position: relative;
                         left: 18vh;
                         top: 0;
                     }
@@ -97,17 +93,21 @@
                 &-box {
                     @include mobile__field;
                     padding: .5rem 0  .5rem 1rem;
-                    width: 94%;
+                    width: 100%;
                     font-family: $fontface;
                     height: 1rem;
                     border-color: $Cloud;
                     resize: none;
+
+                    position: relative;
+                    right: .7rem;
                     &:active, &:focus {
                         border-color: $Instock-Indigo;
                         outline: none;
                     }
 
                     @include tablet {
+                        position: static;
                         height: 1.2rem;
                         width: 100%;
                     }

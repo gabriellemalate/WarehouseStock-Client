@@ -56,6 +56,7 @@
         color: $Cloud;
 
         @include tablet {
+            @include tablet__label;
             padding: 0.5rem 1rem;
         }
 

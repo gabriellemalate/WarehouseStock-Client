@@ -1,0 +1,25 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.footer {
+    flex: 1 0 auto;
+    display:flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    &__content {
+        height: 6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__text {
+        @include mobile__body--small;
+        color: $Slate;
+
+        @include tablet {
+            @include tablet__body--small;
+        }
+    }
+}
