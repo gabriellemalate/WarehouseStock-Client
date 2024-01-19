@@ -36,9 +36,9 @@ function InventoryPage() {
                 <section className="inventory__title-bar">
                     <h1>Inventory</h1>
                     <div className="inventory__actions">
-                        <form className="">
-                            <img className="" src={MagnifyingGlass} alt="Search" />
-                            <textarea className="" type="search" placeholder="Search..." />
+                        <form className="inventory__search">
+                            <img className="inventory__search-icon" src={MagnifyingGlass} alt="Search" />
+                            <input className="inventory__search-field" type="search" placeholder="Search..." />
                         </form>
                         <button>+ Add New Item</button>
                     </div>
@@ -63,10 +63,10 @@ function InventoryPage() {
                                     </div>
                                 </div>
                                 <div>
-                                    <Link to={`/`} className=''>
+                                    <Link to={`/inventory/${item.id}/delete`} className=''>
                                         <img src={Delete} alt="Delete Icon" />
                                     </Link>
-                                    <Link to={`/`} className=''>
+                                    <Link to={`/inventory/${item.id}/edit`} className=''>
                                         <img src={Edit} alt="Edit Icon" />
                                     </Link>
                                 </div>
