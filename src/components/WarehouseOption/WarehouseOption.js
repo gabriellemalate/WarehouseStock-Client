@@ -19,7 +19,7 @@ function WarehouseOption() {
                                     <p className="warehouses-list__item-detail-value warehouses-list__item-detail-warehouse"> Value
                                         <img className="warehouses-list__item-detail-arrow" src={Right} alt="See More" />
                                     </p>
-                                </div>
+                                </div>a
                                 <div className="warehouses-list__item-detail">
                                     <h4 className="warehouses-list__item-detail-label">ADDRESS</h4>
                                     <p className="warehouses-list__item-detail-value warehouses-list__item-detail-address">890 Brannan Street, San Francisco, USA

@@ -14,28 +14,27 @@
   @include desktop {
     max-width: 95%;
   }
+
+  &-top {
+    width: 100%;
+    border-bottom: 0.09rem solid $Cloud;
+    padding: 0 0 1.4rem;
+
+    @include row;
+      justify-content: space-between;
+      width: 100%;
+  }
+
   &-eq {
     width: 90%;
     @include column;
     padding: 1.6rem 0 2rem;
 
-    &-top {
-      width: 111.2%;
-      border-bottom: 0.09rem solid $Cloud;
-      padding: 0 0 1.4rem;
-
-      &-eq {
-        @include row;
-        justify-content: space-between;
-        width: 100%;
-      }
-    }
-
     &__head {
       @include mobile__pagehead;
       margin: 0;
       align-self: flex-start;
-      padding: 0 0 1rem 1rem;
+      padding: 0;
 
       @include tablet {
         padding: 0;
