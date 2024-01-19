@@ -18,6 +18,9 @@ function getInputError(input, inputType) {
         case 'phoneNumber':
             return phoneNumberIsValid(input) ? null :
                 'Phone Number must be in the format +1 (234) 567-8910';
+        case 'quantity':
+            return quantityIsValid(input) ? null :
+                'Quantity must be a number greater than 0';
         default:
             return defaultInputIsValid(input) ? null :
                 'This field is required';
@@ -31,6 +34,8 @@ function inputIsValid(input, inputType) {
             return emailIsValid(input);
         case 'phoneNumber':
             return phoneNumberIsValid(input);
+        case 'quantity':
+            return quantityIsValid(input);
         default:
             return defaultInputIsValid(input);
     }
@@ -58,6 +63,13 @@ function phoneNumberIsValid(number) {
         return false;
     }
 
+    return true;
+}
+
+function quantityIsValid(quantity) {
+    if ((isNaN(quantity)) || (quantity < 1)) {
+        return false;
+    }
     return true;
 }
 

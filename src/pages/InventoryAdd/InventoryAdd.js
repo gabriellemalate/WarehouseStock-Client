@@ -158,10 +158,11 @@ function InventoryAdd() {
                         <label htmlFor="quantity" className="inv-add-form__label">Quantity</label>
                         <input 
                             type="number"
+                            min='1'
                             name="quantity"
                             id="quantity" 
                             className={`inv-add-form__input ${quantityError && 'inv-add-form__input--invalid'}`}
-                            placeholder="0"
+                            // placeholder="0"
                             value={quantity}
                             onChange={handleInputChange}
                         />
