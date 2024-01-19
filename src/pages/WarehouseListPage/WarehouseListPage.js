@@ -11,7 +11,7 @@ function WarehouseListPage() {
     let navigate = useNavigate();
 
     function navigateToAddWarehouse() {
-        navigate('/add');
+        navigate('/warehouse/add');
     }
 
     return (
@@ -65,7 +65,7 @@ function WarehouseListPage() {
                                 </h3>
                                 </div>
                             </article>
-                            <WarehouseOption />
+                            <WarehouseOption id='1' />
                         </div>
                     </section>
                 </div>

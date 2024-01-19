@@ -11,7 +11,7 @@ function Header () {
                 </Link>
 
                 <nav className="nav">
-                    <NavLink to='/' className="nav__link">Warehouses</NavLink>
+                    <NavLink to='/warehouse' className="nav__link">Warehouses</NavLink>
                     <NavLink to='/inventory' className="nav__link">Inventory</NavLink>
                 </nav>
             </div>
