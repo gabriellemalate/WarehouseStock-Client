@@ -47,7 +47,7 @@
                 width: 111.2%;
                 padding: 0 0 1rem;
                 &:hover {
-                    background-color: $Cloud;
+                    background-color: $Translucent;
                 }
             }
             &-container {
@@ -140,6 +140,9 @@
 
             @include tablet {
                 width: 7vh;
+            }
+            &-icon {
+
             }
         }
     }

@@ -42,8 +42,8 @@ function WarehouseOption() {
                             </div>
                         </div>
                         <div className="warehouses-list__actions">
-                            <img src={Trash} alt="Delete" />
-                            <img src={Pencil} alt="Edit" />
+                            <img className="warehouses-list__actions-icon"src={Trash} alt="Delete" />
+                            <img  className="warehouses-list__actions-icon" src={Pencil} alt="Edit" />
                         </div>
                     </div>
                 </div>

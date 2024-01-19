@@ -25,6 +25,10 @@
         border-bottom: .09rem solid $Cloud;
         padding: .48rem 0 1.4rem;
 
+        @include tablet {
+            border: 0;
+        }
+
         &-eq {
             width: 100%;
 
