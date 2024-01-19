@@ -42,13 +42,10 @@ function WarehouseOption({ id }) {
                             </div>
                         </div>
                         <div className="warehouses-list__actions">
-<<<<<<< HEAD
                             <img className="warehouses-list__actions-icon"src={Trash} alt="Delete" />
-                            <img  className="warehouses-list__actions-icon" src={Pencil} alt="Edit" />
-=======
-                            <img src={Trash} alt="Delete" />
-                            <Link to={`/warehouse/${id}/edit`}><img src={Pencil} alt="Edit" /></Link>
->>>>>>> develop
+                            <Link to={`/warehouse/${id}/edit`}>
+                                <img  className="warehouses-list__actions-icon" src={Pencil} alt="Edit" />
+                            </Link>
                         </div>
                     </div>
                 </div>
