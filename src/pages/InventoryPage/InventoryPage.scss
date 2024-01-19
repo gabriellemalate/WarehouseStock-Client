@@ -353,10 +353,11 @@
             font-size: 2rem;
         }
     }
-
+    
     @include desktop {
-        max-width: 63.75rem;
+        width: calc(100% - 2*(2rem));
         margin: auto;
+        max-width: 63.75rem;
     }
 
 }
