@@ -19,6 +19,7 @@
 @mixin form__input {
     border: 1px solid $Cloud;
     @include mobile__body--med;
+    resize: none;
 
     @include tablet {
         @include tablet__body--med;

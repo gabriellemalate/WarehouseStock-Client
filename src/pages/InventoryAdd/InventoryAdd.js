@@ -28,58 +28,57 @@ function InventoryAdd() {
     };
 
     return (
-        <>
-            <main className="main">
-                <div className="main__page-header">
-                    <Link to='/inventory' className="main__back-link">
-                        <img src={Back} alt="back arrow" className="main__back-button" />
-                    </Link>
-                    <h1 className="main__title">
-                        Add New Inventory Item
-                    </h1>
-                </div>
+        <main className="main">
+            <div className="main__page-header">
+                <Link to='/inventory' className="main__back-link">
+                    <img src={Back} alt="back arrow" className="main__back-button" />
+                </Link>
+                <h1 className="main__title">
+                    Add New Inventory Item
+                </h1>
+            </div>
 
-                <form className="form" >
-                <div className="form__middle">
-                    <fieldset className="form__fieldset">
-                        <h2 className="form__legend">
+            <form className="inv-add-form" >
+                <div className="inv-add-form__middle">
+                    <fieldset className="inv-add-form__fieldset">
+                        <h2 className="inv-add-form__legend">
                             Item Details
                         </h2>
-                        <label htmlFor="itemName" className="form__label">Item Name</label>
+                        <label htmlFor="itemName" className="inv-add-form__label">Item Name</label>
                         <input 
                             type="text"
                             name="itemName"
                             id="itemName" 
-                            className='form__input'
-                            // className={`form__input ${itemNameError && 'form__input--invalid'}`}
+                            className='inv-add-form__input'
+                            // className={`inv-add-form__input ${itemNameError && 'inv-add-form__input--invalid'}`}
                             placeholder="Item Name"
                             // value={itemeName}
                             // onChange={handleInputChange}
                         />
-                        <p className="form__error">
-                            {/* {itemNameError && <img src={errorIcon} alt="" className="form__error-icon" />}
+                        <p className="inv-add-form__error">
+                            {/* {itemNameError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
                             {itemNameError} */}
                         </p>
-                        <label htmlFor="description" className="form__label">Description</label>
+                        <label htmlFor="description" className="inv-add-form__label">Description</label>
                         <textarea 
                             name="description"
                             id="description" 
-                            className='form__input'
-                            // className={`form__input ${descriptionError && 'form__input--invalid'}`} 
+                            className='inv-add-form__input inv-add-form__input--large'
+                            // className={`inv-add-form__input ${descriptionError && 'inv-add-form__input--invalid'}`} 
                             placeholder="Please enter a brief item description..."
                             // value={description}
                             // onChange={handleInputChange}
                         />
-                        <p className="form__error">
-                            {/* {descriptionError && <img src={errorIcon} alt="" className="form__error-icon" />}
+                        <p className="inv-add-form__error">
+                            {/* {descriptionError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
                             {descriptionError} */}
                         </p>
-                        <label htmlFor="category" className="form__label">Category</label>
+                        <label htmlFor="category" className="inv-add-form__label">Category</label>
                         <select
                             name="category"
                             id="category"
-                            className='form__input'
-                            // className={`form__input ${categoryError && 'form__input--invalid'}`} 
+                            className='inv-add-form__input'
+                            // className={`inv-add-form__input ${categoryError && 'inv-add-form__input--invalid'}`} 
                             placeholder="Please Select"
                             // value={category}
                             value=''
@@ -88,58 +87,65 @@ function InventoryAdd() {
                             <option value='' disabled>Please Select</option>
                             <option value='category1'>Category 1</option>
                         </select>
-                        <p className="form__error">
-                            {/* {categoryError && <img src={errorIcon} alt="" className="form__error-icon" />}
+                        <p className="inv-add-form__error">
+                            {/* {categoryError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
                             {categoryError} */}
                         </p>
                     </fieldset>
-                    <fieldset className="form__fieldset">
-                        <h2 className="form__legend">
+                    <fieldset className="inv-add-form__fieldset">
+                        <h2 className="inv-add-form__legend">
                             Item Availability
                         </h2>
-                        <p className="form__label">Status</p>
-                        <input 
-                            type="radio" 
-                            id='inStock' 
-                            name='status' 
-                            className="form__input"
-                            value={true}
-                        />
-                        <label htmlFor="inStock" className="form__option">In Stock</label>
-                        <input 
-                            type="radio" 
-                            id='outOfStock' 
-                            name='status' 
-                            className="form__input"
-                            value={false} 
-                        />
-                        <label htmlFor="outOfStock" className="form__option">Out of Stock</label>
-                        <p className="form__error">
-                            {/* {statusError && <img src={errorIcon} alt="" className="form__error-icon" />}
+                        <p className="inv-add-form__label">Status</p>
+                        <div className="inv-add-form__input inv-add-form__input--radio">
+                            <label htmlFor="inStock" className="inv-add-form__option">
+                                <input 
+                                    type="radio" 
+                                    id='inStock' 
+                                    name='status' 
+                                    className="inv-add-form__radio"
+                                    value={true}
+                                    checked
+                                />
+                                In Stock
+                            </label>
+                            <label htmlFor="outOfStock" className="inv-add-form__option">
+                                <input 
+                                    type="radio" 
+                                    id='outOfStock' 
+                                    name='status' 
+                                    className="inv-add-form__radio"
+                                    value={false} 
+                                />
+                                Out of Stock
+                            </label>
+                        </div>
+                        <p className="inv-add-form__error">
+                            {/* {statusError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
                             {statusError} */}
                         </p>
 
-                        <label htmlFor="quantity" className="form__label">Quantity</label>
+                        <label htmlFor="quantity" className="inv-add-form__label">Quantity</label>
                         <input 
                             type="number"
                             name="status"
                             id="quantity" 
-                            className='form__input'
-                            // className={`form__input ${quantityError && 'form__input--invalid'}`}
+                            className='inv-add-form__input'
+                            // className={`inv-add-form__input ${quantityError && 'inv-add-form__input--invalid'}`}
                             placeholder="0"
                             // value={quantity}
                             // onChange={handleInputChange}
                         />
-                        <p className="form__error">
-                            {/* {quantityError && <img src={errorIcon} alt="" className="form__error-icon" />}
+                        <p className="inv-add-form__error">
+                            {/* {quantityError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
                             {quantityError} */}
                         </p>
-                        <label htmlFor="warehouse" className="form__label">Warehouse</label>
+                        <label htmlFor="warehouse" className="inv-add-form__label">Warehouse</label>
                         <select
                             name="warehouse"
                             id="warehouse"
-                            className='form__input'
-                            // className={`form__input ${warehouseError && 'form__input--invalid'}`} 
+                            className='inv-add-form__input'
+                            // className={`inv-add-form__input ${warehouseError && 'inv-add-form__input--invalid'}`} 
                             placeholder="Please Select"
                             // value={warehouse}
                             value=''
@@ -148,97 +154,18 @@ function InventoryAdd() {
                             <option value='' disabled>Please Select</option>
                             <option value='warehouse1'>Warehouse 1</option>
                         </select>
-                        <p className="form__error">
-                            {/* {warehouseError && <img src={errorIcon} alt="" className="form__error-icon" />}
+                        <p className="inv-add-form__error">
+                            {/* {warehouseError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
                             {warehouseError} */}
                         </p>
                     </fieldset>
                 </div>
-                <div className="form__bottom">
-                    <button type="button" className="form__button form__button--secondary" onClick={''}>Cancel</button>
-                    <button type="submit" className="form__button">+ Add Item</button>
+                <div className="inv-add-form__bottom">
+                    <button type="button" className="inv-add-form__button inv-add-form__button--secondary" onClick={''}>Cancel</button>
+                    <button type="submit" className="inv-add-form__button">+ Add Item</button>
                 </div>
             </form>
-
-
-                <div className="inv-add-eq">
-                    <form className="inv-add__form">
-                        <div className="inv-add__sections">
-                            <section className="inv-add-details">
-                                <div className="inv-add-details-eq">
-                                    <h2 className="inv-add__head">Item Details</h2>
-                                    <div className="inv-add-details__name">
-                                        <h3 className="inv-add-label">Item Name</h3>
-                                        <textarea
-                                            className={`inv-add-details__name-input ${inputErrors.item ? "error" : ""}`}
-                                            placeholder="Item Name"
-                                            value={itemName}
-                                            onChange
-                                        />
-                                    </div>
-                                    <div className="inv-add-details__descrip">
-                                        <h3 className="inv-add-label">Description</h3>
-                                        <textarea className="inv-add-details__descrip-input" placeholder="Please enter a brief item description..." />
-                                    </div>
-                                    <div className="inv-add-details__category">
-                                        <h3 className="inv-add-label">Category</h3>
-                                        <select className="inv-add-details__category-input">
-                                            <option value="" disabled selected className="inv-add-details__category-input-disabled">Please select</option>
-                                        </select>
-                                        <img src={Down} className="inv-add-details__category-icon" />
-                                    </div>
-                                </div>
-                            </section>
-                            <section className="inv-add-avail">
-                                <div className="inv-add-avail-eq">
-                                    <h2 className="inv-add__head inv-add-avail__head">Item Availability</h2>
-                                    <article className="inv-add-avail__stat">
-                                        <h3 className="inv-add-label">Status</h3>
-                                        <div className="inv-add-avail__stat-radios">
-                                            <div className="inv-add-avail__stat-in">
-                                                <input type="radio" id="instock" className="inv-add-avail__stat-in-radio" />
-                                                <label className="inv-add-avail__stat-in-label" htmlFor="instock">In stock</label>
-                                            </div>
-                                            <div className="inv-add-avail__stat-out">
-                                                <input type="radio" id="outstock" className="inv-add-avail__stat-out-radio" />
-                                                <label className="inv-add-avail__stat-in-label" htmlFor="outstock">Out of stock</label>
-                                            </div>
-                                        </div>
-                                    </article>
-                                    <div className="inv-add-avail__quantity">
-                                        <h3 className="inv-add-label">Quantity</h3>
-                                        <input className="inv-add-avail__quantity-input" type="number" placeholder="0" />
-                                    </div>
-                                    <div className="inv-add-avail__ware">
-                                        <h3 className="inv-add-label">Warehouse</h3>
-                                        <select
-                                            className={`inv-add-avail__ware-input ${inputErrors.warehouse ? "error" : ""}`}
-                                            value={warehouse}
-                                            onChange
-                                        >
-                                            <option>Please select</option>
-                                        </select>
-                                        <img src={Down} className="inv-add-avail__ware-icon" />
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                        <article className="inv-add-buttons">
-                            <div className="inv-add-buttons-eq">
-                                <Link to="/inventory" className="inv-add-buttons-cancel" >Cancel</Link>
-                                <button
-                                    type="submit"
-                                    className="inv-add-buttons-add"
-                                    onClick={handleSubmit}
-                                >
-                                    + Add Item
-                                </button>
-                            </div>
-                        </article>
-                    </form>
-                </div>
-            </main>
-        </>
+        </main>
     );
 }
 
