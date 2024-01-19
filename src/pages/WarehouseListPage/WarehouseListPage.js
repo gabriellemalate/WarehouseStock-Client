@@ -65,7 +65,7 @@ function WarehouseListPage() {
                                 </h3>
                                 </div>
                             </article>
-                            <WarehouseOption />
+                            <WarehouseOption id='1' />
                         </div>
                     </section>
                 </div>

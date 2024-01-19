@@ -1,12 +1,14 @@
 import axios from 'axios';
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { getInputError, formIsValid } from '../../utils/validationUtils';
 import errorIcon from '../../assets/icons/error-24px.svg'
 import backArrow from '../../assets/icons/arrow_back-24px.svg';
-import './WarehouseAddPage.scss';
+import './WarehouseEditPage.scss';
 
-function WarehouseAddPage() {
+function WarehouseEditPage() {
+    let { warehouseId } = useParams();
+
     let [ inputs, setInputs ] = useState({
         warehouseName: '',
         address: '',
@@ -18,6 +20,36 @@ function WarehouseAddPage() {
         email: '',
     });
     let { warehouseName, address, city, country, contactName, position, phoneNumber, email} = inputs;
+
+
+    useEffect(() => {
+
+        async function getWarehouse(id) {
+            try {
+                let response = await axios.get(`${process.env.REACT_APP_API_URL}/warehouses/${id}`);
+
+                setInputs({
+                    warehouseName: response.data.warehouse_name,
+                    address: response.data.address,
+                    city: response.data.city,
+                    country: response.data.country,
+                    contactName: response.data.contact_name,
+                    position: response.data.contact_position,
+                    phoneNumber: response.data.contact_phone,
+                    email: response.data.contact_email,
+                });
+
+                return response.data;
+    
+            } catch (error) {
+                console.log('Error getting warehouse details', error);
+            }
+        }
+
+        getWarehouse(warehouseId);
+
+    }, []);
+
 
     let [ errors, setErrors ] = useState({
         warehouseName: null,
@@ -42,23 +74,23 @@ function WarehouseAddPage() {
     let navigate = useNavigate();
 
     function handleCancelClick() {
-        navigate('/warehouse');
+        navigate(-1);
     }
 
-    async function postWarehouse(warehouse) {
+    async function updateWarehouse(id, warehouse) {
         try {
-            let response = await axios.post(`${process.env.REACT_APP_API_URL}/warehouses`, warehouse);
+            let response = await axios.put(`${process.env.REACT_APP_API_URL}/warehouses/${id}`, warehouse);
 
             return response;
 
         } catch (error) {
-            console.log('Error creating warehouse', error);
+            console.log('Error updating warehouse warehouse', error);
         }
     }
 
     async function handleFormSubmition(event) {
         event.preventDefault();
-        
+
         const warehouse = {
             warehouse_name: warehouseName,
             address: address,
@@ -71,8 +103,8 @@ function WarehouseAddPage() {
         }
 
         if(formIsValid(inputs)) {
-            await postWarehouse(warehouse);
-            navigate('/warehouse');
+            await updateWarehouse(warehouseId, warehouse);
+            navigate(`/warehouse/${warehouseId}`);
         }
     }
 
@@ -85,11 +117,11 @@ function WarehouseAddPage() {
     return (
         <main className="main">
             <div className="main__page-header">
-                <Link to='/warehouse' className="main__back-link">
-                    <img src={backArrow} alt="back arrow" className="main__back-button" />
-                </Link>
+                {/* <Link to={`/warehouse/${warehouseId}`} className="main__back-link"> */}
+                    <img src={backArrow} alt="back arrow" className="main__back-button" onClick={handleCancelClick}/>
+                {/* </Link> */}
                 <h1 className="main__title">
-                    Add New Warehouse
+                    Edit Warehouse
                 </h1>
             </div>
 
@@ -220,7 +252,7 @@ function WarehouseAddPage() {
                 </div>
                 <div className="form__bottom">
                     <button type="button" className="form__button form__button--secondary" onClick={handleCancelClick}>Cancel</button>
-                    <button type="submit" className="form__button">+ Add Warehouse</button>
+                    <button type="submit" className="form__button">Save</button>
                 </div>
             </form>
 
@@ -228,4 +260,4 @@ function WarehouseAddPage() {
     )
 }
 
-export default WarehouseAddPage;
+export default WarehouseEditPage;
