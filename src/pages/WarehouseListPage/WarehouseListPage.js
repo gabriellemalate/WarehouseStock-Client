@@ -11,7 +11,7 @@ function WarehouseListPage() {
     let navigate = useNavigate();
 
     function navigateToAddWarehouse() {
-        navigate('/add');
+        navigate('/warehouse/add');
     }
 
     return (
