@@ -8,6 +8,12 @@ import WarehouseOption from "../../components/WarehouseOption/WarehouseOption";
 
 function WarehouseListPage() {
 
+    let navigate = useNavigate();
+
+    function navigateToAddWarehouse() {
+        navigate('/add');
+    }
+
     return (
         <>
             <main className="warehouses">
@@ -24,8 +30,7 @@ function WarehouseListPage() {
                                         <textarea className="warehouses-top__action-search-box" type="search" placeholder="Search..." />
                                     </form>
                                 </article>
-
-                                <button className="warehouses-top__action-button">
+                                <button className="warehouses-top__action-button" type='button' onClick={navigateToAddWarehouse}>
                                     + Add New Warehouse
                                 </button>
                             </div>
