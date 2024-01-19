@@ -1,11 +1,11 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Trash from "../../assets/icons/delete_outline-24px.svg";
 import Pencil from "../../assets/icons/edit-24px.svg";
 import Right from "../../assets/icons/chevron_right-24px.svg"
 import "./WarehouseOption.scss"
 
-function WarehouseOption() {
+function WarehouseOption({ id }) {
 
     return (
         <>
@@ -42,8 +42,13 @@ function WarehouseOption() {
                             </div>
                         </div>
                         <div className="warehouses-list__actions">
+<<<<<<< HEAD
                             <img className="warehouses-list__actions-icon"src={Trash} alt="Delete" />
                             <img  className="warehouses-list__actions-icon" src={Pencil} alt="Edit" />
+=======
+                            <img src={Trash} alt="Delete" />
+                            <Link to={`/warehouse/${id}/edit`}><img src={Pencil} alt="Edit" /></Link>
+>>>>>>> develop
                         </div>
                     </div>
                 </div>
