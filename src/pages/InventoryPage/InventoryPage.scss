@@ -81,7 +81,7 @@
 
             @include tablet {
                 position: relative;
-                top: 3.4rem;
+                top: 2.4rem;
                 // left: 9rem;
                 right: calc(4rem - 100%);
             }
@@ -105,8 +105,9 @@
             @include tablet {
                 height: 2.375rem;
                 width: 90%;
-                margin-right: 1rem;
-                margin-bottom: 0rem;
+                // margin-right: 1rem;
+                margin: 0 1rem 0 0;
+                // margin-bottom: 0rem;
             }
         }
     }
@@ -130,6 +131,10 @@
         @include tablet {
             height: 2.375rem;
             width: 12rem;
+        }
+
+        @include desktop {
+            width: 10.5rem;
         }
     }
 
