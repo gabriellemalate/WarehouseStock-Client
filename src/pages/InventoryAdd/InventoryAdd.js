@@ -29,12 +29,12 @@ function InventoryAdd() {
 
     return (
         <>
-            <main className="inv-add">
-                <div className="inv-add__page-header">
+            <main className="main">
+                <div className="main__page-header">
                     <Link to='/inventory' className="main__back-link">
-                        <img src={Back} alt="back arrow" className="inv-add__back-button" />
+                        <img src={Back} alt="back arrow" className="main__back-button" />
                     </Link>
-                    <h1 className="inv-add__title">
+                    <h1 className="main__title">
                         Add New Inventory Item
                     </h1>
                 </div>
