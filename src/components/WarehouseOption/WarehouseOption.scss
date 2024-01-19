@@ -40,6 +40,9 @@
         }
         &__item {
             @include column;
+            &:hover {
+                background-color: $Cloud;
+            }
             &-eq {
                 @include column;
                 border-bottom: $Cloud .08rem solid;

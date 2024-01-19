@@ -1,2 +1,133 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
+
+.inv-add {
+    background-color: $White;
+    margin: 0 1rem;
+    @include column;
+    border-radius: .2rem;
+
+        @include tablet {
+            margin: 0 2rem;
+        }
+        @include desktop {
+            margin: 0 10.4vw;
+        }
+
+    &-eq {
+        width: 90%;
+        @include column;
+        padding: 1.6rem 0 2rem;
+    }
+    &-top {
+        width: 111.2%;
+        border-bottom: .09rem solid $Cloud;
+        padding: .48rem 0 1.4rem;
+        @include column;
+        
+        &-eq {
+            width: 90%;
+            @include row;
+
+            @include tablet {
+                @include row;
+                width: 90%;
+            }
+        }
+        &__title {
+            padding: 0 1rem;
+            @include mobile__pagehead;
+        }
+    }
+    &__sections {
+
+    }
+    &__head {
+
+    }
+    &-details {
+        &-eq {
+
+        }
+        &__name {
+            &-head {
+
+            }
+            &-input {
+
+            }
+        }
+        &__descrip {
+            &-head {
+
+            }
+            &-input {
+
+            }
+        }
+        &__category {
+            &-head {
+
+            }
+            &-input {
+
+            }
+            &-icon {
+
+            }
+        }
+    }
+    &-avail {
+        &-eq {
+
+        }
+        &__stat {
+            &-head {
+
+            }
+            &-radios {
+
+            }
+            &-in {
+                &-label {
+
+                }
+            }
+            &-out {
+                &-label {
+                    
+                }
+            }
+        }
+        &__quantity {
+            &-head {
+
+            }
+            &-input {
+
+            }
+        }
+        &__ware {
+            &-head {
+
+            }
+            &-input {
+                
+            }
+            &-icon {
+
+            }
+        }
+    }
+    &-buttons {
+        &-eq {
+
+        }
+        &-cancel {
+
+        }
+        &-add {
+
+        }
+    }
+}
