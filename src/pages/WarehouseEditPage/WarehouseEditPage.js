@@ -1,12 +1,15 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { getInputError, formIsValid } from '../../utils/validationUtils';
 import errorIcon from '../../assets/icons/error-24px.svg'
 import backArrow from '../../assets/icons/arrow_back-24px.svg';
 import './WarehouseEditPage.scss';
 
 function WarehouseEditPage() {
+
+    let { warehouseId } = useParams();
+
     let [ inputs, setInputs ] = useState({
         warehouseName: '',
         address: '',
@@ -45,9 +48,9 @@ function WarehouseEditPage() {
         navigate('/');
     }
 
-    async function postWarehouse(warehouse) {
+    async function updateWarehouse(id, warehouse) {
         try {
-            let response = await axios.post(`${process.env.REACT_APP_API_URL}/warehouses`, warehouse);
+            let response = await axios.post(`${process.env.REACT_APP_API_URL}/warehouses/${id}`, warehouse);
 
             return response;
 
@@ -58,7 +61,7 @@ function WarehouseEditPage() {
 
     async function handleFormSubmition(event) {
         event.preventDefault();
-        
+
         const warehouse = {
             warehouse_name: warehouseName,
             address: address,
@@ -71,7 +74,7 @@ function WarehouseEditPage() {
         }
 
         if(formIsValid(inputs)) {
-            await postWarehouse(warehouse);
+            await updateWarehouse(warehouseId, warehouse);
             navigate('/');
         }
     }
