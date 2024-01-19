@@ -43,7 +43,7 @@ function WarehouseDetails() {
             <div className="warehouses-details-list__contact">
               <div className="warehouses-details-list__contact-name">
                 <h4 className="warehouses-details-list__item-detail-label">
-                  CONTACT NAME
+                  CONTACT NAME:
                 </h4>
                 <p className="warehouses-details-list__item-detail-value">
                   Insert Name
@@ -52,7 +52,7 @@ function WarehouseDetails() {
 
               <div className="warehouses-details-list__contact-phone">
                 <h4 className="warehouses-details-list__item-detail-label">
-                  CONTACT INFORMATION
+                  CONTACT INFORMATION:
                 </h4>
                 <p className="warehouses-details-list__item-detail-value warehouses-details-list__item-detail-value-info">
                   <span className="warehouses-details-list__item-detail-phone">
