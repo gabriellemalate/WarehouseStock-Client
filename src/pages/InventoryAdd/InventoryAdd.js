@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import "./InventoryAdd.scss";
+import { Link } from "react-router-dom";
 import Back from "../../assets/icons/arrow_back-24px.svg";
 import Down from "../../assets/icons/arrow_drop_down-24px.svg";
 import errorIcon from '../../assets/icons/error-24px.svg';
-import { Link } from "react-router-dom";
+import { getInputError, formIsValid } from "../../utils/validationUtils";
+import "./InventoryAdd.scss";
 
 function InventoryAdd() {
     const [warehouseList, setWarehouseList] = useState("");
@@ -12,13 +13,13 @@ function InventoryAdd() {
         itemName: '',
         description: '',
         category: '',
-        status: true,
+        status: 'inStock',
         quantity: 1,
         warehouse: '',
     })
     let { itemName, description, category, status, quantity, warehouse } = inputs;
 
-    let [inputErrors, setInputErrors] = useState({
+    let [errors, setErrors] = useState({
         itemName: null,
         description: null,
         category: null,
@@ -26,6 +27,7 @@ function InventoryAdd() {
         quantity: null,
         warehouse: null,
     });
+
     let { 
         itemName: itemNameError, 
         description: descriptionError, 
@@ -33,22 +35,28 @@ function InventoryAdd() {
         status: statusError, 
         quantity: quantityError, 
         warehouse: warehouseError, 
-    } = inputErrors;
+    } = errors;
 
-    const handleSubmit = () => {
+    function handleInputChange(event){
+        const { name, value } = event.target;
+        setInputs({...inputs, [name]: value});
+        setErrors({...errors, [name]: getInputError(value, name)})
+    }
 
-        if (itemName.trim() === "") {
-            setInputErrors((prev) => ({ ...prev, item: "This field is required" }));
-            return;
-        } else {
-            setInputErrors((prev) => ({ ...prev, item: "This field is required" }));
-        }
+    // const handleSubmit = () => {
 
-        if (warehouse === "") {
-            setInputErrors((prev) => ({ ...prev, warehouse: true }));
-            return;
-        }
-    };
+    //     if (itemName.trim() === "") {
+    //         setInputErrors((prev) => ({ ...prev, item: "This field is required" }));
+    //         return;
+    //     } else {
+    //         setInputErrors((prev) => ({ ...prev, item: "This field is required" }));
+    //     }
+
+    //     if (warehouse === "") {
+    //         setInputErrors((prev) => ({ ...prev, warehouse: true }));
+    //         return;
+    //     }
+    // };
 
     return (
         <main className="main">
@@ -75,7 +83,7 @@ function InventoryAdd() {
                             className={`inv-add-form__input ${itemNameError && 'inv-add-form__input--invalid'}`}
                             placeholder="Item Name"
                             value={itemName}
-                            // onChange={handleInputChange}
+                            onChange={handleInputChange}
                         />
                         <p className="inv-add-form__error">
                             {itemNameError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
@@ -88,7 +96,7 @@ function InventoryAdd() {
                             className={`inv-add-form__input ${descriptionError && 'inv-add-form__input--invalid'}`} 
                             placeholder="Please enter a brief item description..."
                             value={description}
-                            //onChange={handleInputChange}
+                            onChange={handleInputChange}
                         />
                         <p className="inv-add-form__error">
                             {descriptionError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
@@ -101,7 +109,7 @@ function InventoryAdd() {
                             className={`inv-add-form__input ${categoryError && 'inv-add-form__input--invalid'}`} 
                             placeholder="Please Select"
                             value={category}
-                            //onChange={handleInputChange}
+                            onChange={handleInputChange}
                         >
                             <option value='' disabled>Please Select</option>
                             <option value='category1'>Category 1</option>
@@ -123,8 +131,9 @@ function InventoryAdd() {
                                     id='inStock' 
                                     name='status' 
                                     className="inv-add-form__radio"
-                                    value={true}
-                                    checked={status}
+                                    value='inStock'
+                                    checked={status === 'inStock'}
+                                    onChange={handleInputChange}
                                 />
                                 In Stock
                             </label>
@@ -134,8 +143,9 @@ function InventoryAdd() {
                                     id='outOfStock' 
                                     name='status' 
                                     className="inv-add-form__radio"
-                                    value={false}
-                                    checked={!status}
+                                    value='outOfStock'
+                                    checked={status === 'outOfStock'}
+                                    onChange={handleInputChange}
                                 />
                                 Out of Stock
                             </label>
@@ -148,12 +158,12 @@ function InventoryAdd() {
                         <label htmlFor="quantity" className="inv-add-form__label">Quantity</label>
                         <input 
                             type="number"
-                            name="status"
+                            name="quantity"
                             id="quantity" 
                             className={`inv-add-form__input ${quantityError && 'inv-add-form__input--invalid'}`}
                             placeholder="0"
                             value={quantity}
-                            //onChange={handleInputChange}
+                            onChange={handleInputChange}
                         />
                         <p className="inv-add-form__error">
                             {quantityError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
@@ -166,7 +176,7 @@ function InventoryAdd() {
                             className={`inv-add-form__input ${warehouseError && 'inv-add-form__input--invalid'}`} 
                             placeholder="Please Select"
                             value={warehouse}
-                            // onChange={handleInputChange}
+                            onChange={handleInputChange}
                         >
                             <option value='' disabled>Please Select</option>
                             <option value='warehouse1'>Warehouse 1</option>
