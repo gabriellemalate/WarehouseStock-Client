@@ -20,17 +20,17 @@ function InventoryAdd() {
                             <div className="inv-add-details-eq">
                                 <h2 className="inv-add__head">Item Details</h2>
                                 <div className="inv-add-details__name">
-                                    <h3 className="inv-add-details__name-head">Item Name</h3>
+                                    <h3 className="inv-add-label">Item Name</h3>
                                     <textarea className="inv-add-details__name-input" placeholder="Item Name" />
                                 </div>
                                 <div className="inv-add-details__descrip">
-                                    <h3 className="inv-add-details__descrip-head">Description</h3>
+                                    <h3 className="inv-add-label">Description</h3>
                                     <textarea className="inv-add-details__descrip-input" placeholder="Please enter a brief item description..." />
                                 </div>
                                 <div className="inv-add-details__category">
-                                    <h3 className="inv-add-details__category-head">Category</h3>
+                                    <h3 className="inv-add-label">Category</h3>
                                     <select className="inv-add-details__category-input">
-                                        <option>Please select</option>
+                                        <option value="" disabled selected className="inv-add-details__category-input-disabled">Please select</option>
                                     </select>
                                     <img src={Down} className="inv-add-details__category-icon" />
                                 </div>
@@ -38,26 +38,26 @@ function InventoryAdd() {
                         </section>
                         <section className="inv-add-avail">
                             <div className="inv-add-avail-eq">
-                                <h2 className="inv-add__head">Item Availability</h2>
+                                <h2 className="inv-add__head inv-add-avail__head">Item Availability</h2>
                                 <article className="inv-add-avail__stat">
-                                    <h3 className="inv-add-avail__stat-head">Status</h3>
+                                    <h3 className="inv-add-label">Status</h3>
                                     <div className="inv-add-avail__stat-radios">
                                         <div className="inv-add-avail__stat-in">
-                                            <input type="radio" />
-                                            <label className="inv-add-avail__stat-in-label">In stock</label>
+                                            <input type="radio" id="instock" className="inv-add-avail__stat-in-radio"/>
+                                            <label className="inv-add-avail__stat-in-label" htmlFor="instock">In stock</label>
                                         </div>
                                         <div className="inv-add-avail__stat-out">
-                                            <input type="radio" />
-                                            <label className="inv-add-avail__stat-in-label">Out of stock</label>
+                                            <input type="radio" id="outstock" className="inv-add-avail__stat-out-radio"/>
+                                            <label className="inv-add-avail__stat-in-label" htmlFor="outstock">Out of stock</label>
                                         </div>
                                     </div>
                                 </article>
                                 <div className="inv-add-avail__quantity">
-                                    <h3 className="inv-add-avail__quantity-head">Quantity</h3>
+                                    <h3 className="inv-add-label">Quantity</h3>
                                     <input className="inv-add-avail__quantity-input" type="number" placeholder="0" />
                                 </div>
                                 <div className="inv-add-avail__ware">
-                                    <h3 className="inv-add-avail__ware-head">Warehouse</h3>
+                                    <h3 className="inv-add-label">Warehouse</h3>
                                     <select className="inv-add-avail__ware-input">
                                         <option>Please select</option>
                                     </select>

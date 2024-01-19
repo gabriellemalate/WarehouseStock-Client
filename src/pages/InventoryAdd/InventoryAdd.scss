@@ -5,129 +5,222 @@
     background-color: $White;
     margin: 0 1rem;
     @include column;
-    border-radius: .2rem;
+    border-radius: 0.2rem;
+    color: $Instock-Black;
+    box-shadow: .02rem .02rem .2rem rgb(19, 24, 44, .1);
 
-        @include tablet {
-            margin: 0 2rem;
-        }
-        @include desktop {
-            margin: 0 10.4vw;
-        }
+    @include tablet {
+        margin: 0 2rem;
+    }
+    @include desktop {
+        margin: 0 10.4vw;
+    }
 
     &-eq {
         width: 90%;
         @include column;
-        padding: 1.6rem 0 2rem;
+        padding: 1.6rem 0 0;
     }
     &-top {
         width: 111.2%;
-        border-bottom: .09rem solid $Cloud;
-        padding: .48rem 0 1.4rem;
+        border-bottom: 0.09rem solid $Cloud;
+        padding: 0.48rem 0 1.4rem;
         @include column;
-        
+
         &-eq {
             width: 90%;
             @include row;
-
-            @include tablet {
-                @include row;
-                width: 90%;
-            }
+            align-items: flex-start;
+        }
+        &__return {
+            padding: 0.4rem 0;
         }
         &__title {
-            padding: 0 1rem;
+            padding: 0 0.6rem;
             @include mobile__pagehead;
         }
     }
     &__sections {
-
+        padding: 1rem 0;
+        width: 96%;
     }
     &__head {
+        @include mobile__subhead;
+        padding: 0 0 1.2rem;
+        align-self: flex-start;
+        margin: 0 1.4rem;
 
+        @include tablet {
+            @include tablet__subhead;
+            margin: 0 2.4rem;
+        }
+    }
+    &-label {
+        @include mobile__label;
+        padding: 0.2rem 0;
+
+        @include tablet {
+            @include tablet__label;
+        }
     }
     &-details {
+        width: 100%;
+        @include column;
+
         &-eq {
-
+            width: 116%;
+            border-bottom: $Cloud 0.08rem solid;
+            @include column;
         }
+
         &__name {
-            &-head {
-
-            }
+            padding: 0 0 0.4rem;
+            width: 88%;
             &-input {
-
+                @include mobile__field;
+                border-color: $Cloud;
+                padding: 0.4rem 1rem;
+                height: 1.4rem;
+                width: 90%;
+                font-family: Titillium Web;
+                resize: none;
             }
         }
+
         &__descrip {
-            &-head {
-
-            }
+            padding: 0 0 0.4rem;
+            width: 88%;
             &-input {
-
+                font-family: Titillium Web;
+                resize: none;
+                @include mobile__field;
+                border-color: $Cloud;
+                padding: 0.5rem 1rem;
+                height: 6.2rem;
+                width: 90%;
             }
         }
         &__category {
-            &-head {
-
-            }
+            width: 88%;
             &-input {
+                font-family: Titillium Web;
+                @include mobile__field;
+                border-color: $Cloud;
+                background-color: $White;
+                padding: 0.4rem 1rem;
+                height: 2.25rem;
+                width: 100%;
+                color: $Slate;
+                -webkit-appearance: none;
+                -moz-appearance: none;
 
+                &-disabled {
+                    color: $Slate;
+                }
             }
             &-icon {
-
+                position: relative;
+                margin: 0;
+                padding: 0;
+                bottom: 1.84rem;
+                left: 16.4rem;
             }
         }
     }
     &-avail {
+        width: 100%;
+        padding: 1rem 0 0;
         &-eq {
-
+        }
+        &__head {
+            margin: 0;
         }
         &__stat {
-            &-head {
+            width: 88%;
+            padding: 0 0 0.4rem;
 
-            }
             &-radios {
-
+                @include row;
+                justify-content: space-between;
             }
             &-in {
+                color: $Slate;
                 &-label {
-
+                    padding-left: .5rem;
+                    @include mobile__body--med;
+                    &:focus {
+                        color: $Instock-Black;
+                    }
                 }
             }
             &-out {
+                @extend .inv-add-avail__stat-in;
                 &-label {
-                    
+                    @extend .inv-add-avail__stat-in-label;
                 }
             }
         }
         &__quantity {
-            &-head {
+            padding: 0 0 0.4rem;
+            width: 88%;
 
-            }
             &-input {
-
+                font-family: Titillium Web;
+                @include mobile__field;
+                border: .09rem solid $Cloud;
+                background-color: $White;
+                padding: 0.4rem 1rem;
+                width: 100%;
+                height: 1.4rem;
             }
         }
         &__ware {
-            &-head {
-
-            }
             &-input {
-                
+                font-family: Titillium Web;
+                @include mobile__field;
+                border-color: $Cloud;
+                background-color: $White;
+                padding: 0.4rem 1rem;
+                width: 100%;
+                color: $Slate;
+                -webkit-appearance: none;
+                -moz-appearance: none;
             }
             &-icon {
-
+                position: relative;
+                margin: 0;
+                padding: 0;
+                bottom: 1.84rem;
+                left: 16.4rem;
             }
         }
     }
     &-buttons {
+        width: 111%;
+        background-color: $Light-Grey;
+        @include column;
         &-eq {
-
+            width: 90%;
+            @include row;
+            justify-content: space-between;
         }
         &-cancel {
-
+            @include mobile__field;
+            width: 47%;
+            background-color: $White;
+            border: $Cloud .08rem solid;
+            font-family: Titillium Web;
+            @include mobile__label;
+            color: $Slate;
         }
         &-add {
-
+            @include mobile__field;
+            width: 47%;
+            border: 0;
+            background-color: $Instock-Indigo;
+            color: $White;
+            font-family: Titillium Web;
+            @include mobile__label;
         }
     }
 }
