@@ -12,7 +12,11 @@ function WarehouseDetails() {
   const navigate = useNavigate();
 
   const handleBackClick = () => {
-    navigate("/");
+    navigate("/warehouses");
+  };
+
+  const handleEditClick = () => {
+    navigate("/warehouses/:warehouseId/edit");
   };
   return (
     <>
@@ -32,6 +36,7 @@ function WarehouseDetails() {
               className="warehouses-details-page-top__edit"
               src={Pencil}
               alt="Edit"
+              onClick={handleEditClick}
             />
           </div>
         </div>
