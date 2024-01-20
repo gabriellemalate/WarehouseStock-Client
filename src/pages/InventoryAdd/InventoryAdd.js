@@ -80,7 +80,7 @@ function InventoryAdd() {
             console.log('Error creating inventory item', error);
         }
     }
-
+    
     async function handleFormSubmition(event) {
         event.preventDefault();
 
@@ -90,7 +90,7 @@ function InventoryAdd() {
             description: description,
             category: category,
             status: status,
-            quantity: status === 'Out Of Stock' ? "0" : quantity,
+            quantity: status === 'Out of Stock' ? "0" : quantity,
         }
 
         if (formIsValid(inputs)) {
