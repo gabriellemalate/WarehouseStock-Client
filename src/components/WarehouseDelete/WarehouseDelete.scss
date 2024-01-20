@@ -67,13 +67,28 @@
           }
       }
 
+button{
+  cursor: pointer;
+  padding: 1rem 1rem; 
+  font-weight: bold;
+  border-radius: 1.25rem; 
+}
+
+.warehouse-delete__content__buttons__delete{
+    @include form__button--delete
+
+}
+
+.warehouse-delete__content__buttons__cancel{
+    @include form__button--secondary;
+}
 
   
-    // Ensure the modal is full screen on mobile
-   @include tablet { // Adjust this media query as necessary for your design breakpoints
-      width: 100vw; // 100% of the viewport width
-      height: 100vh; // 100% of the viewport height
-      background-color: rgba(0, 0, 0, 0.6); // Optional: a semi-transparent backdrop color
+    
+   @include tablet { 
+      width: 100vw; 
+      height: 100vh; 
+      background-color: rgba(0, 0, 0, 0.6);
     }
   
 }
