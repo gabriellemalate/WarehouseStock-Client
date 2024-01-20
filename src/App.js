@@ -1,4 +1,4 @@
-import "./App.scss";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import InventoryPage from "./pages/InventoryPage/InventoryPage";
 import Header from "./components/Header/Header";
