@@ -1,0 +1,83 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.warehouse-delete {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100; 
+    width: 100vw; 
+    height: 100vh;
+    
+
+    &__content-container{
+        background-color: $White;
+        width: 100%;
+        height: 100%;
+       
+        
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        padding: 2rem;
+
+
+        @include tablet {
+            width: 70%; 
+            height: 70%; 
+            background-color: rgb(255, 255, 255); 
+            padding: 1rem;
+          }
+
+        
+    }
+
+    &__header{
+        @include row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+
+        }
+
+        @include tablet {
+            justify-content: space-between;
+          }
+    
+
+    &__title{
+        @include mobile__tablehead;
+        @include row;
+        align-items: center;
+
+        @include tablet {
+            @include tablet__label;
+          }
+    }
+
+    &__content__text{
+        @include mobile__body--med;
+        padding-left: 2rem;
+        padding-right: 5rem;
+
+        @include tablet {
+            @include tablet__body--med;
+          }
+      }
+
+
+  
+    // Ensure the modal is full screen on mobile
+   @include tablet { // Adjust this media query as necessary for your design breakpoints
+      width: 100vw; // 100% of the viewport width
+      height: 100vh; // 100% of the viewport height
+      background-color: rgba(0, 0, 0, 0.6); // Optional: a semi-transparent backdrop color
+    }
+  
+}
+
+  
+  
+  

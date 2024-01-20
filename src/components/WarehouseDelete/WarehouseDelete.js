@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Back from "../../assets/icons/arrow_back-24px.svg";
+import Close from "../../assets/icons/close-24px.svg";
 import "./WarehouseDelete.scss";
 
 
@@ -22,7 +23,13 @@ function WarehouseDelete() {
 
     return (
         <div className="warehouse-delete">
+            
+            <div className="warehouse-delete__content-container">
+            
             <div className="warehouse-delete__header">
+            
+           
+            <div className="warehouse-delete__title">
                 <img 
                     src={Back} 
                     alt="Back" 
@@ -30,12 +37,17 @@ function WarehouseDelete() {
                     onClick={() => navigate(-1)} 
                 />
                 <h1 className="warehouse-delete__header__title">Delete Warehouse</h1>
+                </div>
+                <img src={Close} alt="Close" className="warehouse-delete__header__close" onClick={() => navigate(-1)} />
+
             </div>
-            <div className="warehouse-delete__content">
+           <div className="warehouse-delete__content">
                 <p className="warehouse-delete__content__text">
-                    Are you sure you want to delete 
+                   Please confirm that you'd like to delete the warehouse. You won't be ablle to undo this action. 
                     <span className="warehouse-delete__content__text__bold"> {warehouseName}?</span>
                 </p>
+                </div>
+
                 <div className="warehouse-delete__content__buttons">
                     <button 
                         className="warehouse-delete__content__buttons__cancel"
@@ -50,8 +62,11 @@ function WarehouseDelete() {
                         Delete
                     </button>
                 </div>
+               
             </div>
+           
         </div>
+       
     );
 }
 
