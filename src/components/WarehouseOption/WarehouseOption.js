@@ -10,44 +10,40 @@ function WarehouseOption({ warehouse }) {
     return (
         <>
             <article className="warehouses-list__item">
-                <div className="warehouses-list__item-eq">
-                    <div className="warehouses-list__item-container">
-                        <div className="warehouses-list__item-core">
-                            <div className="warehouses-list__items warehouses-list__items-left">
-                                <div className="warehouses-list__item-detail">
-                                    <h4 className="warehouses-list__item-detail-label">WAREHOUSE</h4>
-                                    <p className="warehouses-list__item-detail-value warehouses-list__item-detail-warehouse"> {warehouse_name}
-                                        <img className="warehouses-list__item-detail-arrow" src={Right} alt="See More" />
-                                    </p>
-                                </div>
-                                <div className="warehouses-list__item-detail">
-                                    <h4 className="warehouses-list__item-detail-label">ADDRESS</h4>
-                                    <p className="warehouses-list__item-detail-value warehouses-list__item-detail-address">{address}, {city}, {country}
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="warehouses-list__items warehouses-list__items-right">
-                                <div className="warehouses-list__item-detail">
-                                    <h4 className="warehouses-list__item-detail-label">CONTACT NAME</h4>
-                                    <p className="warehouses-list__item-detail-value warehouses-list__item-detail-contact">{contact_name}
-                                    </p>
-                                </div>
-                                <div className="warehouses-list__item-detail">
-                                    <h4 className="warehouses-list__item-detail-label">CONTACT INFORMATION</h4>
-                                    <p className="warehouses-list__item-detail-value warehouses-list__item-detail-value-info">
-                                        <span className="warehouses-list__item-detail-phone">{contact_phone}</span>
-                                        <span className="warehouses-list__item-detail-email">{contact_email}</span>
-                                    </p>
-                                </div>
-                            </div>
+                <div className="warehouses-list__item-core">
+                    <div className="warehouses-list__items warehouses-list__items-left">
+                        <div className="warehouses-list__item-detail">
+                            <h4 className="warehouses-list__item-detail-label">WAREHOUSE</h4>
+                            <p className="warehouses-list__item-detail-value warehouses-list__item-detail-warehouse"> {warehouse_name}
+                                <img className="warehouses-list__item-detail-arrow" src={Right} alt="See More" />
+                            </p>
                         </div>
-                        <div className="warehouses-list__actions">
-                            <img className="warehouses-list__actions-icon"src={Trash} alt="Delete" />
-                            <Link to={`/warehouse/${id}/edit`}>
-                                <img  className="warehouses-list__actions-icon" src={Pencil} alt="Edit" />
-                            </Link>
+                        <div className="warehouses-list__item-detail">
+                            <h4 className="warehouses-list__item-detail-label">ADDRESS</h4>
+                            <p className="warehouses-list__item-detail-value warehouses-list__item-detail-address">{address}, {city}, {country}
+                            </p>
                         </div>
                     </div>
+                    <div className="warehouses-list__items warehouses-list__items-right">
+                        <div className="warehouses-list__item-detail">
+                            <h4 className="warehouses-list__item-detail-label">CONTACT NAME</h4>
+                            <p className="warehouses-list__item-detail-value warehouses-list__item-detail-contact">{contact_name}
+                            </p>
+                        </div>
+                        <div className="warehouses-list__item-detail">
+                            <h4 className="warehouses-list__item-detail-label">CONTACT INFORMATION</h4>
+                            <p className="warehouses-list__item-detail-value warehouses-list__item-detail-value-info">
+                                <div className="warehouses-list__item-detail-phone">{contact_phone}</div>
+                                <div className="warehouses-list__item-detail-email">{contact_email}</div>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div className="warehouses-list__actions">
+                    <img className="warehouses-list__actions-icon"src={Trash} alt="Delete" />
+                    <Link to={`/warehouse/${id}/edit`}>
+                        <img  className="warehouses-list__actions-icon" src={Pencil} alt="Edit" />
+                    </Link>
                 </div>
             </article>
         </>

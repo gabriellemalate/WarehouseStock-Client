@@ -3,72 +3,25 @@
 
 .warehouses {
     &-list {
-        width: 100%;
 
-        &-container {
-            width: 90%;
-        }
         &__items {
-            width: 50%;
+            flex: 1;
+            @include column;
+            align-items: flex-start;
 
             @include tablet {
                 @include row;
                 justify-content: space-between;
             }
-
-            &-left {
-                @include tablet {
-                    width: 34vw;
-                    max-width: 21rem;
-                }
-                @include desktop {
-                    width: 36vw;
-                    max-width: 29.5rem;
-                }
-
-            }
-            &-right {
-                @include tablet {
-                    width: 50%;
-                    max-width: 18rem;
-                }
-                @include desktop {
-                    width: 60%;
-                    max-width: 19.3rem;
-                }
-            }
         }
+
         &__item {
-            @include column;
+            padding: 0.9rem 1.5rem 1.3rem;
+            border-bottom: 1px solid $Cloud;
 
-            &-eq {
-                @include column;
-                border-bottom: $Cloud .08rem solid;
-                width: 111.2%;
-                padding: 0 0 1rem;
-                &:hover {
-                    background-color: $Translucent;
-                }
-            }
-            &-container {
-                @include column;
-                width: 90%;
-
-                @include tablet {
-                    @include row;
-                    justify-content: space-between;
-                    width: 90%;
-                }
-                @include desktop {
-                    width: 90%;
-                }
-            }
             &-core {
                 @include row;
-                align-items: flex-start;
-                padding: 1rem 0 0;
-                width: 100%;
-                justify-content: space-between;
+                column-gap: 1rem;
 
                 @include tablet {
                     width: 70vw;
@@ -82,15 +35,12 @@
                     max-width: 250vh;
                 }
             }
+
             &-detail {
-                @include tablet {
-                    width: fit-content;
-                }
 
                 &-label {
                     @include mobile__tablehead;
                     color: $Slate;
-                    margin: 0;
 
                     @include tablet {
                         display: none;
@@ -100,43 +50,34 @@
                     @include mobile__body--med;
                     font-weight: 400;
                     color: $Instock-Black;
-                    @include column;
-                    align-items: flex-start;
-                    margin: 0;
-                    padding: .2rem 0 .8rem;
+                    padding: .2rem 0 .9rem;
 
                     @include tablet {
+                        @include row;
                         align-items: center;
-                        text-align: start;
                         @include tablet__body--med;
                     }
-                    &-info {
-                        @include column;
-                        align-items: flex-start;;
-                    }
                 }
+
                 &-address {
-                    @include tablet {
-                        width: 13vh;
-                    }
-                    @include desktop {
-                        width: 98%;
-                    }
+                    width: 80%;
                 }
+
                 &-warehouse {
                     @include row;
                     color: $Instock-Indigo;
                     font-weight: 600;
+                    cursor: pointer;
                 }
                 &-arrow {
                     margin-left: .25rem;
                 }
             }
         }
+
         &__actions {   
             @include row;
             justify-content: space-between;
-            width: 90%;
 
             @include tablet {
                 width: 7vh;
