@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import MagnifyingGlass from "../../assets/icons/search-24px.svg";
@@ -7,8 +7,24 @@ import "./WarehouseListPage.scss"
 import WarehouseOption from "../../components/WarehouseOption/WarehouseOption";
 
 function WarehouseListPage() {
-
+    const BASE_URL = process.env.REACT_APP_API_URL;
     let navigate = useNavigate();
+    const [warehouseList, setWarehouseList] = useState([]);
+
+    async function getWarehouses() {
+        try {
+            let response = await axios.get(`${BASE_URL}/warehouses`);
+
+            setWarehouseList(response.data);
+
+        } catch (error) {
+            console.log('Error fetching warehouses', error);
+        }
+    }
+
+    useEffect(()=>{
+        getWarehouses();
+    },[])
 
     function navigateToAddWarehouse() {
         navigate('/warehouse/add');

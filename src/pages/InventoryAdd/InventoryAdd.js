@@ -19,12 +19,6 @@ function InventoryAdd() {
 
         } catch (error) {
             console.log('Error fetching warehouses', error);
-            setWarehouseList([
-                {warehouse_name: 'Warehouse 1', id: '1'},
-                {warehouse_name: 'Warehouse 2', id: '2'},
-                {warehouse_name: 'Warehouse 3', id: '3'},
-                {warehouse_name: 'Warehouse 4', id: '4'},
-            ])
         }
     }
 
