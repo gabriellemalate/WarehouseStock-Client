@@ -197,7 +197,7 @@ function InventoryAdd() {
                             min='1'
                             name="quantity"
                             id="quantity" 
-                            className={`inv-add-form__input ${quantityError && 'inv-add-form__input--invalid'}`}
+                            className={`inv-add-form__input inv-add-form__input--number ${quantityError && 'inv-add-form__input--invalid'}`}
                             value={quantity}
                             onChange={handleInputChange}
                             onBlur={handleInputBlur}

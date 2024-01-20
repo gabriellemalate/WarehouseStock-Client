@@ -125,6 +125,12 @@
             border: none;
             @include row;
         }
+
+        &--number {
+            @include desktop {
+                width: 28%;
+            }
+        }
     }
 
     &__error {
