@@ -8,6 +8,12 @@ import Right from "../../assets/icons/chevron_right-24px.svg";
 import "./WarehouseDetails.scss";
 
 function WarehouseDetails() {
+
+  const navigate = useNavigate();
+
+  const handleBackClick = () => {
+    navigate("/");
+  };
   return (
     <>
       <main className="warehouses-details">
