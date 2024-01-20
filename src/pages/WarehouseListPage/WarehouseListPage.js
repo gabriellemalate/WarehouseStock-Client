@@ -81,7 +81,9 @@ function WarehouseListPage() {
                                 </h3>
                                 </div>
                             </article>
-                            <WarehouseOption id='1' />
+                            {warehouseList.map(
+                                (warehouse) => <WarehouseOption key={warehouse.id} warehouse={warehouse} />
+                            )}
                         </div>
                     </section>
                 </div>
