@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import InventoryPage from "./pages/InventoryPage/InventoryPage";
 import Header from "./components/Header/Header";
@@ -23,7 +22,6 @@ function App() {
           {/*<Route path="/:warehouseId/edit" element={<WarehouseEditPage />} />
                         <Route path="/add" element={<WarehouseAddPage />} />
                         <Route path="/inventory" element={<InventoryPage />} />
-                        <Route path="/warehouse" element={<WarehouseListPage />} />
                         <Route path="/warehouse/add" element={<WarehouseAddPage />} />
                         {/* <Route path="/warehouse/:warehouseId" element={<WarehousePage />} /> */}
           <Route
