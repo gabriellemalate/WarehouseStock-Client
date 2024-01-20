@@ -1,7 +1,13 @@
 import "./App.scss";
 import Header from "./components/Header/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import InventoryPage from "./pages/InventoryPage/InventoryPage"
+import Header from './components/Header/Header';
 import WarehouseListPage from "./pages/WarehouseListPage/WarehouseListPage";
+import WarehouseEditPage from './pages/WarehouseEditPage/WarehouseEditPage';
+import WarehouseAddPage from './pages/WarehouseAddPage/WarehouseAddPage';
+import Footer from "./components/Footer/Footer";
+import './App.scss';
 import WarehouseDetailsPage from "./pages/WarehouseDetailsPage/WarehouseDetailsPage";
 import WarehouseListPage from "./pages/WarehouseListPage/WarehouseListPage"
 
@@ -25,11 +31,11 @@ import WarehouseListPage from "./pages/WarehouseListPage/WarehouseListPage"
                         <Route path="/inventory/add" element={<ItemAddPage />} />
                         <Route path="*" element={<NotFoundPage />} /> */}
                     </Routes>
-        {/* <Footer /> */}
-        {/* <WarehouseDetails /> */}
-      </BrowserRouter>
-    </>
-  );
+                    <Footer />
+                </BrowserRouter>
+            </>
+        );
+
 }
 
 export default App;
