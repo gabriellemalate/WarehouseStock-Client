@@ -161,11 +161,11 @@ function InventoryAdd() {
                                 onBlur={handleInputBlur}
                             >
                                 <option value='' disabled hidden>Please Select</option>
-                                <option value='accessories'>Accessories</option>
-                                <option value='apparel'>Apparel</option>
-                                <option value='electronics'>Electronics</option>
-                                <option value='gear'>Gear</option>
-                                <option value='health'>Health</option>
+                                <option value='Accessories'>Accessories</option>
+                                <option value='Apparel'>Apparel</option>
+                                <option value='Electronics'>Electronics</option>
+                                <option value='Gear'>Gear</option>
+                                <option value='Health'>Health</option>
                             </select>
                         </div>
                         <p className="inv-add-form__error">
