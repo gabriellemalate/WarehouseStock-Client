@@ -32,10 +32,10 @@ function WarehouseOption({ warehouse }) {
                         </div>
                         <div className="warehouses-list__item-detail">
                             <h4 className="warehouses-list__item-detail-label">CONTACT INFORMATION</h4>
-                            <p className="warehouses-list__item-detail-value warehouses-list__item-detail-info">
+                            <div className="warehouses-list__item-detail-value warehouses-list__item-detail-info">
                                 <div className="warehouses-list__item-detail-phone">{contact_phone}</div>
                                 <div className="warehouses-list__item-detail-email">{contact_email}</div>
-                            </p>
+                            </div>
                         </div>
                     </div>
                 </div>
