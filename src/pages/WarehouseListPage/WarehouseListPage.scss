@@ -7,12 +7,13 @@
     background-color: $White;
     margin: 0 1rem;
     @include column;
+    box-shadow: .02rem .02rem .2rem rgb(19, 24, 44, .1);
 
         @include tablet {
             margin: 0 2rem;
         }
         @include desktop {
-            max-width: 95%;
+            margin: 0 10.4vw;
         }
     &-eq {
         width: 90%;
@@ -23,7 +24,11 @@
         @include column;
         width: 111.2%;
         border-bottom: .09rem solid $Cloud;
-        padding: 0 0 1.4rem;
+        padding: .48rem 0 1.4rem;
+
+        @include tablet {
+            border: 0;
+        }
 
         &-eq {
             width: 100%;
@@ -134,13 +139,17 @@
         }
     }
     &-list {
-        
         &__tablet {
             display: none;
+            background-color: $Light-Grey;
+            width: 100%;
+            padding: 0 4.8vw;
+            position: relative;
+            right: 3.68rem;
+            height: 2.4rem;
 
             @include tablet {
                 @include row;
-                width: 100%;
                 justify-content: space-between;
             }
 

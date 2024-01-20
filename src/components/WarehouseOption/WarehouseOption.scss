@@ -40,11 +40,15 @@
         }
         &__item {
             @include column;
+
             &-eq {
                 @include column;
                 border-bottom: $Cloud .08rem solid;
                 width: 111.2%;
-                padding: 0 0 1.4rem;
+                padding: 0 0 1rem;
+                &:hover {
+                    background-color: $Translucent;
+                }
             }
             &-container {
                 @include column;
@@ -53,7 +57,7 @@
                 @include tablet {
                     @include row;
                     justify-content: space-between;
-                    width: 89%;
+                    width: 90%;
                 }
                 @include desktop {
                     width: 90%;
@@ -136,6 +140,9 @@
 
             @include tablet {
                 width: 7vh;
+            }
+            &-icon {
+                cursor: pointer;
             }
         }
     }
