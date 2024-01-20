@@ -23,6 +23,7 @@
         @include tablet {
             border: none;
             padding: 2rem;
+            padding-bottom: 1.5rem;
             @include row;
             justify-content: space-between;
         }
@@ -88,50 +89,27 @@
     }
     &-list {
         &__tablet {
+
             display: none;
             background-color: $Light-Grey;
-            width: 100%;
-            padding: 0 4.8vw;
-            position: relative;
-            right: 3.68rem;
-            height: 2.4rem;
+            padding: 0.5rem 2rem;
 
             @include tablet {
                 @include row;
-                justify-content: space-between;
             }
 
-            &-left {
-                @include row;
-                justify-content: space-between;
-                width: 32vw;
-                max-width: 20rem;
-            }
-            &-right {
-                @include row;
-                width: 28vw;
-                justify-content: space-between;
-                max-width: 24.6rem;
-            }
-            &-end {
-                @include row;
-                width: 60%;
-                max-width: 51.5vh;
-                justify-content: space-between;
-            }
             &-label {
+                flex-grow: 1;
                 @include row;
                 @include tablet__tablehead;
                 color: $Slate;
-                padding-right: 1rem;
-                width: fit-content;
-                white-space: nowrap;
-                &-acts {
-                    padding-right: 0;
+
+                &--right {
+                    justify-content: flex-end;
                 }
             }
             &-sort {
-                padding: 0 0 0 .25rem;
+                margin-left: 0.25rem;
             }
         }
     }
