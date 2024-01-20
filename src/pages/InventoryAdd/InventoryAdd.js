@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import Back from "../../assets/icons/arrow_back-24px.svg";
-import Down from "../../assets/icons/arrow_drop_down-24px.svg";
 import errorIcon from '../../assets/icons/error-24px.svg';
 import { getInputError, formIsValid } from "../../utils/validationUtils";
 import "./InventoryAdd.scss";
@@ -131,22 +130,24 @@ function InventoryAdd() {
                             {descriptionError}
                         </p>
                         <label htmlFor="category" className="inv-add-form__label">Category</label>
-                        <select
-                            name="category"
-                            id="category"
-                            className={`inv-add-form__input ${categoryError && 'inv-add-form__input--invalid'}`} 
-                            placeholder="Please Select"
-                            value={category}
-                            onChange={handleInputChange}
-                            onBlur={handleInputBlur}
-                        >
-                            <option value='' disabled hidden>Please Select</option>
-                            <option value='accessories'>Accessories</option>
-                            <option value='apparel'>Apparel</option>
-                            <option value='electronics'>Electronics</option>
-                            <option value='gear'>Gear</option>
-                            <option value='health'>Health</option>
-                        </select>
+                        <div className="inv-add-form__select-container">
+                            <select
+                                name="category"
+                                id="category"
+                                className={`inv-add-form__input inv-add-form__input--select ${categoryError && 'inv-add-form__input--invalid'}`} 
+                                placeholder="Please Select"
+                                value={category}
+                                onChange={handleInputChange}
+                                onBlur={handleInputBlur}
+                            >
+                                <option value='' disabled hidden>Please Select</option>
+                                <option value='accessories'>Accessories</option>
+                                <option value='apparel'>Apparel</option>
+                                <option value='electronics'>Electronics</option>
+                                <option value='gear'>Gear</option>
+                                <option value='health'>Health</option>
+                            </select>
+                        </div>
                         <p className="inv-add-form__error">
                             {categoryError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
                             {categoryError}
@@ -209,20 +210,22 @@ function InventoryAdd() {
                         </>
                         )}
                         <label htmlFor="warehouse" className="inv-add-form__label">Warehouse</label>
-                        <select
-                            name="warehouse"
-                            id="warehouse"
-                            className={`inv-add-form__input ${warehouseError && 'inv-add-form__input--invalid'}`} 
-                            placeholder="Please Select"
-                            value={warehouse}
-                            onChange={handleInputChange}
-                            onBlur={handleInputBlur}
-                        >
-                            <option value='' disabled hidden>Please Select</option>
-                            {warehouseList.map((warehouse)=>{
-                                return <option key={warehouse.id} value={warehouse.id}>{warehouse.warehouse_name}</option>
-                            })}
-                        </select>
+                        <div className="inv-add-form__select-container">
+                            <select
+                                name="warehouse"
+                                id="warehouse"
+                                className={`inv-add-form__input inv-add-form__input--select ${warehouseError && 'inv-add-form__input--invalid'}`} 
+                                placeholder="Please Select"
+                                value={warehouse}
+                                onChange={handleInputChange}
+                                onBlur={handleInputBlur}
+                            >
+                                <option value='' disabled hidden>Please Select</option>
+                                {warehouseList.map((warehouse)=>{
+                                    return <option key={warehouse.id} value={warehouse.id}>{warehouse.warehouse_name}</option>
+                                })}
+                            </select>
+                        </div>
                         <p className="inv-add-form__error">
                             {warehouseError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
                             {warehouseError}

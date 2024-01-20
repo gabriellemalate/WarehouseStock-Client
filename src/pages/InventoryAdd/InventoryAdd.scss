@@ -131,6 +131,27 @@
                 width: 28%;
             }
         }
+
+        &--select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+    }
+
+    &__select-container {
+        position: relative;
+        
+        &::after {
+            content: " ";
+            pointer-events: none;
+            background-image: url("../../assets/icons/arrow_drop_down-24px.svg");
+            width: 1rem;
+            height: 1rem;
+            position: absolute;
+            right: 1rem;
+            top: 0.45rem;
+        }
     }
 
     &__error {
