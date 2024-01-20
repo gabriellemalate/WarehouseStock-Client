@@ -20,6 +20,7 @@
     border: 1px solid $Cloud;
     @include mobile__body--med;
     resize: none;
+    color: $Instock-Black;
 
     @include tablet {
         @include tablet__body--med;
@@ -28,6 +29,14 @@
     &:focus {
         outline: none;
         border: 1px solid $Instock-Indigo;
+    }
+
+    &::placeholder {
+        color: $Slate;
+    }
+
+    &:disabled {
+        color: $Slate;
     }
 
     &--invalid {

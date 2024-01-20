@@ -105,6 +105,7 @@
 
     &__input {
         @include form__input--small;
+        color: $Instock-Black;
 
         &--large {
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Back from "../../assets/icons/arrow_back-24px.svg";
 import Down from "../../assets/icons/arrow_drop_down-24px.svg";
 import errorIcon from '../../assets/icons/error-24px.svg';
@@ -43,20 +43,23 @@ function InventoryAdd() {
         setErrors({...errors, [name]: getInputError(value, name)})
     }
 
-    // const handleSubmit = () => {
+    function handleInputBlur(event) {
+        const { name, value } = event.target;
+        setErrors({...errors, [name]: getInputError(value, name)})
+    }
 
-    //     if (itemName.trim() === "") {
-    //         setInputErrors((prev) => ({ ...prev, item: "This field is required" }));
-    //         return;
-    //     } else {
-    //         setInputErrors((prev) => ({ ...prev, item: "This field is required" }));
-    //     }
+    function handleFormSubmition(event) {
+        event.preventDefault();
+        if (formIsValid(inputs)) {
+            console.log(inputs);
+        }
+    }
 
-    //     if (warehouse === "") {
-    //         setInputErrors((prev) => ({ ...prev, warehouse: true }));
-    //         return;
-    //     }
-    // };
+    let navigate = useNavigate();
+
+    function handleCancelClick() {
+        navigate('/inventory');
+    }
 
     return (
         <main className="main">
@@ -69,7 +72,7 @@ function InventoryAdd() {
                 </h1>
             </div>
 
-            <form className="inv-add-form" >
+            <form className="inv-add-form" onSubmit={handleFormSubmition}>
                 <div className="inv-add-form__middle">
                     <fieldset className="inv-add-form__fieldset">
                         <h2 className="inv-add-form__legend">
@@ -84,6 +87,7 @@ function InventoryAdd() {
                             placeholder="Item Name"
                             value={itemName}
                             onChange={handleInputChange}
+                            onBlur={handleInputBlur}
                         />
                         <p className="inv-add-form__error">
                             {itemNameError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
@@ -97,6 +101,7 @@ function InventoryAdd() {
                             placeholder="Please enter a brief item description..."
                             value={description}
                             onChange={handleInputChange}
+                            onBlur={handleInputBlur}
                         />
                         <p className="inv-add-form__error">
                             {descriptionError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
@@ -110,8 +115,9 @@ function InventoryAdd() {
                             placeholder="Please Select"
                             value={category}
                             onChange={handleInputChange}
+                            onBlur={handleInputBlur}
                         >
-                            <option value='' disabled>Please Select</option>
+                            <option value='' disabled hidden>Please Select</option>
                             <option value='accessories'>Accessories</option>
                             <option value='apparel'>Apparel</option>
                             <option value='electronics'>Electronics</option>
@@ -138,6 +144,7 @@ function InventoryAdd() {
                                     value='inStock'
                                     checked={status === 'inStock'}
                                     onChange={handleInputChange}
+                                    onBlur={handleInputBlur}
                                 />
                                 In Stock
                             </label>
@@ -150,6 +157,7 @@ function InventoryAdd() {
                                     value='outOfStock'
                                     checked={status === 'outOfStock'}
                                     onChange={handleInputChange}
+                                    onBlur={handleInputBlur}
                                 />
                                 Out of Stock
                             </label>
@@ -169,6 +177,7 @@ function InventoryAdd() {
                             className={`inv-add-form__input ${quantityError && 'inv-add-form__input--invalid'}`}
                             value={quantity}
                             onChange={handleInputChange}
+                            onBlur={handleInputBlur}
                         />
                         </>
                         )}
@@ -184,8 +193,9 @@ function InventoryAdd() {
                             placeholder="Please Select"
                             value={warehouse}
                             onChange={handleInputChange}
+                            onBlur={handleInputBlur}
                         >
-                            <option value='' disabled>Please Select</option>
+                            <option value='' disabled hidden>Please Select</option>
                             <option value='warehouse1'>Warehouse 1</option>
                         </select>
                         <p className="inv-add-form__error">
@@ -195,7 +205,7 @@ function InventoryAdd() {
                     </fieldset>
                 </div>
                 <div className="inv-add-form__bottom">
-                    <button type="button" className="inv-add-form__button inv-add-form__button--secondary" onClick={''}>Cancel</button>
+                    <button type="button" className="inv-add-form__button inv-add-form__button--secondary" onClick={handleCancelClick}>Cancel</button>
                     <button type="submit" className="inv-add-form__button">+ Add Item</button>
                 </div>
             </form>
