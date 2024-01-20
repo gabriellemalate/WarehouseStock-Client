@@ -1,0 +1,35 @@
+// @use "../../styles/partials/variables" as *;
+// @use "../../styles/partials/mixins" as *;
+
+// .warehouses-details-page {
+//   font-family: $fontface;
+//   border-radius: 0.2rem;
+//   background-color: $White;
+//   margin: 0 1rem;
+//   @include column;
+
+//   @include tablet {
+//     margin: 0 2rem;
+//   }
+//   @include desktop {
+//     max-width: 95%;
+//   }
+
+//   &-top {
+//     @include row;
+//     width: 100%;
+  
+//     padding: 0 0 1.4rem;
+
+//     @include row;
+//     justify-content: space-between;
+//     width: 100%;
+//   }
+
+//   &-eq {
+//     width: 90%;
+//     @include column;
+//     padding: 1.6rem 0 2rem;
+//   }
+
+// }

@@ -164,27 +164,27 @@
     font-weight: 600;
 }
 @mixin mobile__label {
-    font-size: 0.813rem;
+    font-size: 0.8125rem;
     line-height: 1.25rem;
     font-weight: 600;
 }
 @mixin mobile__tablehead {
-    font-size: 0.688rem;
+    font-size: 0.6875rem;
     line-height: 1rem;
     font-weight: 600;
 }
 @mixin mobile__body--large {
-    font-size: 0.938rem;
+    font-size: 0.9375rem;
     line-height: 1.625rem;
     font-weight: 400;
 }
 @mixin mobile__body--med {
-    font-size: 0.813rem;
+    font-size: 0.8125rem;
     line-height: 1.25rem;
     font-weight: 400;
 }
 @mixin mobile__body--small {
-    font-size: 0.688rem;
+    font-size: 0.6875rem;
     line-height: 1rem;
     font-weight: 400;
 }
@@ -201,7 +201,7 @@
 @mixin tablet__label {
     font-size: 0.875rem;
     line-height: 1.375rem;
-    font-weight: 400;
+    font-weight: 600;
 }
 @mixin tablet__tablehead {
     font-size: 0.75rem;

@@ -32,6 +32,7 @@
 
         &-eq {
             width: 100%;
+            
 
             @include tablet {
                 @include row;
@@ -103,6 +104,7 @@
                     height: 1rem;
                     border-color: $Cloud;
                     resize: none;
+                    overflow: hidden;
 
                     position: relative;
                     right: .7rem;
