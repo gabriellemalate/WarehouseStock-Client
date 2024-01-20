@@ -24,6 +24,10 @@
                 @include row;
             }
 
+            @include desktop {
+                padding: 1.03rem 2.5rem;
+            }
+
             &-core {
                 @include row;
                 column-gap: 1rem;
@@ -31,11 +35,6 @@
                 @include tablet {
                     align-items: center;
                     column-gap: 0;
-                }
-
-                @include desktop {
-                    // width: 85%;
-                    // max-width: 250vh;
                 }
             }
 
@@ -72,6 +71,10 @@
                     @include tablet {
                         width: calc((100vw - 8rem) / 4.2);
                     }
+
+                    @include desktop {
+                        width: 13.75rem;
+                    }
                 }
             
                 &-arrow {
@@ -84,11 +87,19 @@
                     @include tablet {
                         width: calc((100vw - 8rem) / 5.4);
                     }
+
+                    @include desktop {
+                        width: 16.45rem
+                    }
                 }
 
                 &-contact {
                     @include tablet {
                         width: calc((100vw - 8rem) / 5.2);
+                    }
+
+                    @include desktop {
+                        width: 10.75rem;
                     }
                 }
 
@@ -97,6 +108,10 @@
                         @include column;
                         width: calc((100vw - 8rem) / 3.5);
                         align-items: flex-start;
+                    }
+
+                    @include desktop {
+                        width: 12.2rem;
                     }
                 }
             }
@@ -107,10 +122,14 @@
             justify-content: space-between;
 
             @include tablet {
+                justify-content: flex-end;
                 column-gap: 1rem;
-                // width: 7vh;
-                //width: calc((100vw - 8rem) / 9);
             }
+
+            @include desktop {
+                width: 5.5rem;
+            }
+
             &-icon {
                 cursor: pointer;
             }
