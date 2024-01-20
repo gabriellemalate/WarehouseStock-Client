@@ -8,6 +8,7 @@ import "./InventoryAdd.scss";
 
 function InventoryAdd() {
     const BASE_URL = process.env.REACT_APP_API_URL;
+    let navigate = useNavigate();
     const [warehouseList, setWarehouseList] = useState([]);
 
     async function getWarehouses() {
@@ -35,8 +36,8 @@ function InventoryAdd() {
         itemName: '',
         description: '',
         category: '',
-        status: 'inStock',
-        quantity: 1,
+        status: 'In Stock',
+        quantity: '1',
         warehouse: '',
     })
     let { itemName, description, category, status, quantity, warehouse } = inputs;
@@ -83,12 +84,20 @@ function InventoryAdd() {
     async function handleFormSubmition(event) {
         event.preventDefault();
 
+        let item = {
+            warehouse_id: warehouse,
+            item_name: itemName,
+            description: description,
+            category: category,
+            status: status,
+            quantity: status === 'Out Of Stock' ? "0" : quantity,
+        }
+
         if (formIsValid(inputs)) {
-            await postInventoryItem
+            await postInventoryItem(item);
+            navigate('/inventory');
         }
     }
-
-    let navigate = useNavigate();
 
     function handleCancelClick() {
         navigate('/inventory');
@@ -176,8 +185,8 @@ function InventoryAdd() {
                                     id='inStock' 
                                     name='status' 
                                     className="inv-add-form__radio"
-                                    value='inStock'
-                                    checked={status === 'inStock'}
+                                    value='In Stock'
+                                    checked={status === 'In Stock'}
                                     onChange={handleInputChange}
                                     onBlur={handleInputBlur}
                                 />
@@ -189,8 +198,8 @@ function InventoryAdd() {
                                     id='outOfStock' 
                                     name='status' 
                                     className="inv-add-form__radio"
-                                    value='outOfStock'
-                                    checked={status === 'outOfStock'}
+                                    value='Out of Stock'
+                                    checked={status === 'Out of Stock'}
                                     onChange={handleInputChange}
                                     onBlur={handleInputBlur}
                                 />
@@ -201,7 +210,7 @@ function InventoryAdd() {
                             {statusError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
                             {statusError}
                         </p>
-                        {status === 'inStock' && (
+                        {status === 'In Stock' && (
                         <>
                         <label htmlFor="quantity" className="inv-add-form__label">Quantity</label>
                         <input 
