@@ -202,12 +202,12 @@ function InventoryAdd() {
                             onChange={handleInputChange}
                             onBlur={handleInputBlur}
                         />
-                        </>
-                        )}
                         <p className="inv-add-form__error">
                             {quantityError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
                             {quantityError}
                         </p>
+                        </>
+                        )}
                         <label htmlFor="warehouse" className="inv-add-form__label">Warehouse</label>
                         <select
                             name="warehouse"

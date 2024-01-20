@@ -98,7 +98,12 @@
         width: 50%;
 
         @include tablet {
-            @include mobile__body--small;
+            @include tablet__body--med;
+            width: 40%;
+        }
+
+        @include desktop {
+            width: 25%;
         }
     }
 
