@@ -47,23 +47,23 @@ function WarehouseListPage() {
                 </section>
                 <section className="warehouses-list">
                     <div className="warehouses-list__tablet">
-                        <div className="warehouses-list__tablet-label">
+                        <div className="warehouses-list__tablet-label warehouses-list__tablet-label-wh">
                             WAREHOUSE
                             <img className="warehouses-list__tablet-sort" alt="sort warehouses" src={Sort} />
                         </div>
-                        <div className="warehouses-list__tablet-label">
+                        <div className="warehouses-list__tablet-label warehouses-list__tablet-label-addr">
                             ADDRESS
                             <img className="warehouses-list__tablet-sort" alt="sort addresses" src={Sort} />
                         </div>
-                        <div className="warehouses-list__tablet-label">
+                        <div className="warehouses-list__tablet-label warehouses-list__tablet-label-name">
                             CONTACT NAME
                             <img className="warehouses-list__tablet-sort" alt="sort contacts" src={Sort} />
                         </div>
-                        <div className="warehouses-list__tablet-label">
+                        <div className="warehouses-list__tablet-label warehouses-list__tablet-label-info">
                             CONTACT INFORMATION
                             <img className="warehouses-list__tablet-sort" alt="sort contact information" src={Sort} />
                         </div>
-                        <h3 className="warehouses-list__tablet-label warehouses-list__tablet-label--right">
+                        <h3 className="warehouses-list__tablet-label warehouses-list__tablet-label-act">
                             ACTIONS
                         </h3>
                     </div>

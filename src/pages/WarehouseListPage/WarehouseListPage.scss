@@ -5,8 +5,7 @@
     border-radius: .2rem;
     background-color: $White;
     margin: 0 1rem;
-    // box-shadow: .02rem .02rem .2rem rgb(19, 24, 44, .1);
-    box-shadow: .02rem .02rem .2rem $shadow;
+    box-shadow: .02rem .02rem .2rem rgb(19, 24, 44, .1);
 
     @include tablet {
         margin: 0 2rem;
@@ -99,16 +98,36 @@
             }
 
             &-label {
-                flex-grow: 1;
+                // flex-grow: 1;
+                flex-shrink: 0;
                 @include row;
                 @include tablet__tablehead;
                 color: $Slate;
 
-                &--right {
+                &-wh {
+                    width: calc((100vw - 8rem) / 4.2);
+                }
+
+                &-addr {
+                    width: calc((100vw - 8rem) / 5.5);
+                }
+
+                &-name {
+                    width: calc((100vw - 8rem) / 5.2);
+                }
+
+                &-info {
+                    width: calc((100vw - 8rem) / 3.2);
+                }
+
+                &-act {
+                    width: 6.5vw;
+                    width: calc((100vw - 8rem) / 12.8);
                     justify-content: flex-end;
                 }
             }
             &-sort {
+                width: 1rem;
                 margin-left: 0.25rem;
             }
         }

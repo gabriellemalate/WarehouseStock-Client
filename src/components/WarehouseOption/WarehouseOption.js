@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Trash from "../../assets/icons/delete_outline-24px.svg";
 import Pencil from "../../assets/icons/edit-24px.svg";
 import Right from "../../assets/icons/chevron_right-24px.svg"
@@ -32,7 +32,7 @@ function WarehouseOption({ warehouse }) {
                         </div>
                         <div className="warehouses-list__item-detail">
                             <h4 className="warehouses-list__item-detail-label">CONTACT INFORMATION</h4>
-                            <p className="warehouses-list__item-detail-value warehouses-list__item-detail-value-info">
+                            <p className="warehouses-list__item-detail-value warehouses-list__item-detail-info">
                                 <div className="warehouses-list__item-detail-phone">{contact_phone}</div>
                                 <div className="warehouses-list__item-detail-email">{contact_email}</div>
                             </p>
