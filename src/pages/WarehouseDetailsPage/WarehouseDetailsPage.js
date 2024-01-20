@@ -6,7 +6,12 @@ import Pencil from "../../assets/icons/edit-24px.svg";
 import WarehouseDetails from "../../components/WarehouseDetails/WarehouseDetails";
 
 function WarehouseDetailsPage() {
-  return <WarehouseDetails />;
-}
+  const navigate = useNavigate();
 
+  const handleBackClick = () => {
+    navigate("/");
+
+    return <WarehouseDetails />;
+  };
+}
 export default WarehouseDetailsPage;

@@ -18,6 +18,7 @@ function WarehouseDetails() {
                 className="warehouses-details-page-list__item-detail-arrow"
                 src={Back}
                 alt="See More"
+                onClick={handleBackClick}
               />
               Insert Warehouse Location
             </h1>
