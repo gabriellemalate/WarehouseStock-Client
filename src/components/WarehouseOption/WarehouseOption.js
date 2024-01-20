@@ -14,9 +14,11 @@ function WarehouseOption({ warehouse }) {
                     <div className="warehouses-list__items warehouses-list__items-left">
                         <div className="warehouses-list__item-detail">
                             <h4 className="warehouses-list__item-detail-label">WAREHOUSE</h4>
-                            <p className="warehouses-list__item-detail-value warehouses-list__item-detail-warehouse"> {warehouse_name}
-                                <img className="warehouses-list__item-detail-arrow" src={Right} alt="See More" />
-                            </p>
+                            <Link to={`/warehouse/${id}`}>
+                                <p className="warehouses-list__item-detail-value warehouses-list__item-detail-warehouse"> {warehouse_name}
+                                    <img className="warehouses-list__item-detail-arrow" src={Right} alt="See More" />
+                                </p>
+                            </Link>
                         </div>
                         <div className="warehouses-list__item-detail">
                             <h4 className="warehouses-list__item-detail-label">ADDRESS</h4>
@@ -40,7 +42,9 @@ function WarehouseOption({ warehouse }) {
                     </div>
                 </div>
                 <div className="warehouses-list__actions">
-                    <img className="warehouses-list__actions-icon"src={Trash} alt="Delete" />
+                    <Link to={`/warehouse/${id}/delete`}>
+                        <img className="warehouses-list__actions-icon"src={Trash} alt="Delete" />
+                    </Link>
                     <Link to={`/warehouse/${id}/edit`}>
                         <img  className="warehouses-list__actions-icon" src={Pencil} alt="Edit" />
                     </Link>
