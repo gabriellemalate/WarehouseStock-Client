@@ -1,0 +1,148 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.warehouse-delete {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+
+
+    &__content-container {
+        background-color: $White;
+        width: 100%;
+        height: 100%;
+
+
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        padding: 2rem;
+
+
+        @include tablet {
+            width: 70%;
+            height: 70%;
+            background-color: rgb(255, 255, 255);
+            padding: 1rem;
+        }
+
+
+    }
+
+    &__header {
+        @include row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+
+    }
+
+    @include tablet {
+        justify-content: space-between;
+    }
+
+
+    &__title {
+        @include mobile__tablehead;
+        @include row;
+        align-items: center;
+
+        @include tablet {
+            @include tablet__label;
+        }
+    }
+
+    &__content__text {
+        @include mobile__body--med;
+        padding-left: 2rem;
+        padding-right: 5rem;
+
+        @include tablet {
+            @include tablet__body--med;
+        }
+    }
+
+
+
+    &__content__buttons-tablet {
+        display: none;
+
+        @include tablet {
+            @include row;
+            gap: 0.5rem;
+            padding: 1rem;
+            justify-content: flex-end;
+
+
+        }
+    }
+
+    &__content__buttons-mobile {
+
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: 50%;
+        bottom: 5rem;
+        transform: translateX(-50%);
+        width: auto;
+        gap:0.5rem;
+
+
+      
+
+        &-cancel {
+            @include form__button--secondary;
+            width: 50%; 
+            max-width: 50rem; 
+            min-width: 8rem; 
+            padding: 10px 0;
+
+        }
+
+        &-delete {
+            @include form__button--delete;
+            width: 50%; 
+            max-width: 50rem; 
+            min-width: 8rem; 
+            padding: 10px 0;
+
+        }
+        @include tablet {
+            display: none;
+
+        }
+
+    }
+
+
+
+
+
+    .warehouse-delete__content__buttons__delete {
+        @include form__button--delete
+    }
+
+    .warehouse-delete__content__buttons__cancel {
+        @include form__button--secondary;
+    }
+
+
+
+
+    @include tablet {
+        padding-top: 3rem;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+
+}
