@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios';
 import Back from "../../assets/icons/arrow_back-24px.svg";
 import Down from "../../assets/icons/arrow_drop_down-24px.svg";
 import errorIcon from '../../assets/icons/error-24px.svg';
@@ -7,7 +8,29 @@ import { getInputError, formIsValid } from "../../utils/validationUtils";
 import "./InventoryAdd.scss";
 
 function InventoryAdd() {
-    const [warehouseList, setWarehouseList] = useState("");
+    const BASE_URL = process.env.REACT_APP_API_URL;
+    const [warehouseList, setWarehouseList] = useState([]);
+
+    async function getWarehouses() {
+        try {
+            let response = await axios.get(`${BASE_URL}/warehouses`);
+
+            setWarehouseList(response.data);
+
+        } catch (error) {
+            console.log('Error fetching warehouses', error);
+            setWarehouseList([
+                {warehouse_name: 'Warehouse 1', id: '1'},
+                {warehouse_name: 'Warehouse 2', id: '2'},
+                {warehouse_name: 'Warehouse 3', id: '3'},
+                {warehouse_name: 'Warehouse 4', id: '4'},
+            ])
+        }
+    }
+
+    useEffect(()=>{
+        getWarehouses();
+    },[])
 
     let [ inputs, setInputs ] = useState({
         itemName: '',
@@ -196,7 +219,9 @@ function InventoryAdd() {
                             onBlur={handleInputBlur}
                         >
                             <option value='' disabled hidden>Please Select</option>
-                            <option value='warehouse1'>Warehouse 1</option>
+                            {warehouseList.map((warehouse)=>{
+                                return <option key={warehouse.id} value={warehouse.id}>{warehouse.warehouse_name}</option>
+                            })}
                         </select>
                         <p className="inv-add-form__error">
                             {warehouseError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
