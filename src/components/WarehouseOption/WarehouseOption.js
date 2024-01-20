@@ -5,8 +5,8 @@ import Pencil from "../../assets/icons/edit-24px.svg";
 import Right from "../../assets/icons/chevron_right-24px.svg"
 import "./WarehouseOption.scss"
 
-function WarehouseOption({ id }) {
-
+function WarehouseOption({ warehouse }) {
+    let { id, warehouse_name, address, city, country, contact_name, contact_email, contact_phone } = warehouse;
     return (
         <>
             <article className="warehouses-list__item">
@@ -16,27 +16,27 @@ function WarehouseOption({ id }) {
                             <div className="warehouses-list__items warehouses-list__items-left">
                                 <div className="warehouses-list__item-detail">
                                     <h4 className="warehouses-list__item-detail-label">WAREHOUSE</h4>
-                                    <p className="warehouses-list__item-detail-value warehouses-list__item-detail-warehouse"> Value
+                                    <p className="warehouses-list__item-detail-value warehouses-list__item-detail-warehouse"> {warehouse_name}
                                         <img className="warehouses-list__item-detail-arrow" src={Right} alt="See More" />
                                     </p>
                                 </div>
                                 <div className="warehouses-list__item-detail">
                                     <h4 className="warehouses-list__item-detail-label">ADDRESS</h4>
-                                    <p className="warehouses-list__item-detail-value warehouses-list__item-detail-address">890 Brannan Street, San Francisco, USA
+                                    <p className="warehouses-list__item-detail-value warehouses-list__item-detail-address">{address}, {city}, {country}
                                     </p>
                                 </div>
                             </div>
                             <div className="warehouses-list__items warehouses-list__items-right">
                                 <div className="warehouses-list__item-detail">
                                     <h4 className="warehouses-list__item-detail-label">CONTACT NAME</h4>
-                                    <p className="warehouses-list__item-detail-value warehouses-list__item-detail-contact">Value Value
+                                    <p className="warehouses-list__item-detail-value warehouses-list__item-detail-contact">{contact_name}
                                     </p>
                                 </div>
                                 <div className="warehouses-list__item-detail">
                                     <h4 className="warehouses-list__item-detail-label">CONTACT INFORMATION</h4>
                                     <p className="warehouses-list__item-detail-value warehouses-list__item-detail-value-info">
-                                        <span className="warehouses-list__item-detail-phone"> +1 (629) 555-0129</span>
-                                        <span className="warehouses-list__item-detail-email">paujla@instock.com </span>
+                                        <span className="warehouses-list__item-detail-phone">{contact_phone}</span>
+                                        <span className="warehouses-list__item-detail-email">{contact_email}</span>
                                     </p>
                                 </div>
                             </div>
