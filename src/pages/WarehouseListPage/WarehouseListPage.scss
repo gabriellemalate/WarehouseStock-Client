@@ -2,73 +2,42 @@
 @use "../../styles/partials/mixins" as *;
 
 .warehouses {
-    font-family: $fontface;
     border-radius: .2rem;
     background-color: $White;
     margin: 0 1rem;
-    @include column;
-    box-shadow: .02rem .02rem .2rem rgb(19, 24, 44, .1);
+    // box-shadow: .02rem .02rem .2rem rgb(19, 24, 44, .1);
+    box-shadow: .02rem .02rem .2rem $shadow;
 
-        @include tablet {
-            margin: 0 2rem;
-        }
-        @include desktop {
-            margin: 0 10.4vw;
-        }
-    &-eq {
-        width: 90%;
-        @include column;
-        padding: 1.6rem 0 2rem;
+    @include tablet {
+        margin: 0 2rem;
     }
+    @include desktop {
+        width: 63.75rem;
+        margin: auto;
+    }
+
     &-top {
-        @include column;
-        width: 111.2%;
         border-bottom: .09rem solid $Cloud;
-        padding: .48rem 0 1.4rem;
+        padding: 2rem 1.5rem;
 
         @include tablet {
             border: 0;
         }
 
-        &-eq {
-            width: 100%;
-            
-
-            @include tablet {
-                @include row;
-                justify-content: space-between;
-                width: 90%;
-            }
-        }
-
         &__head {
             @include mobile__pagehead;
-            margin: 0;
-            align-self: flex-start;
-            padding: 0 0 1rem 1rem;
+            padding-bottom: 1rem;
 
             @include tablet {
                 padding: 0;
             }
         }
+
         &__action {
-            @include column;
-            width: 100%;
-
-            @include tablet {
-                @include row;
-                width: 70%;
-                justify-content: space-between;
-                max-width: 43.8vh;
-            }
-
-            @include desktop {
-                max-width: 54vh;
-            }
-
             &-search {
-                width: 95%;
-                padding: 0 0 .8rem;
+                position: relative;
+                margin-bottom: 1rem;
+
 
                 @include tablet {
                     width: 22vh;
@@ -79,60 +48,22 @@
                     width: 33vh;
                 }
 
-                &-eq {
-                    width: 100%;
-                    @include row;
-                }
                 &-icon {
-                    position: relative;
-                    left: 86%;
-                    z-index: 1;
-
-                    @include tablet {
-                        left: 18vh;
-                        top: 0;
-                    }
-                    @include desktop {
-                        left: 28.6vh;
-                    }
+                    position: absolute;
+                    top: 0.5rem;
+                    right: 1rem;
                 }
+
                 &-box {
-                    @include mobile__field;
-                    padding: .5rem 0  .5rem 1rem;
-                    width: 100%;
-                    font-family: $fontface;
-                    height: 1rem;
-                    border-color: $Cloud;
-                    resize: none;
-                    overflow: hidden;
-
-                    position: relative;
-                    right: .7rem;
-                    &:active, &:focus {
-                        border-color: $Instock-Indigo;
-                        outline: none;
-                    }
-
-                    @include tablet {
-                        position: static;
-                        height: 1.2rem;
-                        width: 100%;
-                    }
+                    @include form__input--small;
                 }
             }
             &-button {
-                @include mobile__field;
-                border: 0;
-                background-color: $Instock-Indigo;
-                color: white;
-                @include mobile__label;
-                width: 90%;
-                &:hover {
-                    background-color: $Graphite;
-                }
+                @include form__button--primary;
+                width: 100%;
 
                 @include tablet {
-                    @include tablet__field;
+                    // @include tablet__field;
                     width: 11rem;
                 }
             }
