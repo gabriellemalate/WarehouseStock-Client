@@ -35,13 +35,15 @@ function WarehouseListPage() {
             <main className="warehouses">
                 <section className="warehouses-top">
                     <h1 className="warehouses-top__head">Warehouses</h1>
-                    <form className="warehouses-top__action-search">
-                        <img className="warehouses-top__action-search-icon" src={MagnifyingGlass} alt="Search" />
-                        <input className="warehouses-top__action-search-box" type="search" placeholder="Search..." />
-                    </form>
-                    <button className="warehouses-top__action-button" type='button' onClick={navigateToAddWarehouse}>
-                        + Add New Warehouse
-                    </button>
+                    <div className="warehouses-top__action">
+                        <form className="warehouses-top__action-search">
+                            <img className="warehouses-top__action-search-icon" src={MagnifyingGlass} alt="Search" />
+                            <input className="warehouses-top__action-search-box" type="search" placeholder="Search..." />
+                        </form>
+                        <button className="warehouses-top__action-button" type='button' onClick={navigateToAddWarehouse}>
+                            + Add New Warehouse
+                        </button>
+                    </div>
                 </section>
                 <section className="warehouses-list">
                     <div className="warehouses-list-eq">

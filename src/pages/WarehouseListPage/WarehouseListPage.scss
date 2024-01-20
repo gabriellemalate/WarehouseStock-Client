@@ -21,7 +21,10 @@
         padding: 2rem 1.5rem;
 
         @include tablet {
-            border: 0;
+            border: none;
+            padding: 2rem;
+            @include row;
+            justify-content: space-between;
         }
 
         &__head {
@@ -29,19 +32,24 @@
             padding-bottom: 1rem;
 
             @include tablet {
+                @include tablet__pagehead;
                 padding: 0;
             }
         }
 
         &__action {
+            @include tablet {
+                @include row;
+                column-gap: 1rem;
+            }
+
             &-search {
                 position: relative;
                 margin-bottom: 1rem;
 
 
                 @include tablet {
-                    width: 22vh;
-                    padding: 0;
+                    margin-bottom: 0;
                 }
 
                 @include desktop {
@@ -56,6 +64,10 @@
 
                 &-box {
                     @include form__input--small;
+
+                    @include tablet {
+                        width: 11.5rem;
+                    }
                 }
             }
             &-button {
@@ -63,8 +75,9 @@
                 width: 100%;
 
                 @include tablet {
-                    // @include tablet__field;
-                    width: 11rem;
+                    font-weight: 400;
+                    padding: 0.5rem 0;
+                    width: 10.5rem;
                 }
             }
         }
