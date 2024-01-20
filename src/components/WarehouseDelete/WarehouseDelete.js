@@ -7,18 +7,17 @@ import "./WarehouseDelete.scss";
 
 function WarehouseDelete() {
     const navigate = useNavigate();
-    const { warehouseId } = useParams(); // Get warehouse ID from URL
+    const { warehouseId } = useParams(); 
 
     const warehouseName = "Warehouse Name"; 
 
     const handleDelete = async () => {
         try {
             await axios.delete(`/api/warehouses/${warehouseId}`);
-            navigate('/'); // Redirect to home or warehouse list page after deletion
+            navigate('/'); 
         } catch (error) {
             console.error('Error deleting warehouse:', error);
-            // Handle error (show message to user, etc.)
-        }
+       }
     };
 
     return (
