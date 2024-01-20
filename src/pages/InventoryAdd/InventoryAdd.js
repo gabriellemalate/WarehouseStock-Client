@@ -85,12 +85,12 @@ function InventoryAdd() {
     }
 
     return (
-        <main className="main">
-            <div className="main__page-header">
-                <Link to='/inventory' className="main__back-link">
-                    <img src={Back} alt="back arrow" className="main__back-button" />
+        <main className="inv-add">
+            <div className="inv-add__page-header">
+                <Link to='/inventory' className="inv-add__back-link">
+                    <img src={Back} alt="back arrow" className="inv-add__back-button" />
                 </Link>
-                <h1 className="main__title">
+                <h1 className="inv-add__title">
                     Add New Inventory Item
                 </h1>
             </div>
@@ -120,7 +120,7 @@ function InventoryAdd() {
                         <textarea 
                             name="description"
                             id="description" 
-                            className={`inv-add-form__input ${descriptionError && 'inv-add-form__input--invalid'}`} 
+                            className={`inv-add-form__input inv-add-form__input--large ${descriptionError && 'inv-add-form__input--invalid'}`} 
                             placeholder="Please enter a brief item description..."
                             value={description}
                             onChange={handleInputChange}

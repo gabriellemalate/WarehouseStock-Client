@@ -3,7 +3,7 @@
 
 
 
-.main {
+.inv-add {
     background-color: $White;
     margin: 0 $mobile-spacing;
     box-shadow: $shadow;
@@ -22,10 +22,12 @@
         padding: 2rem 1.5rem 1.4rem;
         @include row;
         column-gap: 0.5rem;
+        align-items: flex-start;
 
         @include tablet {
             padding: 2rem $tablet-side-margin 1.4rem;
             column-gap: 0.55rem;
+            align-items: center;
         }
 
         @include desktop {
@@ -86,6 +88,7 @@
 
     &__label {
         @include form__label;
+        margin-bottom: 0.3rem;
     }
 
     &__option {
@@ -108,7 +111,7 @@
         color: $Instock-Black;
 
         &--large {
-
+            height: 7.5rem;
         }
 
         &--radio {
