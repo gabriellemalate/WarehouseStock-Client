@@ -70,10 +70,21 @@ function InventoryAdd() {
         setErrors({...errors, [name]: getInputError(value, name)})
     }
 
-    function handleFormSubmition(event) {
+    async function postInventoryItem(inventoryItem) {
+        try {
+            let response = await axios.post(`${BASE_URL}/inventory`, inventoryItem);
+            return response;
+
+        } catch (error) {
+            console.log('Error creating inventory item', error);
+        }
+    }
+
+    async function handleFormSubmition(event) {
         event.preventDefault();
+
         if (formIsValid(inputs)) {
-            console.log(inputs);
+            await postInventoryItem
         }
     }
 
