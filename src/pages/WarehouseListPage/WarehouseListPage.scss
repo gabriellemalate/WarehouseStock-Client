@@ -28,7 +28,7 @@
         }
 
         @include desktop {
-            padding: 2rem 2.5rem;
+            padding: 2rem 2.5rem 1.5rem;
         }
 
         &__head {
@@ -97,8 +97,11 @@
                 @include row;
             }
 
+            @include desktop {
+                padding: 0.5rem 2.5rem;
+            }
+
             &-label {
-                // flex-grow: 1;
                 flex-shrink: 0;
                 @include row;
                 @include tablet__tablehead;
@@ -106,24 +109,45 @@
 
                 &-wh {
                     width: calc((100vw - 8rem) / 4.2);
+
+                    @include desktop {
+                        width: 13.75rem
+                    }
                 }
 
                 &-addr {
                     width: calc((100vw - 8rem) / 5.5);
+
+                    @include desktop {
+                        width: 16.45rem
+                    }
                 }
 
                 &-name {
                     width: calc((100vw - 8rem) / 5.2);
+
+                    @include desktop {
+                        width: 10.75rem;
+                    }
                 }
 
                 &-info {
                     width: calc((100vw - 8rem) / 3.2);
+
+                    @include desktop {
+                        width: 12.2rem;
+                    }
                 }
 
                 &-act {
                     width: 6.5vw;
                     width: calc((100vw - 8rem) / 12.8);
                     justify-content: flex-end;
+
+                    @include desktop {
+                        width: 5.5rem;
+                    }
+
                 }
             }
             &-sort {
