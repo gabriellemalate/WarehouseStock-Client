@@ -59,8 +59,7 @@ function InventoryDetails() {
                 </div>
             </div>
             <div className="item-details-container">
-
-                <div className="item-details__info">
+                <div className="item-details__info-mobile">
                     <p className="item-details-list__-title">
 
                         ITEM DESCRIPTION:
@@ -69,8 +68,58 @@ function InventoryDetails() {
                         {"description"}
                     </p>
                 </div>
+                <div className="item-details-container__tablet">
+                    <div className="item-details__info-column-left">
+                        <div className="item-details__info">
+                            <p className="item-details-list__-title">
 
-                <div className="item-details__info">
+                                ITEM DESCRIPTION:
+                            </p>
+                            <p className="item-details-list__description-text">
+                                {"description"}
+                            </p>
+                        </div>
+                        <div className="item-details__info">
+                            <p className="item-details-list__-title">
+                                CATEGORY
+                            </p>
+                            <p className="item-details-list__category-text">
+                                {"category"}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="item-details__info-tablet">
+                        <div className="item-details__info-column-right">
+                            <div className="item-details__info">
+                                <p className="item-details-list__-title">
+                                    STATUS
+                                </p>
+                                <p className="item-details-list__status-text">
+                                    {"status"}
+                                </p>
+                            </div>
+                            <div className="item-details__info">
+                                <p className="item-details-list__-title">
+                                    WAREHOUSE
+                                </p>
+                                <p className="item-details-list__qty-text">
+                                    {"warehouse_id"}
+                                </p>
+                            </div>
+                        </div>
+                        <div className="item-details__info">
+                            <p className="item-details-list__-title">
+                                QUANTITY
+                            </p>
+                            <p className="item-details-list__qty-text">
+                                {"quantity"}
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <div className="item-details__info-mobile">
 
                     <p className="item-details-list__-title">
                         CATEGORY
@@ -79,7 +128,9 @@ function InventoryDetails() {
                         {"category"}
                     </p>
                 </div>
-                <div className="item-details__info-statusqty-container">
+
+
+                <div className="item-details__info-statusqty-container-mobile">
                     <div className="item-details__info">
                         <p className="item-details-list__-title">
                             STATUS
@@ -97,7 +148,8 @@ function InventoryDetails() {
                         </p>
                     </div>
                 </div>
-                <div className="item-details__info">
+
+                <div className="item-details__info-mobile">
                     <p className="item-details-list__-title">
                         WAREHOUSE
                     </p>
