@@ -8,16 +8,16 @@ import "./WarehouseDelete.scss";
 
 function WarehouseDelete() {
     const navigate = useNavigate();
-    const { warehouseId } = useParams();
+    const { id } = useParams();
 
     const warehouseName = "Warehouse Name";
 
     const handleDelete = async () => {
         try {
-            await axios.delete(`/api/warehouses/${warehouseId}`);
+            await axios.delete(`http://localhost:8080/warehouses/${id}`);
             navigate('/');
         } catch (error) {
-            console.error('Error deleting warehouse:', error);
+            console.error('Error deleting warehouse:', error.response ? error.response.data : error);
         }
     };
 
