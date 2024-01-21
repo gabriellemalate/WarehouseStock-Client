@@ -20,10 +20,9 @@ function InventoryEditPage() {
         warehouse: '',
     });
     let { itemName, description, category, status, quantity, warehouse} = inputs;
-    // country and email need to be removed
-    // let [ dropdowns, setDropdowns ] = useState({ categoryDropdown: null, warehouseDropdown: null});
-    let [ categoryList, setCategoryList ] = useState('');
-    let [ warehouseList, setWarehouseList ] = useState('');
+
+    let [ categoryList, setCategoryList ] = useState([]);
+    let [ warehouseList, setWarehouseList ] = useState([]);
 
     useEffect(() => {
 
@@ -114,7 +113,13 @@ function InventoryEditPage() {
         setErrors({...errors, [name]: getInputError(value, name)})
     }
 
+    function createDropdownOptions (options) {
+        return options.map(option => <option value={option}>{option}</option>)
+    }
 
+    // console.log("121|\n\n",createDropdownOptions);
+    // console.log("122|\n\n", categoryList);
+    // console.log("123|\n\n", warehouseList);
 
 
     
@@ -223,6 +228,14 @@ function InventoryEditPage() {
                             {warehouseError && <img src={errorIcon} alt="" className="form__error-icon" />}
                             {warehouseError}
                         </p>
+                        <label htmlFor="pet-select" className="form__label">TESTING:</label>
+                        <select name="pets" id="pet-select" className={`form__input ${warehouseError && 'form__input--invalid'}`}>
+                            {categoryList.map(element => (<option value={`${element.category}`}>{element.category}</option>))}
+                        </select>
+                        <label htmlFor="pet-select" className="form__label">TESTING:</label>
+                        <select name="pets" id="pet-select" className={`form__input ${warehouseError && 'form__input--invalid'}`}>
+                            {warehouseList.map(element => (<option value={`${element.warehouse_name}`}>{element.warehouse_name}</option>))}
+                        </select>
                     </fieldset>
                 </div>
                 <div className="form__bottom">
