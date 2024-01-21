@@ -9,10 +9,17 @@ import "./WarehouseDelete.scss";
 function WarehouseDelete() {
     const navigate = useNavigate();
     const { id } = useParams();
+    console.log('Extracted ID:', id);
+
 
     const warehouseName = "Warehouse Name";
 
     const handleDelete = async () => {
+
+        if (!id) {
+            console.error('No ID provided for deletion');
+            return;
+        }
         try {
             await axios.delete(`http://localhost:8080/warehouses/${id}`);
             navigate('/');
