@@ -23,7 +23,7 @@ import './App.scss';
                         {/* <Route path="/warehouse/:warehouseId" element={<WarehouseDetailsPage />} /> */}
                         <Route path="/warehouse/:warehouseId/edit" element={<WarehouseEditPage />} />
                         <Route path="/warehouse/:warehouseId/delete" element={<WarehouseDelete />} />
-                        <Route path="/inventory/:itemId/delete" element={<InventoryDelete/>} />
+                        <Route path="/inventory/:id/delete" element={<InventoryDelete/>} />
                         {/* <Route path="/inventory/:itemId" element={<ItemPage />} />
                             <Route path="/inventory/:itemId/edit" element={<ItemEditPage />} />
                             <Route path="/inventory/add" element={<ItemAddPage />} />

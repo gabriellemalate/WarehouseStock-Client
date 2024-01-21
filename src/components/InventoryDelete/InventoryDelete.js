@@ -8,13 +8,14 @@ import "./InventoryDelete.scss";
 
 function InventoryDelete() {
     const navigate = useNavigate();
-    const { itemId } = useParams();
+    const { id } = useParams();
+    console.log('Extracted ID:', id);
 
     const itemName = "ITEM NAME";
 
     const handleDelete = async () => {
         try {
-            await axios.delete(`/api/inventory/${itemId}`);
+            await axios.delete(`http://localhost:8080/inventory/${id}`);
             navigate('/');
         } catch (error) {
             console.error('Error deleting inventory item:', error);
