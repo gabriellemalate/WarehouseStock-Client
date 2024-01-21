@@ -15,31 +15,35 @@ function InventoryEditPage() {
         itemName: '',
         description: '',
         category: '',
-        // country: '',
         status: '',
         quantity: '',
         warehouse: '',
-        // email: '',
     });
-    let { itemName, description, category, country, status, quantity, warehouse, email} = inputs;
-
+    let { itemName, description, category, status, quantity, warehouse} = inputs;
+    // country and email need to be removed
+    // let [ dropdowns, setDropdowns ] = useState({ categoryDropdown: null, warehouseDropdown: null});
+    let [ categoryList, setCategoryList ] = useState('');
+    let [ warehouseList, setWarehouseList ] = useState('');
 
     useEffect(() => {
 
         async function getItem(id) {
             try {
                 let response = await axios.get(`${process.env.REACT_APP_API_URL}/inventory/${id}`);
+                let response2 = await axios.get(`${process.env.REACT_APP_API_URL}/inventory/unique`);
+                let response3 = await axios.get(`${process.env.REACT_APP_API_URL}/warehouses/unique`);
 
                 setInputs({
                     itemName: response.data.item_name,
                     description: response.data.description,
                     category: response.data.category,
-                    country: response.data.country,
-                    status: response.data.contact_name,
-                    quantity: response.data.contact_quantity,
-                    warehouse: response.data.contact_phone,
-                    email: response.data.contact_email,
+                    status: response.data.status,
+                    quantity: response.data.quantity,
+                    warehouse: response.data.warehouse_name,
                 });
+
+                setCategoryList(response2.data);
+                setWarehouseList(response3.data);
 
                 return response.data;
     
@@ -57,20 +61,16 @@ function InventoryEditPage() {
         itemName: null,
         description: null,
         category: null,
-        country: null,
         status: null,
         quantity: null,
         warehouse: null,
-        email: null,
     });
     let { itemName: itemNameError, 
         description: descriptionError, 
         category: categoryError, 
-        country: countryError, 
         status: statusError, 
         quantity: quantityError, 
         warehouse: warehouseError, 
-        email: emailError
     } = errors;
 
     let navigate = useNavigate();
@@ -97,11 +97,9 @@ function InventoryEditPage() {
             item_name: itemName,
             description: description,
             category: category,
-            country: country,
-            contact_name: status,
-            contact_quantity: quantity,
-            contact_phone: warehouse,
-            contact_email: email
+            status: status,
+            quantity: quantity,
+            warehouse_name: warehouse,
         }
 
         if(formIsValid(inputs)) {
