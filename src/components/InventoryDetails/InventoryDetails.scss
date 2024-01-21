@@ -1,0 +1,60 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.item-details {
+    font-family: $fontface;
+    border-radius: 0.2rem;
+    background-color: $White;
+    margin: 0 1rem;
+    @include column;
+    @include mobile__body--med;
+
+    @include tablet {
+        margin: 0 2rem;
+    }
+
+    @include desktop {
+        max-width: 95%;
+    }
+
+    &-title {
+        width: 90%;
+        @include column;
+        @include mobile__tablehead;
+        padding: 1.6rem 0 2rem;
+
+        @include tablet {
+            @include tablet__subhead;
+        }
+
+    }
+
+    &-top {
+        width: 100%;
+        padding: 0 0 1.4rem;
+        @include row;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    &-container{
+        width: 100%;
+        border-top: 0.09rem solid $Cloud;
+    
+        @include tablet {
+          @include tablet__body--med;
+        }
+    }
+
+    &__info{
+        @include column;
+        align-items: flex-start;
+      padding: 1rem;
+    }
+
+    &__info-statusqty-container{
+        @include row;
+        justify-content: space-between;
+        width: 90%;
+    }
+}
