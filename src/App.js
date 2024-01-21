@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
 import InventoryPage from "./pages/InventoryPage/InventoryPage"
 import Header from './components/Header/Header';
 import InventoryAdd from "./pages/InventoryAdd/InventoryAdd";

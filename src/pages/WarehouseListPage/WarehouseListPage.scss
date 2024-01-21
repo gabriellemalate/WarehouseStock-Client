@@ -2,188 +2,158 @@
 @use "../../styles/partials/mixins" as *;
 
 .warehouses {
-    font-family: $fontface;
     border-radius: .2rem;
     background-color: $White;
     margin: 0 1rem;
-    @include column;
     box-shadow: .02rem .02rem .2rem rgb(19, 24, 44, .1);
 
-        @include tablet {
-            margin: 0 2rem;
-        }
-        @include desktop {
-            margin: 0 10.4vw;
-        }
-    &-eq {
-        width: 90%;
-        @include column;
-        padding: 1.6rem 0 2rem;
+    @include tablet {
+        margin: 0 2rem;
     }
+    @include desktop {
+        width: 63.75rem;
+        margin: auto;
+    }
+
     &-top {
-        @include column;
-        width: 111.2%;
         border-bottom: .09rem solid $Cloud;
-        padding: .48rem 0 1.4rem;
+        padding: 2rem 1.5rem 1.6rem;
 
         @include tablet {
-            border: 0;
+            border: none;
+            padding: 2rem;
+            padding-bottom: 1.5rem;
+            @include row;
+            justify-content: space-between;
         }
 
-        &-eq {
-            width: 100%;
-            
-
-            @include tablet {
-                @include row;
-                justify-content: space-between;
-                width: 90%;
-            }
+        @include desktop {
+            padding: 2rem 2.5rem 1.5rem;
         }
 
         &__head {
             @include mobile__pagehead;
-            margin: 0;
-            align-self: flex-start;
-            padding: 0 0 1rem 1rem;
+            padding-bottom: 1rem;
 
             @include tablet {
+                @include tablet__pagehead;
                 padding: 0;
             }
         }
-        &__action {
-            @include column;
-            width: 100%;
 
+        &__action {
             @include tablet {
                 @include row;
-                width: 70%;
-                justify-content: space-between;
-                max-width: 43.8vh;
-            }
-
-            @include desktop {
-                max-width: 54vh;
+                column-gap: 1rem;
             }
 
             &-search {
-                width: 95%;
-                padding: 0 0 .8rem;
+                position: relative;
+                margin-bottom: 1rem;
+
 
                 @include tablet {
-                    width: 22vh;
-                    padding: 0;
+                    margin-bottom: 0;
                 }
 
-                @include desktop {
-                    width: 33vh;
-                }
-
-                &-eq {
-                    width: 100%;
-                    @include row;
-                }
                 &-icon {
-                    position: relative;
-                    left: 86%;
-                    z-index: 1;
-
-                    @include tablet {
-                        left: 18vh;
-                        top: 0;
-                    }
-                    @include desktop {
-                        left: 28.6vh;
-                    }
+                    position: absolute;
+                    top: 0.5rem;
+                    right: 1rem;
                 }
-                &-box {
-                    @include mobile__field;
-                    padding: .5rem 0  .5rem 1rem;
-                    width: 100%;
-                    font-family: $fontface;
-                    height: 1rem;
-                    border-color: $Cloud;
-                    resize: none;
-                    overflow: hidden;
 
-                    position: relative;
-                    right: .7rem;
-                    &:active, &:focus {
-                        border-color: $Instock-Indigo;
-                        outline: none;
-                    }
+                &-box {
+                    @include form__input--small;
 
                     @include tablet {
-                        position: static;
-                        height: 1.2rem;
-                        width: 100%;
+                        width: 11.5rem;
+                    }
+
+                    @include desktop {
+                        width: 17rem;
                     }
                 }
             }
             &-button {
-                @include mobile__field;
-                border: 0;
-                background-color: $Instock-Indigo;
-                color: white;
-                @include mobile__label;
-                width: 90%;
-                &:hover {
-                    background-color: $Graphite;
-                }
+                @include form__button--primary;
+                width: 100%;
 
                 @include tablet {
-                    @include tablet__field;
-                    width: 11rem;
+                    font-weight: 400;
+                    padding: 0.5rem 0;
+                    width: 10.5rem;
                 }
             }
         }
     }
     &-list {
         &__tablet {
+
             display: none;
             background-color: $Light-Grey;
-            width: 100%;
-            padding: 0 4.8vw;
-            position: relative;
-            right: 3.68rem;
-            height: 2.4rem;
+            padding: 0.5rem 2rem;
 
             @include tablet {
                 @include row;
-                justify-content: space-between;
             }
 
-            &-left {
-                @include row;
-                justify-content: space-between;
-                width: 32vw;
-                max-width: 20rem;
+            @include desktop {
+                padding: 0.5rem 2.5rem;
             }
-            &-right {
-                @include row;
-                width: 28vw;
-                justify-content: space-between;
-                max-width: 24.6rem;
-            }
-            &-end {
-                @include row;
-                width: 60%;
-                max-width: 51.5vh;
-                justify-content: space-between;
-            }
+
             &-label {
+                flex-shrink: 0;
                 @include row;
                 @include tablet__tablehead;
                 color: $Slate;
-                padding-right: 1rem;
-                width: fit-content;
-                white-space: nowrap;
-                &-acts {
-                    padding-right: 0;
+
+                &-wh {
+                    width: calc((100vw - 8rem) / 4.2);
+
+                    @include desktop {
+                        width: 13.75rem
+                    }
+                }
+
+                &-addr {
+                    width: calc((100vw - 8rem) / 5.5);
+
+                    @include desktop {
+                        width: 16.45rem
+                    }
+                }
+
+                &-name {
+                    width: calc((100vw - 8rem) / 5.2);
+
+                    @include desktop {
+                        width: 10.75rem;
+                    }
+                }
+
+                &-info {
+                    width: calc((100vw - 8rem) / 3.2);
+
+                    @include desktop {
+                        width: 12.2rem;
+                    }
+                }
+
+                &-act {
+                    width: 6.5vw;
+                    width: calc((100vw - 8rem) / 12.8);
+                    justify-content: flex-end;
+
+                    @include desktop {
+                        width: 5.5rem;
+                    }
+
                 }
             }
             &-sort {
-                padding: 0 0 0 .25rem;
+                width: 1rem;
+                margin-left: 0.25rem;
+                cursor: pointer;
             }
         }
     }
