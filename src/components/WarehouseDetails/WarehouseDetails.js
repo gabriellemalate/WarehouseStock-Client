@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import Trash from "../../assets/icons/delete_outline-24px.svg";
 import Pencil from "../../assets/icons/edit-24px.svg";
 import Back from "../../assets/icons/arrow_back-24px.svg";
@@ -8,15 +8,16 @@ import Right from "../../assets/icons/chevron_right-24px.svg";
 import "./WarehouseDetails.scss";
 
 function WarehouseDetails() {
+  let { warehouseId } = useParams()
 
   const navigate = useNavigate();
 
   const handleBackClick = () => {
-    navigate("/warehouses");
+    navigate("/warehouse");
   };
 
   const handleEditClick = () => {
-    navigate("/warehouses/:warehouseId/edit");
+    navigate(`/warehouse/${warehouseId}/edit`);
   };
   return (
     <>
@@ -198,8 +199,12 @@ function WarehouseDetails() {
         </div>
 
         <div className="warehouses-details-list__actions">
-          <img src={Trash} alt="Delete" />
-          <img src={Pencil} alt="Edit" />
+          <Link to={`/inventory/1/delete`}>
+            <img src={Trash} alt="Delete" />
+          </Link>
+          <Link to={`/inventory/1/edit`}>
+            <img src={Pencil} alt="Edit" />
+          </Link>
         </div>
       </main>
     </>
