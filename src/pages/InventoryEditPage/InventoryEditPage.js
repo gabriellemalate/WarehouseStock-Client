@@ -1,12 +1,11 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import { getInputError, formIsValid } from '../../utils/validationUtils';
 import errorIcon from '../../assets/icons/error-24px.svg'
 import backArrow from '../../assets/icons/arrow_back-24px.svg';
 import './InventoryEditPage.scss';
-
-const BASE_URL = process.env.REACT_APP_API_URL;
 
 function InventoryEditPage() {
     let { itemId } = useParams();
@@ -97,13 +96,13 @@ function InventoryEditPage() {
             description: description,
             category: category,
             status: status,
-            quantity: quantity,
-            warehouse_name: warehouse,
+            quantity: status === 'Out of Stock' ? "0" : quantity,
+            warehouse_id: warehouse,
         }
 
         if(formIsValid(inputs)) {
             await updateItem(itemId, item);
-            navigate(`/item/${itemId}`);
+            navigate(`/inventory/${itemId}`);
         }
     }
 
@@ -113,9 +112,11 @@ function InventoryEditPage() {
         setErrors({...errors, [name]: getInputError(value, name)})
     }
 
-    function createDropdownOptions (options) {
-        return options.map(option => <option value={option}>{option}</option>)
+    function handleInputBlur(event) {
+        const { name, value } = event.target;
+        setErrors({...errors, [name]: getInputError(value, name)})
     }
+
 
     // console.log("121|\n\n",createDropdownOptions);
     // console.log("122|\n\n", categoryList);
@@ -148,35 +149,40 @@ function InventoryEditPage() {
                             placeholder="Item Name"
                             value={itemName}
                             onChange={handleInputChange}
+                            onBlur={handleInputBlur}
                         />
                         <p className="form__error">
                             {itemNameError && <img src={errorIcon} alt="" className="form__error-icon" />}
                             {itemNameError}
                         </p>
                         <label htmlFor="description" className="form__label">Description</label>
-                        <input 
-                            type="text"
+                        <textarea 
                             name="description"
                             id="description" 
-                            className={`form__input ${descriptionError && 'form__input--invalid'}`} 
-                            placeholder="Description"
+                            className={`form__input form__input--large ${descriptionError && 'form__input--invalid'}`} 
+                            placeholder="Please enter a brief item description..."
                             value={description}
                             onChange={handleInputChange}
+                            onBlur={handleInputBlur}
                         />
                         <p className="form__error">
                             {descriptionError && <img src={errorIcon} alt="" className="form__error-icon" />}
                             {descriptionError}
                         </p>
                         <label htmlFor="category" className="form__label">Category</label>
-                        <input 
-                            type="text"
-                            name="category"
-                            id="category" 
-                            className={`form__input ${categoryError && 'form__input--invalid'}`}
-                            placeholder="Category"
-                            value={category}
-                            onChange={handleInputChange}
-                        />
+                        <div className="form__select-container">
+                            <select
+                                name="category"
+                                id="category"
+                                className={`form__input form__input--select ${categoryError && 'form__input--invalid'}`} 
+                                placeholder="Please Select"
+                                value={category}
+                                onChange={handleInputChange}
+                                onBlur={handleInputBlur}
+                            >
+                                {categoryList.map(element => (<option key={uuidv4()} value={`${element.category}`}>{element.category}</option>))}
+                            </select>
+                        </div>
                         <p className="form__error">
                             {categoryError && <img src={errorIcon} alt="" className="form__error-icon" />}
                             {categoryError}
@@ -186,56 +192,84 @@ function InventoryEditPage() {
                         <h2 className="form__legend">
                             Item Availability
                         </h2>
-                        <label htmlFor="status" className="form__label">Status</label>
-                        <input 
-                            type="text"
-                            name="status"
-                            id="status" 
-                            className={`form__input ${statusError && 'form__input--invalid'}`}
-                            placeholder="Status"
-                            value={status}
-                            onChange={handleInputChange}
-                        />
+                        <p className="form__label">Status</p>
+                        <div className="form__input form__input--radio">
+                            <label htmlFor="inStock" className="form__option">
+                                <input 
+                                    type="radio" 
+                                    id='inStock' 
+                                    name='status' 
+                                    className="form__radio"
+                                    value='In Stock'
+                                    checked={status === 'In Stock'}
+                                    onChange={handleInputChange}
+                                    onBlur={handleInputBlur}
+                                />
+                                In Stock
+                            </label>
+                            <label htmlFor="outOfStock" className="form__option">
+                                <input 
+                                    type="radio" 
+                                    id='outOfStock' 
+                                    name='status' 
+                                    className="form__radio"
+                                    value='Out of Stock'
+                                    checked={status === 'Out of Stock'}
+                                    onChange={handleInputChange}
+                                    onBlur={handleInputBlur}
+                                />
+                                Out of Stock
+                            </label>
+                        </div>
                         <p className="form__error">
                             {statusError && <img src={errorIcon} alt="" className="form__error-icon" />}
                             {statusError}
                         </p>
+                        {status === 'In Stock' && (
+                        <>
                         <label htmlFor="quantity" className="form__label">Quantity</label>
                         <input 
-                            type="text"
+                            type="number"
+                            min='1'
                             name="quantity"
                             id="quantity" 
-                            className={`form__input ${quantityError && 'form__input--invalid'}`}
-                            placeholder="Quantity"
+                            className={`form__input form__input--number ${quantityError && 'form__input--invalid'}`}
                             value={quantity}
                             onChange={handleInputChange}
+                            onBlur={handleInputBlur}
                         />
                         <p className="form__error">
                             {quantityError && <img src={errorIcon} alt="" className="form__error-icon" />}
                             {quantityError}
                         </p>
+                        </>
+                        )}
                         <label htmlFor="warehouse" className="form__label">Warehouse</label>
-                        <input 
-                            type="text"
-                            name="warehouse"
-                            id="warehouse" 
-                            className={`form__input ${warehouseError && 'form__input--invalid'}`} 
-                            placeholder="Warehouse"
-                            value={warehouse}
-                            onChange={handleInputChange}
-                        />
+                        <div className="form__select-container">
+                            <select
+                                name="warehouse"
+                                id="warehouse"
+                                className={`form__input form__input--select ${warehouseError && 'form__input--invalid'}`} 
+                                placeholder="Please Select"
+                                value={warehouse}
+                                onChange={handleInputChange}
+                                onBlur={handleInputBlur}
+                            >
+                                {warehouseList.map(element => (<option key={element.id} value={element.id}>{element.warehouse_name}</option>))}
+                            </select>
+                        </div>
                         <p className="form__error">
                             {warehouseError && <img src={errorIcon} alt="" className="form__error-icon" />}
                             {warehouseError}
                         </p>
-                        <label htmlFor="pet-select" className="form__label">TESTING:</label>
+                        {/* <label htmlFor="pet-select" className="form__label">TESTING:</label>
                         <select name="pets" id="pet-select" className={`form__input ${warehouseError && 'form__input--invalid'}`}>
-                            {categoryList.map(element => (<option value={`${element.category}`}>{element.category}</option>))}
+                            {categoryList.map(element => (<option key={uuidv4()} value={`${element.category}`}>{element.category}</option>))}
                         </select>
                         <label htmlFor="pet-select" className="form__label">TESTING:</label>
                         <select name="pets" id="pet-select" className={`form__input ${warehouseError && 'form__input--invalid'}`}>
-                            {warehouseList.map(element => (<option value={`${element.warehouse_name}`}>{element.warehouse_name}</option>))}
-                        </select>
+                            {warehouseList.map(element => (<option key={element.id} value={element.id}>{element.warehouse_name}</option>))}
+                        </select> */}
                     </fieldset>
                 </div>
                 <div className="form__bottom">
