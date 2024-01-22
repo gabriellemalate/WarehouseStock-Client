@@ -13,18 +13,12 @@ function InventoryAdd() {
 
     async function getWarehouses() {
         try {
-            let response = await axios.get(`${BASE_URL}/warehouses`);
+            let response = await axios.get(`${BASE_URL}/api/warehouses`);
 
             setWarehouseList(response.data);
 
         } catch (error) {
             console.log('Error fetching warehouses', error);
-            setWarehouseList([
-                {warehouse_name: 'Warehouse 1', id: '1'},
-                {warehouse_name: 'Warehouse 2', id: '2'},
-                {warehouse_name: 'Warehouse 3', id: '3'},
-                {warehouse_name: 'Warehouse 4', id: '4'},
-            ])
         }
     }
 
@@ -73,7 +67,7 @@ function InventoryAdd() {
 
     async function postInventoryItem(inventoryItem) {
         try {
-            let response = await axios.post(`${BASE_URL}/inventory`, inventoryItem);
+            let response = await axios.post(`${BASE_URL}/api/inventories`, inventoryItem);
             return response;
 
         } catch (error) {

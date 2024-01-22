@@ -1,0 +1,196 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.inventory-edit {
+    background-color: $White;
+    margin: 0 $mobile-spacing;
+    box-shadow: $shadow;
+    border-radius: 0.2rem;
+
+    @include tablet {
+        margin: 0 $tablet-side-margin;
+    }
+
+    @include desktop {
+        width: 63.75rem;
+        margin: 0 auto;
+    }
+
+    &__page-header {
+        padding: 2rem 1.5rem 1.4rem;
+        @include row;
+        column-gap: 0.5rem;
+        align-items: flex-start;
+
+        @include tablet {
+            padding: 2rem $tablet-side-margin 1.4rem;
+            column-gap: 0.55rem;
+            align-items: center;
+        }
+
+        @include desktop {
+            padding: 2rem 2.5rem 1.4rem;
+        }
+    }
+
+    &__back-button {
+        margin-top: 0.5rem;
+        cursor:pointer;
+    }
+
+    &__title {
+        @include mobile__pagehead;
+
+        @include tablet {
+            @include tablet__pagehead; 
+        }
+    }
+
+
+
+    .form {
+        &__middle {
+            @include tablet {
+                border-top: 1px solid $Cloud;
+                @include row;
+                padding: 1.5rem 0 0.5rem;
+                align-items: flex-start;
+            }
+        }
+    
+        &__fieldset {
+            border: none;
+            border-top: 1px solid $Cloud;
+            padding: 1rem 1.5rem 0.4rem;
+    
+            @include tablet {
+                border: none;
+                padding: 0 $tablet-side-margin;
+                flex: 1;
+    
+                &:last-child {
+                    border-left: 1px solid $Cloud;
+                }
+            }
+    
+            @include desktop {
+                padding: 0 2.5rem;
+            }
+    
+            & > * {
+                display: block;
+            }
+    
+        }
+    
+        &__legend {
+            @include form__section-title;
+        }
+    
+        &__label {
+            @include form__label;
+            margin-bottom: 0.3rem;
+        }
+    
+        &__option {
+            @include mobile__body--med;
+            @include row;
+            width: 50%;
+
+            @include tablet {
+                @include tablet__body--med;
+                width: 40%;
+            }
+    
+            @include desktop {
+                width: 25%;
+            }
+        }
+    
+        &__radio {
+            margin-right: 0.5rem;
+            width: auto;
+        }
+    
+        &__input {
+            @include form__input--small;
+            color: $Instock-Black;
+    
+            &--large {
+                height: 7.5rem;
+            }
+    
+            &--radio {
+                padding: 0;
+                border: none;
+                @include row;
+            }
+    
+            &--number {
+                @include desktop {
+                    width: 28%;
+                }
+            }
+    
+            &--select {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+            }
+        }
+    
+        &__select-container {
+            position: relative;
+            
+            &::after {
+                content: " ";
+                pointer-events: none;
+                background-image: url("../../assets/icons/arrow_drop_down-24px.svg");
+                width: 1rem;
+                height: 1rem;
+                position: absolute;
+                right: 1rem;
+                top: 0.45rem;
+            }
+        }
+    
+        &__error {
+            @include form__error-message;
+            @include row;
+        }
+    
+        &__error-icon {
+            width: 1rem;
+            margin-right: 0.25rem;
+        }
+    
+        &__bottom {
+            padding: 1rem 1.5rem;
+            background-color: rgba(247, 248, 249, 0.70);
+            @include row;
+            column-gap: 1rem;
+    
+            @include tablet {
+                padding: 1rem $tablet-side-margin;
+                justify-content: flex-end;
+            }
+    
+            @include desktop {
+                padding: 1rem 2.5rem;
+            }
+        }
+    
+        &__button {
+            @include form__button--primary;
+            flex: 1;
+    
+            @include tablet {
+                flex: 0 0 auto;
+            }
+    
+            &--secondary {
+                @include form__button--secondary;
+            }
+        }
+    }
+}

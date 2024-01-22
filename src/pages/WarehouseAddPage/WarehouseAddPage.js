@@ -47,7 +47,7 @@ function WarehouseAddPage() {
 
     async function postWarehouse(warehouse) {
         try {
-            let response = await axios.post(`${process.env.REACT_APP_API_URL}/warehouses`, warehouse);
+            let response = await axios.post(`${process.env.REACT_APP_API_URL}/api/warehouses`, warehouse);
 
             return response;
 
