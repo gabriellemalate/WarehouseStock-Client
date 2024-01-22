@@ -11,8 +11,26 @@ import "./InventoryDetails.scss";
 function InventoryDetails() {
 
     const navigate = useNavigate();
-    // const {id} = useParams();
-    // const [item, setItem] = useState(null);
+    const {itemId} = useParams();
+
+
+    const [item, setItem] = useState(null);
+
+    async function getItem() {
+        try {
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/inventories/${itemId}`);
+            console.log(response.data)
+            setItem(response.data);
+        } catch (error) {
+            console.log(`Error getting item with ID ${itemId}:`, error);
+        }
+    }
+
+    useEffect(() => { getItem() }, []);
+
+    if (!item) {
+        return <p>Loading item info...</p>;
+    }
 
     // useEffect(() => {
     //     const fetchItem = async () => {
@@ -65,7 +83,7 @@ function InventoryDetails() {
                         ITEM DESCRIPTION:
                     </p>
                     <p className="item-details-list__description-text">
-                        {"description"}
+                        {item.description}
                     </p>
                 </div>
                 <div className="item-details-container__tablet">
@@ -76,7 +94,7 @@ function InventoryDetails() {
                                 ITEM DESCRIPTION:
                             </p>
                             <p className="item-details-list__description-text">
-                                {"description"}
+                                {item.description}
                             </p>
                         </div>
                         <div className="item-details__info">
@@ -84,7 +102,7 @@ function InventoryDetails() {
                                 CATEGORY
                             </p>
                             <p className="item-details-list__category-text">
-                                {"category"}
+                                {item.category}
                             </p>
                         </div>
                     </div>
@@ -96,7 +114,7 @@ function InventoryDetails() {
                                     STATUS
                                 </p>
                                 <p className="item-details-list__status-text">
-                                    {"status"}
+                                    {item.status}
                                 </p>
                             </div>
                             <div className="item-details__info">
@@ -104,7 +122,7 @@ function InventoryDetails() {
                                     WAREHOUSE
                                 </p>
                                 <p className="item-details-list__qty-text">
-                                    {"warehouse_id"}
+                                    {item.warehouse_name}
                                 </p>
                             </div>
                         </div>
@@ -113,7 +131,7 @@ function InventoryDetails() {
                                 QUANTITY
                             </p>
                             <p className="item-details-list__qty-text">
-                                {"quantity"}
+                                {item.quantity}
                             </p>
                         </div>
 
@@ -125,7 +143,7 @@ function InventoryDetails() {
                         CATEGORY
                     </p>
                     <p className="item-details-list__category-text">
-                        {"category"}
+                        {item.category}
                     </p>
                 </div>
 
@@ -136,7 +154,7 @@ function InventoryDetails() {
                             STATUS
                         </p>
                         <p className="item-details-list__status-text">
-                            {"status"}
+                            {item.status}
                         </p>
                     </div>
                     <div className="item-details__info">
@@ -144,7 +162,7 @@ function InventoryDetails() {
                             QUANTITY
                         </p>
                         <p className="item-details-list__qty-text">
-                            {"quantity"}
+                            {item.quantity}
                         </p>
                     </div>
                 </div>
@@ -154,7 +172,7 @@ function InventoryDetails() {
                         WAREHOUSE
                     </p>
                     <p className="item-details-list__location-text">
-                        {"warehouse_id"}
+                        {item.warehouse_name}
                     </p>
                 </div>
             </div>
