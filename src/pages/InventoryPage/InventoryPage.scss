@@ -98,6 +98,7 @@
         border: none;
         padding: 0 1rem;
         height: 2.25rem;
+        cursor: pointer;
 
         &:hover {
             background-color: $Graphite;
@@ -153,12 +154,28 @@
             @include desktop {
                 flex: 35;
             }
+
+            &--warehouse {
+                flex: 55;
+                
+                @include desktop {
+                    flex: 38.5;
+                }
+            }
         }
 
         &-4 {
             flex: 20;
             @include desktop {
                 flex: 20;
+            }
+
+            &--warehouse {
+                flex: 39;
+                
+                @include desktop {
+                    flex: 35;
+                }
             }
         }
         
