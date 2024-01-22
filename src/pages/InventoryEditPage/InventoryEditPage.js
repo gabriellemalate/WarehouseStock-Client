@@ -27,9 +27,9 @@ function InventoryEditPage() {
 
         async function getItem(id) {
             try {
-                let response = await axios.get(`${process.env.REACT_APP_API_URL}/inventory/${id}`);
-                let response2 = await axios.get(`${process.env.REACT_APP_API_URL}/inventory/unique`);
-                let response3 = await axios.get(`${process.env.REACT_APP_API_URL}/warehouses/unique`);
+                let response = await axios.get(`${process.env.REACT_APP_API_URL}/api/inventories/${id}`);
+                let response2 = await axios.get(`${process.env.REACT_APP_API_URL}/api/inventories/unique`);
+                let response3 = await axios.get(`${process.env.REACT_APP_API_URL}/api/warehouses/unique`);
 
                 setInputs({
                     itemName: response.data.item_name,
