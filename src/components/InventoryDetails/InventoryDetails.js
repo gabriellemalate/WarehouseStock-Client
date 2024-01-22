@@ -68,12 +68,18 @@ function InventoryDetails() {
                         {item.item_name}
                     </h1>
 
-                    <img
+                   <div className = "item-details-head__edit-container">
+                   <img
                         className="item-details-head__title-edit"
                         src={Pencil}
                         alt="Edit"
                         onClick={handleEditClick}
                     />
+                    <p className="item-details-head__title-edit-text">
+                        Edit
+                    </p>
+                
+                    </div>
 
 
                 </div>

@@ -32,6 +32,29 @@
 
     }
 
+    &-head__edit-container{
+        @include row;
+        align-items: center;
+        background-color: $Instock-Indigo;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        border-radius: 1.25rem;
+        color: $White;
+    }
+
+    &-head__title-edit-text{
+        @include mobile__label;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+
+        @include tablet {
+            @include tablet__label;
+        }
+    }
+
     &-top {
         width: 100%;
         @include row;
@@ -52,12 +75,6 @@
         }
     }
 
-    &-head__title-edit{
-        color: white;
-        background-color: $Instock-Indigo;
-        border-radius: 50%;
-        padding:5px;
-    }
 
     &-container {
         @include mobile__body--small;
