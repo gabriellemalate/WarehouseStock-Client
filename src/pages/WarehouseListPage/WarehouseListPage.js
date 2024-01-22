@@ -13,7 +13,7 @@ function WarehouseListPage() {
 
     async function getWarehouses() {
         try {
-            let response = await axios.get(`${BASE_URL}/warehouses`);
+            let response = await axios.get(`${BASE_URL}/api/warehouses`);
 
             setWarehouseList(response.data);
 

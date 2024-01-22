@@ -26,7 +26,7 @@ function WarehouseEditPage() {
 
         async function getWarehouse(id) {
             try {
-                let response = await axios.get(`${process.env.REACT_APP_API_URL}/warehouses/${id}`);
+                let response = await axios.get(`${process.env.REACT_APP_API_URL}api/warehouses/${id}`);
 
                 setInputs({
                     warehouseName: response.data.warehouse_name,
