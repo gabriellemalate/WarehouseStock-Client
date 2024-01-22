@@ -49,6 +49,7 @@
         @include mobile__label;
         padding-left: 0.5rem;
         padding-right: 0.5rem;
+        display: none;
 
         @include tablet {
             @include tablet__label;
