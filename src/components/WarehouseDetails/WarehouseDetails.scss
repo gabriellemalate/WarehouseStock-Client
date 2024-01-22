@@ -39,10 +39,6 @@
     &-container {
         width: 100%;
         border-top: 0.09rem solid $Cloud;
-
-        @include tablet {
-            @include tablet__body--med;
-        }
     }
 
     &-container__warehouse {
@@ -51,6 +47,13 @@
         gap: 1rem;
         padding: 1rem;
         width: 90%;
+
+        @include tablet {
+            @include row;
+            align-items: flex-start;
+            @include tablet__body--med;
+
+        }
     }
 
     &-container__inventory-tablet {
@@ -64,7 +67,15 @@
 
     &-list__contact {
         @include row;
-        justify-content: space-between;
+        align-items: flex-start;
+
+        @include tablet {
+            @include row;
+            align-items: flex-start;
+            gap: 6rem;
+            border-left: 0.09rem solid $Cloud;
+            padding-left: 1rem;
+        }
     }
 
     &-list__tablet {
@@ -146,10 +157,34 @@
         }
     }
 
+    &-list__contact-phone {
+        @include column;
+        align-items: flex-start;
+        width: 60%;
+
+
+
+
+    }
+
+
+    &-list__contact-name {
+        width: 57%;
+
+
+
+    }
+
+    &-list__contact-addy {
+        width: 40%;
+
+
+    }
+
 
 
     .warehouse-inventory {
         width: 100%;
     }
-    
+
 }

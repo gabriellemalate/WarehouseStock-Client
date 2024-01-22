@@ -72,7 +72,7 @@ function WarehouseDetails() {
 
                 <div className="warehouses-details-container">
                     <div className="warehouses-details-container__warehouse">
-                        <div className="warehouses-details-list__item-detail">
+                        <div className="warehouses-details-list__contact-addy">
                             <h4 className="warehouses-details-list__item-detail-label">
                                 WAREHOUSE ADDRESS:
                             </h4>
@@ -95,15 +95,14 @@ function WarehouseDetails() {
                                 <h4 className="warehouses-details-list__item-detail-label">
                                     CONTACT INFORMATION:
                                 </h4>
-                                <p className="warehouses-details-list__item-detail-value warehouses-details-list__item-detail-value-info">
-                                    <span className="warehouses-details-list__item-detail-phone">
-                                        {" "}
-                                        +1 (629) 555-0129
-                                    </span>
-                                    <span className="warehouses-details-list__item-detail-email">
-                                        paujla@instock.com{" "}
-                                    </span>
+                                <p className="warehouses-details-list__item-detail-phone">
+                                    {" "}
+                                    +1 (629) 555-0129
                                 </p>
+                                <p className="warehouses-details-list__item-detail-email">
+                                    paujla@instock.com{" "}
+                                </p>
+
                             </div>
                         </div>
                     </div>
@@ -152,7 +151,7 @@ function WarehouseDetails() {
                                     <h4 className="inventory__item-label inventory__item-label--mobile">STATUS</h4>
                                     <div className="inventory__item-label--tag-holder spacing-3--warehouse">
                                         <p className={"inventory__item-label--text  tag--" + (item.quantity ? "in-stock" : "out-of-stock")}>{item.status.toUpperCase()}</p>
-                                        
+
                                     </div>
                                     <h4 className="inventory__item-label inventory__item-label--mobile">QTY</h4>
                                     <p className="inventory__item-label--text spacing-4--warehouse">{item.quantity}</p>
