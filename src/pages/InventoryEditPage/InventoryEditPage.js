@@ -79,7 +79,7 @@ function InventoryEditPage() {
 
     async function updateItem(id, item) {
         try {
-            let response = await axios.put(`${process.env.REACT_APP_API_URL}/inventory/${id}`, item);
+            let response = await axios.put(`${process.env.REACT_APP_API_URL}/api/inventories/${id}`, item);
 
             return response;
 

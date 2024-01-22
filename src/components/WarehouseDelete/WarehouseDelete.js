@@ -14,7 +14,7 @@ function WarehouseDelete() {
 
     const handleDelete = async () => {
         try {
-            await axios.delete(`/api/warehouses/${warehouseId}`);
+            await axios.delete(`${process.env.REACT_APP_API_URL}/api/warehouses/${warehouseId}`);
             navigate('/');
         } catch (error) {
             console.error('Error deleting warehouse:', error);
