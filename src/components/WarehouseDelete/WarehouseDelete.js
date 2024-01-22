@@ -1,5 +1,5 @@
-import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Back from "../../assets/icons/arrow_back-24px.svg";
 import Close from "../../assets/icons/close-24px.svg";
@@ -9,10 +9,26 @@ import "./WarehouseDelete.scss";
 function WarehouseDelete() {
     const navigate = useNavigate();
     const { warehouseId } = useParams();
+    const [warehouseName, setWarehouseName] = useState("");
     console.log('Extracted ID:', warehouseId);
 
 
-    const warehouseName = "Warehouse Name";
+    const fetchWarehouseDetails = async () => {
+        try {
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/warehouses/${warehouseId}`);
+            setWarehouseName(response.data.warehouse_name);
+        } catch (error) {
+            console.error('Error fetching warehouse details:', error.response ? error.response.data : error);
+        }
+    };
+
+
+    useEffect(() => {
+        if (warehouseId) {
+            fetchWarehouseDetails();
+        }
+    }, [warehouseId]);
+
 
     const handleDelete = async () => {
 
@@ -22,7 +38,7 @@ function WarehouseDelete() {
         }
         try {
             await axios.delete(`${process.env.REACT_APP_API_URL}/api/warehouses/${warehouseId}`);
-            navigate('/');
+            navigate('/warehouse');
         } catch (error) {
             console.error('Error deleting warehouse:', error.response ? error.response.data : error);
         }
@@ -43,15 +59,14 @@ function WarehouseDelete() {
                             className="warehouse-delete__header__back"
                             onClick={() => navigate(-1)}
                         />
-                        <h1 className="warehouse-delete__header__title">Delete Warehouse</h1>
+                        <h1 className="warehouse-delete__header__title">Delete {warehouseName} warehouse?</h1>
                     </div>
                     <img src={Close} alt="Close" className="warehouse-delete__header__close" onClick={() => navigate(-1)} />
 
                 </div>
                 <div className="warehouse-delete__content">
                     <p className="warehouse-delete__content__text">
-                        Please confirm that you'd like to delete the warehouse. You won't be ablle to undo this action.
-                        <span className="warehouse-delete__content__text__bold"> {warehouseName}?</span>
+                        Please confirm that you'd like to delete the {warehouseName} from the list of warehouses. You won't be ablle to undo this action.
                     </p>
                 </div>
 
@@ -62,12 +77,14 @@ function WarehouseDelete() {
                     >
                         Cancel
                     </button>
+
                     <button
                         className="warehouse-delete__content__buttons__delete"
                         onClick={handleDelete}
                     >
                         Delete
                     </button>
+
                 </div>
 
                 <div className="warehouse-delete__content__buttons-mobile">
