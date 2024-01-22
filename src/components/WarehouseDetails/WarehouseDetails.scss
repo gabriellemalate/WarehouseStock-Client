@@ -14,7 +14,8 @@
     }
 
     @include desktop {
-        max-width: 95%;
+        margin: auto;
+        padding: 0 2.25rem;
     }
 
     &__title {
@@ -39,6 +40,10 @@
     &-container {
         width: 100%;
         border-top: 0.09rem solid $Cloud;
+
+        @include tablet {
+            @include tablet__body--med;
+        }
     }
 
     &-container__warehouse {
@@ -66,7 +71,10 @@
     }
 
     &-list__contact {
+
         @include row;
+        justify-content: space-between;
+
         align-items: flex-start;
 
         @include tablet {
@@ -92,6 +100,24 @@
             align-items: flex-start;
             @include tablet__body--med;
         }
+    }
+
+    &-list__item-detail-label{
+        @include mobile__body--med;
+
+        @include tablet {
+            @include tablet__body--med;
+        }
+
+    }
+
+    &-list__item-detail-value{
+        @include mobile__body--med;
+
+        @include tablet {
+            @include tablet__body--med;
+        }
+
     }
 
     &-list__inventory {
@@ -162,7 +188,10 @@
         align-items: flex-start;
         width: 60%;
 
-
+        @include tablet {
+            @include tablet__body--med;
+            
+        }
 
 
     }
@@ -170,13 +199,21 @@
 
     &-list__contact-name {
         width: 57%;
-
-
+        @include tablet {
+            @include tablet__body--med;
+            
+        }
 
     }
 
     &-list__contact-addy {
+        
         width: 40%;
+
+        @include tablet {
+            @include tablet__body--med;
+            
+        }
 
 
     }
