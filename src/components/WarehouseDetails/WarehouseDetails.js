@@ -66,15 +66,14 @@ function WarehouseDetails() {
                 <h4 className="warehouses-details-list__item-detail-label">
                   CONTACT INFORMATION:
                 </h4>
-                <p className="warehouses-details-list__item-detail-value warehouses-details-list__item-detail-value-info">
-                  <span className="warehouses-details-list__item-detail-phone">
+                  <p className="warehouses-details-list__item-detail-phone">
                     {" "}
                     +1 (629) 555-0129
-                  </span>
-                  <span className="warehouses-details-list__item-detail-email">
+                  </p>
+                  <p className="warehouses-details-list__item-detail-email">
                     paujla@instock.com{" "}
-                  </span>
-                </p>
+                  </p>
+            
               </div>
             </div>
           </div>

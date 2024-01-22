@@ -43,6 +43,8 @@
     border-top: 0.09rem solid $Cloud;
 
     @include tablet {
+        @include row;
+        justify-content: space-between;
       @include tablet__body--med;
     }
   }
@@ -68,6 +70,12 @@
     @include row;
     justify-content: space-between;
   }
+
+    &-list__contact-phone {
+        @include column;
+        align-items: flex-start;
+        @include tablet__body--med;
+    }
 
   &-list__tablet {
     display: none;
