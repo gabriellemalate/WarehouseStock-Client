@@ -53,7 +53,9 @@
 
         @include tablet {
             @include tablet__label;
+            display: block;
         }
+
     }
 
     &-top {
