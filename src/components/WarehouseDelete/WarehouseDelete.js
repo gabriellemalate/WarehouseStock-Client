@@ -8,21 +8,20 @@ import "./WarehouseDelete.scss";
 
 function WarehouseDelete() {
     const navigate = useNavigate();
-    const { id } = useParams();
-    console.log('Extracted ID:', id);
+    const { warehouseId } = useParams();
+    console.log('Extracted ID:', warehouseId);
 
 
     const warehouseName = "Warehouse Name";
 
     const handleDelete = async () => {
 
-        if (!id) {
+        if (!warehouseId) {
             console.error('No ID provided for deletion');
             return;
         }
         try {
-            await axios.delete(`http://localhost:8080/warehouses/${id}`);
-            navigate('/');
+            await axios.delete(`${process.env.REACT_APP_API_URL}/api/warehouses/${warehouseId}`);
         } catch (error) {
             console.error('Error deleting warehouse:', error.response ? error.response.data : error);
         }
