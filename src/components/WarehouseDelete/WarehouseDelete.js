@@ -22,6 +22,7 @@ function WarehouseDelete() {
         }
         try {
             await axios.delete(`${process.env.REACT_APP_API_URL}/api/warehouses/${warehouseId}`);
+            navigate('/');
         } catch (error) {
             console.error('Error deleting warehouse:', error.response ? error.response.data : error);
         }
