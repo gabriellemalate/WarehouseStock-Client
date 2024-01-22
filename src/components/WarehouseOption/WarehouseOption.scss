@@ -3,90 +3,50 @@
 
 .warehouses {
     &-list {
-        width: 100%;
 
-        &-container {
-            width: 90%;
-        }
         &__items {
-            width: 50%;
+            flex: 1;
+            @include column;
+            align-items: flex-start;
 
             @include tablet {
                 @include row;
                 justify-content: space-between;
             }
-
-            &-left {
-                @include tablet {
-                    width: 34vw;
-                    max-width: 21rem;
-                }
-                @include desktop {
-                    width: 36vw;
-                    max-width: 29.5rem;
-                }
-
-            }
-            &-right {
-                @include tablet {
-                    width: 50%;
-                    max-width: 18rem;
-                }
-                @include desktop {
-                    width: 60%;
-                    max-width: 19.3rem;
-                }
-            }
         }
-        &__item {
-            @include column;
-            &-eq {
-                @include column;
-                border-bottom: $Cloud .08rem solid;
-                width: 111.2%;
-                padding: 0 0 1.4rem;
-            }
-            &-container {
-                @include column;
-                width: 90%;
 
-                @include tablet {
-                    @include row;
-                    justify-content: space-between;
-                    width: 89%;
-                }
-                @include desktop {
-                    width: 90%;
-                }
+        &__item {
+            padding: 0.9rem 1.5rem 1.3rem;
+            border-bottom: 1px solid $Cloud;
+
+            &:hover {
+                background-color: $Translucent;
             }
+
+            @include tablet {
+                padding: 1rem 2rem;
+                @include row;
+            }
+
+            @include desktop {
+                padding: 1.03rem 2.5rem;
+            }
+
             &-core {
                 @include row;
-                align-items: flex-start;
-                padding: 1rem 0 0;
-                width: 100%;
-                justify-content: space-between;
+                column-gap: 1rem;
 
                 @include tablet {
-                    width: 70vw;
-                    justify-content: space-between;
                     align-items: center;
-                    max-width: 99vh;
-                }
-
-                @include desktop {
-                    width: 85%;
-                    max-width: 250vh;
+                    column-gap: 0;
                 }
             }
+
             &-detail {
-                @include tablet {
-                    width: fit-content;
-                }
 
                 &-label {
                     @include mobile__tablehead;
                     color: $Slate;
-                    margin: 0;
 
                     @include tablet {
                         display: none;
@@ -96,46 +56,86 @@
                     @include mobile__body--med;
                     font-weight: 400;
                     color: $Instock-Black;
-                    @include column;
-                    align-items: flex-start;
-                    margin: 0;
-                    padding: .2rem 0 .8rem;
+                    padding: .2rem 0 .9rem;
 
                     @include tablet {
+                        @include row;
                         align-items: center;
-                        text-align: start;
                         @include tablet__body--med;
-                    }
-                    &-info {
-                        @include column;
-                        align-items: flex-start;;
+                        padding: 0;
                     }
                 }
-                &-address {
-                    @include tablet {
-                        width: 13vh;
-                    }
-                    @include desktop {
-                        width: 98%;
-                    }
-                }
+
                 &-warehouse {
                     @include row;
                     color: $Instock-Indigo;
                     font-weight: 600;
+                    cursor: pointer;
+
+                    @include tablet {
+                        width: calc((100vw - 8rem) / 4.2);
+                    }
+
+                    @include desktop {
+                        width: 13.75rem;
+                    }
                 }
+            
                 &-arrow {
                     margin-left: .25rem;
                 }
+
+                &-address {
+                    width: 80%;
+
+                    @include tablet {
+                        width: calc((100vw - 8rem) / 5.4);
+                    }
+
+                    @include desktop {
+                        width: 16.45rem
+                    }
+                }
+
+                &-contact {
+                    @include tablet {
+                        width: calc((100vw - 8rem) / 5.2);
+                    }
+
+                    @include desktop {
+                        width: 10.75rem;
+                    }
+                }
+
+                &-info {
+                    @include tablet {
+                        @include column;
+                        width: calc((100vw - 8rem) / 3.5);
+                        align-items: flex-start;
+                    }
+
+                    @include desktop {
+                        width: 12.2rem;
+                    }
+                }
             }
         }
+
         &__actions {   
             @include row;
             justify-content: space-between;
-            width: 90%;
 
             @include tablet {
-                width: 7vh;
+                justify-content: flex-end;
+                column-gap: 1rem;
+            }
+
+            @include desktop {
+                width: 5.5rem;
+            }
+
+            &-icon {
+                cursor: pointer;
             }
         }
     }

@@ -6,17 +6,18 @@ import Delete from "../../assets/icons/delete_outline-24px.svg";
 import Edit from "../../assets/icons/edit-24px.svg";
 import Sort from "../../assets/icons/sort-24px.svg";
 import RightArrow from "../../assets/icons/chevron_right-24px.svg"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./InventoryPage.scss"
 
 const BASE_URL = process.env.REACT_APP_API_URL;
 
 function InventoryPage() {
     const [inventoryItems, setInventoryItems] = useState(null);
+    let navigate = useNavigate();
 
     async function getItems() {
         try {
-            const response = await axios.get(`${BASE_URL}/inventory`);
+            const response = await axios.get(`${BASE_URL}/api/inventories`);
             setInventoryItems(response.data);
         } catch (error) {
             console.log("Error getting all inventory items:", error);
@@ -29,6 +30,10 @@ function InventoryPage() {
         return <p>Loading items...</p>;
     }
 
+    function navigateToAddInventory() {
+        navigate('/inventory/add');
+    }
+
     return (
         <main className="inventory">
 
@@ -39,7 +44,7 @@ function InventoryPage() {
                         <img className="inventory__search-icon" src={MagnifyingGlass} alt="Search" />
                         <input className="inventory__search-field" type="search" placeholder="Search..." />
                     </form>
-                    <button>+ Add New Item</button>
+                    <button type='button' onClick={navigateToAddInventory}>+ Add New Item</button>
                 </div>
             </section>
 
