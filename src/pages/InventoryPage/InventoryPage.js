@@ -17,7 +17,7 @@ function InventoryPage() {
 
     async function getItems() {
         try {
-            const response = await axios.get(`${BASE_URL}/inventory`);
+            const response = await axios.get(`${BASE_URL}/api/inventories`);
             setInventoryItems(response.data);
         } catch (error) {
             console.log("Error getting all inventory items:", error);

@@ -27,9 +27,9 @@ function InventoryEditPage() {
 
         async function getItem(id) {
             try {
-                let response = await axios.get(`${process.env.REACT_APP_API_URL}/inventory/${id}`);
-                let response2 = await axios.get(`${process.env.REACT_APP_API_URL}/inventory/unique`);
-                let response3 = await axios.get(`${process.env.REACT_APP_API_URL}/warehouses/unique`);
+                let response = await axios.get(`${process.env.REACT_APP_API_URL}/api/inventories/${id}`);
+                let response2 = await axios.get(`${process.env.REACT_APP_API_URL}/api/inventories/unique`);
+                let response3 = await axios.get(`${process.env.REACT_APP_API_URL}/api/warehouses/unique`);
 
                 setInputs({
                     itemName: response.data.item_name,
@@ -97,8 +97,10 @@ function InventoryEditPage() {
             category: category,
             status: status,
             quantity: status === 'Out of Stock' ? "0" : quantity,
-            warehouse_id: warehouse,
+            warehouse_id: warehouseList.find(element => element.warehouse_name === warehouse).id,
         }
+
+        console.log("item being sent",item)
 
         if(formIsValid(inputs)) {
             await updateItem(itemId, item);
@@ -120,7 +122,7 @@ function InventoryEditPage() {
 
     // console.log("121|\n\n",createDropdownOptions);
     // console.log("122|\n\n", categoryList);
-    // console.log("123|\n\n", warehouseList);
+    console.log("123|\n\n", warehouseList);
 
 
     
@@ -262,14 +264,6 @@ function InventoryEditPage() {
                             {warehouseError && <img src={errorIcon} alt="" className="form__error-icon" />}
                             {warehouseError}
                         </p>
-                        {/* <label htmlFor="pet-select" className="form__label">TESTING:</label>
-                        <select name="pets" id="pet-select" className={`form__input ${warehouseError && 'form__input--invalid'}`}>
-                            {categoryList.map(element => (<option key={uuidv4()} value={`${element.category}`}>{element.category}</option>))}
-                        </select>
-                        <label htmlFor="pet-select" className="form__label">TESTING:</label>
-                        <select name="pets" id="pet-select" className={`form__input ${warehouseError && 'form__input--invalid'}`}>
-                            {warehouseList.map(element => (<option key={element.id} value={element.id}>{element.warehouse_name}</option>))}
-                        </select> */}
                     </fieldset>
                 </div>
                 <div className="form__bottom">
