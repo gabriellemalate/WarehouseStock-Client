@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Back from "../../assets/icons/arrow_back-24px.svg";
@@ -9,9 +9,8 @@ import "./InventoryDelete.scss";
 function InventoryDelete() {
     const navigate = useNavigate();
     const { itemId } = useParams();
+    const [itemName, setItemName] = useState("");
     console.log('Extracted ID:', itemId);
-
-    const itemName = "ITEM NAME";
 
     const handleDelete = async () => {
         try {
@@ -21,6 +20,23 @@ function InventoryDelete() {
             console.error('Error deleting inventory item:', error);
         }
     };
+
+
+    const fetchItemDetails = async () => {
+        try {
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/inventories/${itemId}`);
+            setItemName(response.data.item_name);
+        } catch (error) {
+            console.error('Error fetching item details:', error.response ? error.response.data : error);
+        }
+    };
+
+    useEffect(() => {
+        if (itemId) {
+            fetchItemDetails();
+        }
+    }, [itemId]);
+
 
     return (
         <div className="inventory-delete">
@@ -37,14 +53,14 @@ function InventoryDelete() {
                             className="inventory-delete__header__back"
                             onClick={() => navigate(-1)}
                         />
-                        <h1 className="inventory-delete__header__title">Delete Item</h1>
+                        <h1 className="inventory-delete__header__title">Delete {itemName} item?</h1>
                     </div>
                     <img src={Close} alt="Close" className="inventory-delete__header__close" onClick={() => navigate(-1)} />
 
                 </div>
                 <div className="inventory-delete__content">
                     <p className="inventory-delete__content__text">
-                        Please confirm that you'd like to delete the {"itemName"} item. You won't be able to undo this action.
+                        Please confirm that you'd like to delete the {itemName} item. You won't be able to undo this action.
                         <span className="inventory-delete__content__text__bold"> </span>
                     </p>
                 </div>
