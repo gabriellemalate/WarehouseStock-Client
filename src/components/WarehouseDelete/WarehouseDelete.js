@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import Back from "../../assets/icons/arrow_back-24px.svg";
 import Close from "../../assets/icons/close-24px.svg";
 import "./WarehouseDelete.scss";
 
@@ -53,12 +52,6 @@ function WarehouseDelete() {
 
 
                     <div className="warehouse-delete__title">
-                        <img
-                            src={Back}
-                            alt="Back"
-                            className="warehouse-delete__header__back"
-                            onClick={() => navigate(-1)}
-                        />
                         <h1 className="warehouse-delete__header__title">Delete {warehouseName} warehouse?</h1>
                     </div>
                     <img src={Close} alt="Close" className="warehouse-delete__header__close" onClick={() => navigate(-1)} />
