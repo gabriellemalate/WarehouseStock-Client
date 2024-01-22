@@ -11,7 +11,7 @@
 
     @include tablet {
         margin: 0 2rem;
-        margin:auto;
+        margin: auto;
     }
 
     @include desktop {
@@ -22,7 +22,6 @@
 
     &__title {
         width: 90%;
-        @include column;
         @include mobile__tablehead;
         padding: 1.6rem 0 2rem;
 
@@ -34,8 +33,20 @@
     &__top {
         width: 100%;
         @include row;
+        align-items: center;
         justify-content: space-between;
         width: 100%;
+
+    }
+
+    &-page-top__head{
+        padding:0;
+    }
+
+    &-page-top__edit{
+        background-color: $Instock-Indigo;
+        border-radius: 50%;
+        padding:5px;
     }
 
     &-container {
@@ -49,7 +60,7 @@
     }
 
     &-container__warehouse {
-        margin:0;
+        margin: 0;
         @include column;
         align-items: stretch;
         gap: 1rem;
@@ -105,10 +116,10 @@
         }
     }
 
-    &-list__item-detail-label{
-        color:$Slate;
+    &-list__item-detail-label {
+        color: $Slate;
         @include mobile__body--small;
-        
+
 
         @include tablet {
             @include tablet__body--small;
@@ -116,7 +127,7 @@
 
     }
 
-    &-list__item-detail-value{
+    &-list__item-detail-value {
         @include mobile__body--small;
 
         @include tablet {
@@ -196,7 +207,7 @@
 
         @include tablet {
             @include tablet__body--small;
-            
+
         }
 
 
@@ -205,21 +216,22 @@
 
     &-list__contact-name {
         width: 57%;
+
         @include tablet {
             @include tablet__body--med;
-            
+
         }
 
     }
 
     &-list__contact-addy {
-        
+
         width: 100%;
 
         @include tablet {
-            width:40%;
+            width: 40%;
             @include tablet__body--med;
-            
+
         }
 
 

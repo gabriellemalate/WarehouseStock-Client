@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react"
 import { useNavigate, useParams, Link } from "react-router-dom";
 import Delete from "../../assets/icons/delete_outline-24px.svg";
-import Pencil from "../../assets/icons/edit-24px.svg";
+import Pencil from "../../assets/icons/edit-24px white.svg";
 import Edit from "../../assets/icons/edit-24px.svg";
 import Back from "../../assets/icons/arrow_back-24px.svg";
 import Sort from "../../assets/icons/sort-24px.svg";
