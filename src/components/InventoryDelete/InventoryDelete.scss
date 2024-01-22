@@ -59,7 +59,7 @@
 
     &__content__text {
         @include mobile__body--med;
-        padding-left: 2rem;
+        padding-left: 1rem;
         padding-right: 5rem;
 
         @include tablet {

@@ -47,12 +47,7 @@ function InventoryDelete() {
 
 
                     <div className="inventory-delete__title">
-                        <img
-                            src={Back}
-                            alt="Back"
-                            className="inventory-delete__header__back"
-                            onClick={() => navigate(-1)}
-                        />
+                        
                         <h1 className="inventory-delete__header__title">Delete {itemName} item?</h1>
                     </div>
                     <img src={Close} alt="Close" className="inventory-delete__header__close" onClick={() => navigate(-1)} />
