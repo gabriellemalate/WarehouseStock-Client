@@ -154,7 +154,7 @@ function WarehouseDetails() {
                                         <p className={"inventory__item-label--text  tag--" + (item.quantity ? "in-stock" : "out-of-stock")}>{item.status.toUpperCase()}</p>
                                         
                                     </div>
-                                    <h4 className="inventory__item-label inventory__item-label--mobile">QUANTITY</h4>
+                                    <h4 className="inventory__item-label inventory__item-label--mobile">QTY</h4>
                                     <p className="inventory__item-label--text spacing-4--warehouse">{item.quantity}</p>
                                 </div>
                             </div>
