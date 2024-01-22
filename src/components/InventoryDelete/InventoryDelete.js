@@ -8,15 +8,15 @@ import "./InventoryDelete.scss";
 
 function InventoryDelete() {
     const navigate = useNavigate();
-    const { id } = useParams();
-    console.log('Extracted ID:', id);
+    const { itemId } = useParams();
+    console.log('Extracted ID:', itemId);
 
     const itemName = "ITEM NAME";
 
     const handleDelete = async () => {
         try {
-            await axios.delete(`http://localhost:8080/inventory/${id}`);
-            navigate('/');
+            await axios.delete(`${process.env.REACT_APP_API_URL}/api/inventories/${itemId}`);
+            navigate('/inventory');
         } catch (error) {
             console.error('Error deleting inventory item:', error);
         }
@@ -44,7 +44,7 @@ function InventoryDelete() {
                 </div>
                 <div className="inventory-delete__content">
                     <p className="inventory-delete__content__text">
-                        Please confirm that you'd like to delete the {itemName} item. You won't be able to undo this action.
+                        Please confirm that you'd like to delete the {"itemName"} item. You won't be able to undo this action.
                         <span className="inventory-delete__content__text__bold"> </span>
                     </p>
                 </div>
