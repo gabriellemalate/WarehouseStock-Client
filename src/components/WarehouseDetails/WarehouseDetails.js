@@ -12,7 +12,9 @@ import "./WarehouseDetails.scss";
 import "../../pages/InventoryPage/InventoryPage.scss";
 
 function WarehouseDetails() {
-    let { warehouseId } = useParams()
+    let { warehouseId } = useParams();
+    const [inventoryItems, setInventoryItems] = useState(null);
+    let [ warehouse, setWarehouse ] = useState(null);
 
     const navigate = useNavigate();
 
@@ -24,21 +26,30 @@ function WarehouseDetails() {
         navigate(`/warehouse/${warehouseId}/edit`);
     };
 
+    async function getWarehouse() {
+      try {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/warehouses/${warehouseId}`);
+        console.log(response.data);
+        setWarehouse(response.data);
 
-
-
-    const [inventoryItems, setInventoryItems] = useState(null);
+      } catch (error) {
+        console.log('Error fetching warehouse details', error);
+      }
+    }
 
     async function getItems() {
         try {
-            const response = await axios.get(`${process.env.REACT_APP_API_URL}/warehouses/${warehouseId}/inventories`);
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/warehouses/${warehouseId}/inventories`);
             setInventoryItems(response.data);
         } catch (error) {
             console.log("Error getting all inventory items:", error);
         }
     }
 
-    useEffect(() => { getItems() }, []);
+    useEffect(() => { 
+      getWarehouse();
+      getItems();
+    }, []);
 
     if (!inventoryItems) {
         return <p>Loading items...</p>;
@@ -53,20 +64,24 @@ function WarehouseDetails() {
                 <div className="warehouses-details__title">
                     <div className="warehouses-details__top">
                         <h1 className="warehouses-details-page-top__head">
-                            <img
-                                className="warehouses-details-page-list__item-detail-arrow"
-                                src={Back}
-                                alt="See More"
-                                onClick={handleBackClick}
-                            />
-                            Insert Warehouse Location
+                            <Link to='/warehouse'>
+                              <img
+                                  className="warehouses-details-page-list__item-detail-arrow"
+                                  src={Back}
+                                  alt="See More"
+                                  onClick={handleBackClick}
+                              />
+                            </Link>
+                            {warehouse.warehouse_name}
                         </h1>
-                        <img
-                            className="warehouses-details-page-top__edit"
-                            src={Pencil}
-                            alt="Edit"
-                            onClick={handleEditClick}
-                        />
+                        <Link to={`/warehouse/${warehouseId}/edit`}>
+                          <img
+                              className="warehouses-details-page-top__edit"
+                              src={Pencil}
+                              alt="Edit"
+                              onClick={handleEditClick}
+                          />
+                        </Link>
                     </div>
                 </div>
 
@@ -78,7 +93,7 @@ function WarehouseDetails() {
                             </h4>
 
                             <p className="warehouses-details-list__item-detail-value">
-                                Insert Address
+                                {warehouse.address}, {warehouse.city}, {warehouse.country}
                             </p>
                         </div>
                         <div className="warehouses-details-list__contact">
@@ -87,7 +102,7 @@ function WarehouseDetails() {
                                     CONTACT NAME:
                                 </h4>
                                 <p className="warehouses-details-list__item-detail-value">
-                                    Insert Name
+                                    {warehouse.contact_name} {warehouse.contact_position}
                                 </p>
                             </div>
 
@@ -98,10 +113,10 @@ function WarehouseDetails() {
                                 <p className="warehouses-details-list__item-detail-value warehouses-details-list__item-detail-value-info">
                                     <span className="warehouses-details-list__item-detail-phone">
                                         {" "}
-                                        +1 (629) 555-0129
+                                        {warehouse.contact_phone}
                                     </span>
                                     <span className="warehouses-details-list__item-detail-email">
-                                        paujla@instock.com{" "}
+                                        {warehouse.contact_email}{" "}
                                     </span>
                                 </p>
                             </div>
