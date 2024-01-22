@@ -8,7 +8,7 @@ import "./WarehouseDelete.scss";
 
 function WarehouseDelete() {
     const navigate = useNavigate();
-    const { id } = useParams();
+    const { warehouseId } = useParams();
 
     const warehouseName = "Warehouse Name";
 
