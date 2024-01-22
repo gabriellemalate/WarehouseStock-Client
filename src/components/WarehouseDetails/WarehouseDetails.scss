@@ -104,6 +104,7 @@
 
     &-list__item-detail-label{
         @include mobile__body--med;
+        
 
         @include tablet {
             @include tablet__body--med;
