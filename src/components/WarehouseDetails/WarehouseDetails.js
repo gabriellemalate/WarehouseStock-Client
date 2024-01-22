@@ -28,7 +28,7 @@ function WarehouseDetails() {
 
     async function getWarehouse() {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/warehouses/${warehouseId}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/warehouses/${warehouseId}`);
         console.log(response.data);
         setWarehouse(response.data);
 
@@ -39,7 +39,7 @@ function WarehouseDetails() {
 
     async function getItems() {
         try {
-            const response = await axios.get(`${process.env.REACT_APP_API_URL}/warehouses/${warehouseId}/inventories`);
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/warehouses/${warehouseId}/inventories`);
             setInventoryItems(response.data);
         } catch (error) {
             console.log("Error getting all inventory items:", error);
