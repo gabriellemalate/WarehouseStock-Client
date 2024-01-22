@@ -5,17 +5,19 @@
     font-family: $fontface;
     border-radius: 0.2rem;
     background-color: $White;
-    margin: 0 1rem;
+    margin: auto;
     @include column;
     @include mobile__body--med;
 
     @include tablet {
         margin: 0 2rem;
+        margin:auto;
     }
 
     @include desktop {
         margin: auto;
         padding: 0 2.25rem;
+        padding: 0;
     }
 
     &__title {
@@ -31,7 +33,6 @@
 
     &__top {
         width: 100%;
-        padding: 0 0 1.4rem;
         @include row;
         justify-content: space-between;
         width: 100%;
@@ -40,6 +41,7 @@
     &-container {
         width: 100%;
         border-top: 0.09rem solid $Cloud;
+        border-bottom: 0.09rem solid $Cloud;
 
         @include tablet {
             @include tablet__body--med;
@@ -47,10 +49,11 @@
     }
 
     &-container__warehouse {
+        margin:0;
         @include column;
         align-items: stretch;
         gap: 1rem;
-        padding: 1rem;
+        padding: 2rem;
         width: 90%;
 
         @include tablet {
@@ -103,20 +106,21 @@
     }
 
     &-list__item-detail-label{
-        @include mobile__body--med;
+        color:$Slate;
+        @include mobile__body--small;
         
 
         @include tablet {
-            @include tablet__body--med;
+            @include tablet__body--small;
         }
 
     }
 
     &-list__item-detail-value{
-        @include mobile__body--med;
+        @include mobile__body--small;
 
         @include tablet {
-            @include tablet__body--med;
+            @include tablet__body--small;
         }
 
     }
@@ -188,9 +192,10 @@
         @include column;
         align-items: flex-start;
         width: 60%;
+        @include mobile__body--small;
 
         @include tablet {
-            @include tablet__body--med;
+            @include tablet__body--small;
             
         }
 
@@ -209,9 +214,10 @@
 
     &-list__contact-addy {
         
-        width: 40%;
+        width: 100%;
 
         @include tablet {
+            width:40%;
             @include tablet__body--med;
             
         }
