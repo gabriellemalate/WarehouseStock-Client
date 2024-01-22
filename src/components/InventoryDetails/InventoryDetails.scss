@@ -40,10 +40,15 @@
     }
 
     &-head__title{
+        @include mobile__pagehead;
         width:85%;
 
         &-arrow{
             padding-left: 1rem;
+        }
+
+        @include tablet {
+            @include tablet__pagehead;
         }
     }
 
@@ -74,12 +79,24 @@
        
     }
 
-    &-list__title{
-          color: $Slate;
+    &__info-column-left{
+        width:100%;
     }
 
+    &-list__title{
+        @include mobile__body--small;
+          color: $Slate;
+
+        @include tablet {
+            @include tablet__body--small;
+        }
+
+
+    }
+
+
     &-list__description-text{
-        width:70%;
+        width:50%;
     }
 
     
@@ -98,7 +115,7 @@
         background-color:$Green-7;
         border-radius: 1.25rem;
         color: $Green;
-        padding: 0 0.2rem;
+        padding: 0 0.5rem;
         text-transform: uppercase;
         font-weight: 600;
 
@@ -150,7 +167,7 @@
         
 
         @include tablet {
-           
+            width: 20rem;
             border-left: 0.09rem solid $Cloud;
         }
 
