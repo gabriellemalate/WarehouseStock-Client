@@ -67,7 +67,7 @@ function InventoryAdd() {
 
     async function postInventoryItem(inventoryItem) {
         try {
-            let response = await axios.post(`${BASE_URL}/inventory`, inventoryItem);
+            let response = await axios.post(`${BASE_URL}/api/inventories`, inventoryItem);
             return response;
 
         } catch (error) {
