@@ -49,7 +49,7 @@ function InventoryDetails() {
     }
 
     const handleEditClick = () => {
-        navigate("/inventory/:itemId/edit");
+        navigate(`/inventory/${itemId}/edit`);
     }
 
     return (
