@@ -45,6 +45,7 @@
         color: $White;
     }
 
+<<<<<<< HEAD
     &-head__title-edit-text{
         @include mobile__label;
         padding-left: 0.5rem;
@@ -79,6 +80,21 @@
     }
 
 
+=======
+    &-top__edit-container{
+        @include row;
+        align-items: center;
+        background-color: $Instock-Indigo;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        border-radius: 1.25rem;
+        color: $White;
+    }
+
+>>>>>>> develop
     &-container {
         @include mobile__body--small;
         width: 100%;

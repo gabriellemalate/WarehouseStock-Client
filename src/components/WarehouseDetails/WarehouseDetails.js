@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react"
 import { useNavigate, useParams, Link } from "react-router-dom";
 import Delete from "../../assets/icons/delete_outline-24px.svg";
-import Pencil from "../../assets/icons/edit-24px.svg";
+import Pencil from "../../assets/icons/edit-24px white.svg";
 import Edit from "../../assets/icons/edit-24px.svg";
 import Back from "../../assets/icons/arrow_back-24px.svg";
 import Sort from "../../assets/icons/sort-24px.svg";
@@ -14,7 +14,7 @@ import "../../pages/InventoryPage/InventoryPage.scss";
 function WarehouseDetails() {
     let { warehouseId } = useParams();
     const [inventoryItems, setInventoryItems] = useState(null);
-    let [ warehouse, setWarehouse ] = useState(null);
+    let [warehouse, setWarehouse] = useState(null);
 
     const navigate = useNavigate();
 
@@ -27,14 +27,14 @@ function WarehouseDetails() {
     };
 
     async function getWarehouse() {
-      try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/warehouses/${warehouseId}`);
-        console.log(response.data);
-        setWarehouse(response.data);
+        try {
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/warehouses/${warehouseId}`);
+            console.log(response.data);
+            setWarehouse(response.data);
 
-      } catch (error) {
-        console.log('Error fetching warehouse details', error);
-      }
+        } catch (error) {
+            console.log('Error fetching warehouse details', error);
+        }
     }
 
     async function getItems() {
@@ -46,9 +46,9 @@ function WarehouseDetails() {
         }
     }
 
-    useEffect(() => { 
-      getWarehouse();
-      getItems();
+    useEffect(() => {
+        getWarehouse();
+        getItems();
     }, []);
 
     if (!inventoryItems) {
@@ -65,29 +65,37 @@ function WarehouseDetails() {
                     <div className="warehouses-details__top">
                         <h1 className="warehouses-details-page-top__head">
                             <Link to='/warehouse'>
-                              <img
-                                  className="warehouses-details-page-list__item-detail-arrow"
-                                  src={Back}
-                                  alt="See More"
-                                  onClick={handleBackClick}
-                              />
+                                <img
+                                    className="warehouses-details-page-list__item-detail-arrow"
+                                    src={Back}
+                                    alt="See More"
+                                    onClick={handleBackClick}
+                                />
                             </Link>
                             {warehouse.warehouse_name}
                         </h1>
+                       
                         <Link to={`/warehouse/${warehouseId}/edit`}>
-                          <img
-                              className="warehouses-details-page-top__edit"
-                              src={Pencil}
-                              alt="Edit"
-                              onClick={handleEditClick}
-                          />
+                        <div className="warehouses-details-page-top__edit-container">
+                            <img
+                                className="warehouses-details-page-top__edit"
+                                src={Pencil}
+                                alt="Edit"
+                                onClick={handleEditClick}
+                            />
+
+                            <p className="warehouses-details-page-top__edit-text">
+                                Edit
+                            </p>
+                            </div>
                         </Link>
+                       
                     </div>
                 </div>
 
                 <div className="warehouses-details-container">
                     <div className="warehouses-details-container__warehouse">
-                        <div className="warehouses-details-list__item-detail">
+                        <div className="warehouses-details-list__contact-addy">
                             <h4 className="warehouses-details-list__item-detail-label">
                                 WAREHOUSE ADDRESS:
                             </h4>
@@ -110,15 +118,14 @@ function WarehouseDetails() {
                                 <h4 className="warehouses-details-list__item-detail-label">
                                     CONTACT INFORMATION:
                                 </h4>
-                                <p className="warehouses-details-list__item-detail-value warehouses-details-list__item-detail-value-info">
-                                    <span className="warehouses-details-list__item-detail-phone">
-                                        {" "}
-                                        {warehouse.contact_phone}
-                                    </span>
-                                    <span className="warehouses-details-list__item-detail-email">
-                                        {warehouse.contact_email}{" "}
-                                    </span>
+                                <p className="warehouses-details-list__item-detail-phone">
+                                    {" "}
+                                    +1 (629) 555-0129
                                 </p>
+                                <p className="warehouses-details-list__item-detail-email">
+                                    paujla@instock.com{" "}
+                                </p>
+
                             </div>
                         </div>
                     </div>
@@ -167,9 +174,9 @@ function WarehouseDetails() {
                                     <h4 className="inventory__item-label inventory__item-label--mobile">STATUS</h4>
                                     <div className="inventory__item-label--tag-holder spacing-3--warehouse">
                                         <p className={"inventory__item-label--text  tag--" + (item.quantity ? "in-stock" : "out-of-stock")}>{item.status.toUpperCase()}</p>
-                                        
+
                                     </div>
-                                    <h4 className="inventory__item-label inventory__item-label--mobile">QUANTITY</h4>
+                                    <h4 className="inventory__item-label inventory__item-label--mobile">QTY</h4>
                                     <p className="inventory__item-label--text spacing-4--warehouse">{item.quantity}</p>
                                 </div>
                             </div>
