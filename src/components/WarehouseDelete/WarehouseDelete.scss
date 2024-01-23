@@ -26,7 +26,7 @@
 
         @include tablet {
             width: 70%;
-            height: 70%;
+            height: 16.4rem;
             background-color: rgb(255, 255, 255);
             padding: 1rem;
         }
@@ -59,7 +59,7 @@
 
     &__content__text {
         @include mobile__body--med;
-        padding-left: 2rem;
+        padding-left: 1rem;
         padding-right: 5rem;
 
         @include tablet {
@@ -77,8 +77,12 @@
             gap: 0.5rem;
             padding: 1rem;
             justify-content: flex-end;
+            padding-top: 7rem;
 
+        }
 
+        @include desktop {
+            padding-top: 8rem;
         }
     }
 
