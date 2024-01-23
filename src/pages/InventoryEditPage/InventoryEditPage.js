@@ -118,13 +118,6 @@ function InventoryEditPage() {
         const { name, value } = event.target;
         setErrors({...errors, [name]: getInputError(value, name)})
     }
-
-
-    // console.log("121|\n\n",createDropdownOptions);
-    // console.log("122|\n\n", categoryList);
-    console.log("123|\n\n", warehouseList);
-
-
     
     return (
         <main className='inventory-edit'>

@@ -30,20 +30,6 @@ function InventoryDetails() {
         return <p>Loading item info...</p>;
     }
 
-    // useEffect(() => {
-    //     const fetchItem = async () => {
-    //         try {
-    //             const response = await axios.get(`http://localhost:8080/inventory/${id}`);
-    //             setItem(response.data);
-    //         } catch (error) {
-    //             console.log(error);
-    //         }
-    //     };
-
-    //     fetchItem();
-    // }, [id]);
-
-
     const handleBackClick = () => {
         navigate("/inventory");
     }
