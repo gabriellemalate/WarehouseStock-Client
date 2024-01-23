@@ -67,7 +67,7 @@
         display: none;
 
         @include tablet {
-            @include tablet__body--med;
+            @include tablet__label;
             display: block;
         }
 
