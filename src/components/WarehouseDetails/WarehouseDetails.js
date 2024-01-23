@@ -50,7 +50,7 @@ function WarehouseDetails() {
         getItems();
     }, []);
 
-    if (!inventoryItems) {
+    if (!inventoryItems || !warehouse) {
         return <p>Loading items...</p>;
     }
 
