@@ -202,6 +202,10 @@
 
             @include tablet {
                 @include row;
+
+                &:hover {
+                    background-color: $Translucent;
+                }
             }
         }
     }
@@ -274,6 +278,10 @@
                 @include mobile__label;
                 padding-bottom: 0.125rem;
                 
+                &:hover {
+                    text-decoration: underline;
+                }
+
                 @include tablet {
                     padding-bottom: 0;
                     @include tablet__label;
