@@ -77,8 +77,12 @@
             gap: 0.5rem;
             padding: 1rem;
             justify-content: flex-end;
+            padding-top: 7rem;
 
+        }
 
+        @include desktop {
+            padding-top: 8rem;
         }
     }
 
