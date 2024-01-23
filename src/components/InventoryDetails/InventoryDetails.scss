@@ -37,6 +37,19 @@
         width: 100%;
     }
 
+    &-top__edit-container{
+        @include row;
+        align-items: center;
+        background-color: $Instock-Indigo;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        border-radius: 1.25rem;
+        color: $White;
+    }
+
     &-container {
         width: 100%;
         border-top: 0.09rem solid $Cloud;
