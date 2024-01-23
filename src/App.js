@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from './components/Header/Header';
 import InventoryPage from "./pages/InventoryPage/InventoryPage"
 import InventoryAdd from "./pages/InventoryAdd/InventoryAdd";
@@ -19,6 +19,7 @@ import './App.scss';
                 <BrowserRouter>
                     <Header />
                     <Routes>
+                        <Route path='/' element={<Navigate to='/warehouse' />} />
                         <Route path="/warehouse" element={<WarehouseListPage />} />
                         <Route path="/warehouse/add" element={<WarehouseAddPage />} />
                         <Route path="/warehouse/:warehouseId" element={<WarehouseDetailsPage />} />
