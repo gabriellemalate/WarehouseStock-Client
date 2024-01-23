@@ -90,14 +90,14 @@ function InventoryEditPage() {
 
     async function handleFormSubmition(event) {
         event.preventDefault();
-
+        
         const item = {
             item_name: itemName,
             description: description,
             category: category,
             status: status,
             quantity: status === 'Out of Stock' ? "0" : quantity,
-            warehouse_id: warehouseList.find(element => element.warehouse_name === warehouse).id,
+            warehouse_id: isNaN(warehouse) ? warehouseList.find(element => element.warehouse_name === warehouse).id : warehouse,
         }
 
         if(formIsValid(inputs)) {
