@@ -10,7 +10,6 @@ function InventoryDelete() {
     const navigate = useNavigate();
     const { itemId } = useParams();
     const [itemName, setItemName] = useState("");
-    console.log('Extracted ID:', itemId);
 
     const handleDelete = async () => {
         try {

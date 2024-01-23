@@ -100,8 +100,6 @@ function InventoryEditPage() {
             warehouse_id: warehouseList.find(element => element.warehouse_name === warehouse).id,
         }
 
-        console.log("item being sent",item)
-
         if(formIsValid(inputs)) {
             await updateItem(itemId, item);
             navigate(`/inventory/${itemId}`);

@@ -9,7 +9,6 @@ function WarehouseDelete() {
     const navigate = useNavigate();
     const { warehouseId } = useParams();
     const [warehouseName, setWarehouseName] = useState("");
-    console.log('Extracted ID:', warehouseId);
 
 
     const fetchWarehouseDetails = async () => {

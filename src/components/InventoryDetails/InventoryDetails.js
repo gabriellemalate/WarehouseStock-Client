@@ -17,7 +17,6 @@ function InventoryDetails() {
     async function getItem() {
         try {
             const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/inventories/${itemId}`);
-            console.log(response.data)
             setItem(response.data);
         } catch (error) {
             console.log(`Error getting item with ID ${itemId}:`, error);
