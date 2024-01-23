@@ -9,6 +9,7 @@ import WarehouseDetailsPage from './pages/WarehouseDetailsPage/WarehouseDetailsP
 import WarehouseAddPage from './pages/WarehouseAddPage/WarehouseAddPage';
 import WarehouseDelete from './components/WarehouseDelete/WarehouseDelete';
 import InventoryDetails from './components/InventoryDetails/InventoryDetails';
+import InventoryDelete from './components/InventoryDelete/InventoryDelete';
 import Footer from "./components/Footer/Footer";
 import './App.scss';
 
@@ -27,6 +28,7 @@ import './App.scss';
                         <Route path="/inventory/add" element={<InventoryAdd />} />
                         <Route path="/inventory/:itemId" element={<InventoryDetails />} />
                         <Route path="/inventory/:itemId/edit" element={<InventoryEditPage />} />
+                        <Route path="/inventory/:itemId/delete" element={<InventoryDelete />} />
                         {/* <Route path="*" element={<NotFoundPage />} /> */}
                     </Routes>
                     <Footer />
