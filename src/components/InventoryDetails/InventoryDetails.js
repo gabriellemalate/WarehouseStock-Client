@@ -17,7 +17,6 @@ function InventoryDetails() {
     async function getItem() {
         try {
             const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/inventories/${itemId}`);
-            console.log(response.data)
             setItem(response.data);
         } catch (error) {
             console.log(`Error getting item with ID ${itemId}:`, error);
@@ -30,26 +29,12 @@ function InventoryDetails() {
         return <p>Loading item info...</p>;
     }
 
-    // useEffect(() => {
-    //     const fetchItem = async () => {
-    //         try {
-    //             const response = await axios.get(`http://localhost:8080/inventory/${id}`);
-    //             setItem(response.data);
-    //         } catch (error) {
-    //             console.log(error);
-    //         }
-    //     };
-
-    //     fetchItem();
-    // }, [id]);
-
-
     const handleBackClick = () => {
         navigate("/inventory");
     }
 
     const handleEditClick = () => {
-        navigate("/inventory/:itemId/edit");
+        navigate(`/inventory/${itemId}/edit`);
     }
 
     return (
@@ -68,12 +53,11 @@ function InventoryDetails() {
                         {item.item_name}
                     </h1>
 
-                   <div className = "item-details-head__edit-container">
+                   <div className = "item-details-head__edit-container" onClick={handleEditClick}>
                    <img
                         className="item-details-head__title-edit"
                         src={Pencil}
                         alt="Edit"
-                        onClick={handleEditClick}
                     />
                     <p className="item-details-head__title-edit-text">
                         Edit

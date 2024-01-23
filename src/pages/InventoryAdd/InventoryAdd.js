@@ -5,28 +5,33 @@ import Back from "../../assets/icons/arrow_back-24px.svg";
 import errorIcon from '../../assets/icons/error-24px.svg';
 import { getInputError, formIsValid } from "../../utils/validationUtils";
 import "./InventoryAdd.scss";
+import { v4 as uuidv4 } from 'uuid';
+
 
 function InventoryAdd() {
     const BASE_URL = process.env.REACT_APP_API_URL;
     let navigate = useNavigate();
+    const [categoryList, setCategoryList] = useState([]);
     const [warehouseList, setWarehouseList] = useState([]);
 
-    async function getWarehouses() {
+    async function getWarehousesAndCategories() {
         try {
             let response = await axios.get(`${BASE_URL}/api/warehouses`);
+            let response2 = await axios.get(`${process.env.REACT_APP_API_URL}/api/inventories/unique`);
 
             setWarehouseList(response.data);
+            setCategoryList(response2.data);
 
         } catch (error) {
             console.log('Error fetching warehouses', error);
         }
     }
 
-    useEffect(()=>{
-        getWarehouses();
-    },[])
+    useEffect(() => {
+        getWarehousesAndCategories();
+    }, [])
 
-    let [ inputs, setInputs ] = useState({
+    let [inputs, setInputs] = useState({
         itemName: '',
         description: '',
         category: '',
@@ -45,24 +50,24 @@ function InventoryAdd() {
         warehouse: null,
     });
 
-    let { 
-        itemName: itemNameError, 
-        description: descriptionError, 
-        category: categoryError, 
-        status: statusError, 
-        quantity: quantityError, 
-        warehouse: warehouseError, 
+    let {
+        itemName: itemNameError,
+        description: descriptionError,
+        category: categoryError,
+        status: statusError,
+        quantity: quantityError,
+        warehouse: warehouseError,
     } = errors;
 
-    function handleInputChange(event){
+    function handleInputChange(event) {
         const { name, value } = event.target;
-        setInputs({...inputs, [name]: value});
-        setErrors({...errors, [name]: getInputError(value, name)})
+        setInputs({ ...inputs, [name]: value });
+        setErrors({ ...errors, [name]: getInputError(value, name) })
     }
 
     function handleInputBlur(event) {
         const { name, value } = event.target;
-        setErrors({...errors, [name]: getInputError(value, name)})
+        setErrors({ ...errors, [name]: getInputError(value, name) })
     }
 
     async function postInventoryItem(inventoryItem) {
@@ -74,7 +79,7 @@ function InventoryAdd() {
             console.log('Error creating inventory item', error);
         }
     }
-    
+
     async function handleFormSubmition(event) {
         event.preventDefault();
 
@@ -90,6 +95,12 @@ function InventoryAdd() {
         if (formIsValid(inputs)) {
             await postInventoryItem(item);
             navigate('/inventory');
+        } else {
+            let newErrors = {};
+            for (let key in inputs) {
+                newErrors[key] = getInputError(inputs[key], key);
+            }
+            setErrors(newErrors);
         }
     }
 
@@ -115,10 +126,10 @@ function InventoryAdd() {
                             Item Details
                         </h2>
                         <label htmlFor="itemName" className="inv-add-form__label">Item Name</label>
-                        <input 
+                        <input
                             type="text"
                             name="itemName"
-                            id="itemName" 
+                            id="itemName"
                             className={`inv-add-form__input ${itemNameError && 'inv-add-form__input--invalid'}`}
                             placeholder="Item Name"
                             value={itemName}
@@ -130,10 +141,10 @@ function InventoryAdd() {
                             {itemNameError}
                         </p>
                         <label htmlFor="description" className="inv-add-form__label">Description</label>
-                        <textarea 
+                        <textarea
                             name="description"
-                            id="description" 
-                            className={`inv-add-form__input inv-add-form__input--large ${descriptionError && 'inv-add-form__input--invalid'}`} 
+                            id="description"
+                            className={`inv-add-form__input inv-add-form__input--large ${descriptionError && 'inv-add-form__input--invalid'}`}
                             placeholder="Please enter a brief item description..."
                             value={description}
                             onChange={handleInputChange}
@@ -148,18 +159,14 @@ function InventoryAdd() {
                             <select
                                 name="category"
                                 id="category"
-                                className={`inv-add-form__input inv-add-form__input--select ${categoryError && 'inv-add-form__input--invalid'}`} 
+                                className={`inv-add-form__input inv-add-form__input--select ${categoryError && 'inv-add-form__input--invalid'}`}
                                 placeholder="Please Select"
                                 value={category}
                                 onChange={handleInputChange}
                                 onBlur={handleInputBlur}
                             >
                                 <option value='' disabled hidden>Please Select</option>
-                                <option value='Accessories'>Accessories</option>
-                                <option value='Apparel'>Apparel</option>
-                                <option value='Electronics'>Electronics</option>
-                                <option value='Gear'>Gear</option>
-                                <option value='Health'>Health</option>
+                                {categoryList.map(element => (<option key={uuidv4()} value={`${element.category}`}>{element.category}</option>))}
                             </select>
                         </div>
                         <p className="inv-add-form__error">
@@ -174,10 +181,10 @@ function InventoryAdd() {
                         <p className="inv-add-form__label">Status</p>
                         <div className="inv-add-form__input inv-add-form__input--radio">
                             <label htmlFor="inStock" className="inv-add-form__option">
-                                <input 
-                                    type="radio" 
-                                    id='inStock' 
-                                    name='status' 
+                                <input
+                                    type="radio"
+                                    id='inStock'
+                                    name='status'
                                     className="inv-add-form__radio"
                                     value='In Stock'
                                     checked={status === 'In Stock'}
@@ -187,10 +194,10 @@ function InventoryAdd() {
                                 In Stock
                             </label>
                             <label htmlFor="outOfStock" className="inv-add-form__option">
-                                <input 
-                                    type="radio" 
-                                    id='outOfStock' 
-                                    name='status' 
+                                <input
+                                    type="radio"
+                                    id='outOfStock'
+                                    name='status'
                                     className="inv-add-form__radio"
                                     value='Out of Stock'
                                     checked={status === 'Out of Stock'}
@@ -205,37 +212,37 @@ function InventoryAdd() {
                             {statusError}
                         </p>
                         {status === 'In Stock' && (
-                        <>
-                        <label htmlFor="quantity" className="inv-add-form__label">Quantity</label>
-                        <input 
-                            type="number"
-                            min='1'
-                            name="quantity"
-                            id="quantity" 
-                            className={`inv-add-form__input inv-add-form__input--number ${quantityError && 'inv-add-form__input--invalid'}`}
-                            value={quantity}
-                            onChange={handleInputChange}
-                            onBlur={handleInputBlur}
-                        />
-                        <p className="inv-add-form__error">
-                            {quantityError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
-                            {quantityError}
-                        </p>
-                        </>
+                            <>
+                                <label htmlFor="quantity" className="inv-add-form__label">Quantity</label>
+                                <input
+                                    type="number"
+                                    min='1'
+                                    name="quantity"
+                                    id="quantity"
+                                    className={`inv-add-form__input inv-add-form__input--number ${quantityError && 'inv-add-form__input--invalid'}`}
+                                    value={quantity}
+                                    onChange={handleInputChange}
+                                    onBlur={handleInputBlur}
+                                />
+                                <p className="inv-add-form__error">
+                                    {quantityError && <img src={errorIcon} alt="" className="inv-add-form__error-icon" />}
+                                    {quantityError}
+                                </p>
+                            </>
                         )}
                         <label htmlFor="warehouse" className="inv-add-form__label">Warehouse</label>
                         <div className="inv-add-form__select-container">
                             <select
                                 name="warehouse"
                                 id="warehouse"
-                                className={`inv-add-form__input inv-add-form__input--select ${warehouseError && 'inv-add-form__input--invalid'}`} 
+                                className={`inv-add-form__input inv-add-form__input--select ${warehouseError && 'inv-add-form__input--invalid'}`}
                                 placeholder="Please Select"
                                 value={warehouse}
                                 onChange={handleInputChange}
                                 onBlur={handleInputBlur}
                             >
                                 <option value='' disabled hidden>Please Select</option>
-                                {warehouseList.map((warehouse)=>{
+                                {warehouseList.map((warehouse) => {
                                     return <option key={warehouse.id} value={warehouse.id}>{warehouse.warehouse_name}</option>
                                 })}
                             </select>

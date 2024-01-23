@@ -29,7 +29,6 @@ function WarehouseDetails() {
     async function getWarehouse() {
         try {
             const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/warehouses/${warehouseId}`);
-            console.log(response.data);
             setWarehouse(response.data);
 
         } catch (error) {
@@ -51,7 +50,7 @@ function WarehouseDetails() {
         getItems();
     }, []);
 
-    if (!inventoryItems) {
+    if (!inventoryItems || !warehouse) {
         return <p>Loading items...</p>;
     }
 

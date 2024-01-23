@@ -60,7 +60,6 @@
             @include tablet {
                 position: relative;
                 top: 2.4rem;
-                // left: 9rem;
                 right: calc(4rem - 100%);
             }
         }
@@ -203,6 +202,10 @@
 
             @include tablet {
                 @include row;
+
+                &:hover {
+                    background-color: $Translucent;
+                }
             }
         }
     }
@@ -275,6 +278,10 @@
                 @include mobile__label;
                 padding-bottom: 0.125rem;
                 
+                &:hover {
+                    text-decoration: underline;
+                }
+
                 @include tablet {
                     padding-bottom: 0;
                     @include tablet__label;
@@ -329,5 +336,13 @@
         width: calc(100% - 2*(2rem));
         margin: auto;
         max-width: 63.75rem;
+    }
+
+    .mobile {
+        padding-top: 1.75rem;
+        
+        @include tablet {
+            padding-top: 0;
+        }
     }
 }

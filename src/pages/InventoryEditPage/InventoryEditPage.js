@@ -90,21 +90,25 @@ function InventoryEditPage() {
 
     async function handleFormSubmition(event) {
         event.preventDefault();
-
+        
         const item = {
             item_name: itemName,
             description: description,
             category: category,
             status: status,
             quantity: status === 'Out of Stock' ? "0" : quantity,
-            warehouse_id: warehouseList.find(element => element.warehouse_name === warehouse).id,
+            warehouse_id: isNaN(warehouse) ? warehouseList.find(element => element.warehouse_name === warehouse).id : warehouse,
         }
-
-        console.log("item being sent",item)
 
         if(formIsValid(inputs)) {
             await updateItem(itemId, item);
             navigate(`/inventory/${itemId}`);
+        } else {
+            let newErrors = {};
+            for(let key in inputs) {
+                newErrors[key] = getInputError(inputs[key], key);
+            }
+            setErrors(newErrors);  
         }
     }
 
@@ -118,13 +122,6 @@ function InventoryEditPage() {
         const { name, value } = event.target;
         setErrors({...errors, [name]: getInputError(value, name)})
     }
-
-
-    // console.log("121|\n\n",createDropdownOptions);
-    // console.log("122|\n\n", categoryList);
-    console.log("123|\n\n", warehouseList);
-
-
     
     return (
         <main className='inventory-edit'>
@@ -257,7 +254,7 @@ function InventoryEditPage() {
                                 onChange={handleInputChange}
                                 onBlur={handleInputBlur}
                             >
-                                {warehouseList.map(element => (<option key={element.id} value={element.id}>{element.warehouse_name}</option>))}
+                                {warehouseList.map(element => (<option key={element.id} value={element.warehouse_name}>{element.warehouse_name}</option>))}
                             </select>
                         </div>
                         <p className="form__error">
