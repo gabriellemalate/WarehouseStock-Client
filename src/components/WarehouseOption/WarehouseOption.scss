@@ -58,10 +58,6 @@
                     color: $Instock-Black;
                     padding: .2rem 0 .9rem;
 
-                    &:hover {
-                        text-decoration: underline;
-                    }
-
                     @include tablet {
                         @include row;
                         align-items: center;
@@ -75,6 +71,10 @@
                     color: $Instock-Indigo;
                     font-weight: 600;
                     cursor: pointer;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
 
                     @include tablet {
                         width: calc((100vw - 8rem) / 4.2);
