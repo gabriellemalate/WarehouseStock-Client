@@ -73,6 +73,12 @@ function WarehouseAddPage() {
         if(formIsValid(inputs)) {
             await postWarehouse(warehouse);
             navigate('/warehouse');
+        } else {
+            let newErrors = {};
+            for(let key in inputs) {
+                newErrors[key] = getInputError(inputs[key], key);
+            }
+            setErrors(newErrors);  
         }
     }
 

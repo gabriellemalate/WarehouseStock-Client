@@ -103,6 +103,12 @@ function InventoryEditPage() {
         if(formIsValid(inputs)) {
             await updateItem(itemId, item);
             navigate(`/inventory/${itemId}`);
+        } else {
+            let newErrors = {};
+            for(let key in inputs) {
+                newErrors[key] = getInputError(inputs[key], key);
+            }
+            setErrors(newErrors);  
         }
     }
 

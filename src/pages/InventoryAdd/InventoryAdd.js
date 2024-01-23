@@ -90,6 +90,12 @@ function InventoryAdd() {
         if (formIsValid(inputs)) {
             await postInventoryItem(item);
             navigate('/inventory');
+        } else {
+            let newErrors = {};
+            for(let key in inputs) {
+                newErrors[key] = getInputError(inputs[key], key);
+            }
+            setErrors(newErrors);  
         }
     }
 

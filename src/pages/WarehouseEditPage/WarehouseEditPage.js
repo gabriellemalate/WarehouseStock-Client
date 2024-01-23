@@ -105,6 +105,12 @@ function WarehouseEditPage() {
         if(formIsValid(inputs)) {
             await updateWarehouse(warehouseId, warehouse);
             navigate(`/warehouse/${warehouseId}`);
+        } else {
+            let newErrors = {};
+            for(let key in inputs) {
+                newErrors[key] = getInputError(inputs[key], key);
+            }
+            setErrors(newErrors);  
         }
     }
 
