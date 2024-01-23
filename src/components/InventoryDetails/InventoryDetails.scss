@@ -7,12 +7,12 @@
     background-color: $White;
     margin: auto;
     margin: 0 2.25rem;
-    
+
 
     @include tablet {
         margin: auto;
         margin: 0 2.25rem;
-        
+
 
     }
 
@@ -36,7 +36,7 @@
         cursor: pointer;
     }
 
-    &-head__edit-container{
+    &-head__edit-container {
         @include row;
         align-items: center;
         background-color: $Instock-Indigo;
@@ -50,7 +50,7 @@
         cursor: pointer;
     }
 
-    &-head__title-edit-text{
+    &-head__title-edit-text {
         @include mobile__label;
         padding-left: 0.5rem;
         padding-right: 0.5rem;
@@ -70,11 +70,11 @@
         justify-content: space-between;
     }
 
-    &-head__title{
+    &-head__title {
         @include mobile__pagehead;
-        width:85%;
+        width: 85%;
 
-        &-arrow{
+        &-arrow {
             padding-left: 1rem;
         }
 
@@ -84,7 +84,7 @@
     }
 
 
-    &-top__edit-container{
+    &-top__edit-container {
         @include row;
         align-items: center;
         background-color: $Instock-Indigo;
@@ -108,36 +108,38 @@
     }
 
     &__info {
-       
+
         @include column;
         align-items: flex-start;
         padding: 1rem;
-        width:100%;
+        width: 100%;
 
-       
+
     }
 
-    &__info-column-left{
-        width:100%;
+    &__info-column-left {
+        width: 100%;
     }
 
-    &-list__title{
+    &-list__title {
         @include mobile__body--small;
-          color: $Slate;
+        color: $Slate;
+        font-weight: 600;
 
         @include tablet {
             @include tablet__body--small;
+            font-weight: 600;
         }
 
 
     }
 
 
-    &-list__description-text{
-        width:50%;
+    &-list__description-text {
+        width: 50%;
     }
 
-    
+
 
     &__info-statusqty-container-mobile {
         @include row;
@@ -149,8 +151,8 @@
         }
     }
 
-    &-list__status-text{
-        background-color:$Green-7;
+    &-list__status-text {
+        background-color: $Green-7;
         border-radius: 1.25rem;
         color: $Green;
         padding: 0 0.5rem;
@@ -158,8 +160,8 @@
         font-weight: 600;
 
         &.out-of-stock {
-            background-color: $Red-7; 
-            color: $Red; 
+            background-color: $Red-7;
+            color: $Red;
             text-transform: uppercase;
         }
     }
@@ -202,7 +204,7 @@
     &__info-column-right {
         @include column;
         align-items: flex-start;
-        
+
 
         @include tablet {
             width: 20rem;
