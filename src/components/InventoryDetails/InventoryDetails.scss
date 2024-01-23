@@ -32,6 +32,10 @@
 
     }
 
+    &-head__title-arrow {
+        cursor: pointer;
+    }
+
     &-head__edit-container{
         @include row;
         align-items: center;
@@ -43,6 +47,7 @@
 
         border-radius: 1.25rem;
         color: $White;
+        cursor: pointer;
     }
 
     &-head__title-edit-text{
