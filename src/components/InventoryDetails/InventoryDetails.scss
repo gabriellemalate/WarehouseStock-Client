@@ -5,21 +5,24 @@
     font-family: $fontface;
     border-radius: 0.2rem;
     background-color: $White;
-    margin: 0 1rem;
-    @include column;
-    @include mobile__body--med;
+    margin: auto;
+    margin: 0 2.25rem;
+    
 
     @include tablet {
-        margin: 0 2rem;
+        margin: auto;
+        margin: 0 2.25rem;
+        
+
     }
 
     @include desktop {
-        max-width: 95%;
+        width: 63.75rem;
+        margin: auto;
     }
 
     &-title {
-        width: 90%;
-        @include column;
+        width: 95%;
         @include mobile__tablehead;
         padding: 1.6rem 0 2rem;
 
@@ -29,13 +32,52 @@
 
     }
 
+    &-head__edit-container{
+        @include row;
+        align-items: center;
+        background-color: $Instock-Indigo;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        border-radius: 1.25rem;
+        color: $White;
+    }
+
+    &-head__title-edit-text{
+        @include mobile__label;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        display: none;
+
+        @include tablet {
+            @include tablet__label;
+            display: block;
+        }
+
+    }
+
     &-top {
         width: 100%;
-        padding: 0 0 1.4rem;
         @include row;
+        align-items: center;
         justify-content: space-between;
-        width: 100%;
     }
+
+    &-head__title{
+        @include mobile__pagehead;
+        width:85%;
+
+        &-arrow{
+            padding-left: 1rem;
+        }
+
+        @include tablet {
+            @include tablet__pagehead;
+        }
+    }
+
 
     &-top__edit-container{
         @include row;
@@ -51,19 +93,46 @@
     }
 
     &-container {
+        @include mobile__body--small;
         width: 100%;
         border-top: 0.09rem solid $Cloud;
 
         @include tablet {
-            @include tablet__body--med;
+            @include tablet__body--small;
         }
     }
 
     &__info {
+       
         @include column;
         align-items: flex-start;
         padding: 1rem;
+        width:100%;
+
+       
     }
+
+    &__info-column-left{
+        width:100%;
+    }
+
+    &-list__title{
+        @include mobile__body--small;
+          color: $Slate;
+
+        @include tablet {
+            @include tablet__body--small;
+        }
+
+
+    }
+
+
+    &-list__description-text{
+        width:50%;
+    }
+
+    
 
     &__info-statusqty-container-mobile {
         @include row;
@@ -75,13 +144,28 @@
         }
     }
 
+    &-list__status-text{
+        background-color:$Green-7;
+        border-radius: 1.25rem;
+        color: $Green;
+        padding: 0 0.5rem;
+        text-transform: uppercase;
+        font-weight: 600;
+
+        &.out-of-stock {
+            background-color: $Red-7; 
+            color: $Red; 
+            text-transform: uppercase;
+        }
+    }
+
     &__info-tablet {
         @include row;
         justify-content: space-between;
         align-items: flex-start;
         width: 40%;
         display: none;
-        
+
 
         @include tablet {
             display: flex;
@@ -101,6 +185,8 @@
         display: none;
 
         @include tablet {
+            margin-top: 1rem;
+
             @include row;
             align-items: flex-start;
             justify-content: space-between;
@@ -108,12 +194,20 @@
         }
     }
 
-    &__info-column-right{
+    &__info-column-right {
         @include column;
         align-items: flex-start;
+        
+
+        @include tablet {
+            width: 20rem;
+            border-left: 0.09rem solid $Cloud;
+        }
+
+
     }
 
-    &__info-row-bottom{
+    &__info-row-bottom {
         @include row;
         justify-content: space-between;
         width: 100%;
