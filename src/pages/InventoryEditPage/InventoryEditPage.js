@@ -254,7 +254,7 @@ function InventoryEditPage() {
                                 onChange={handleInputChange}
                                 onBlur={handleInputBlur}
                             >
-                                {warehouseList.map(element => (<option key={element.id} value={element.id}>{element.warehouse_name}</option>))}
+                                {warehouseList.map(element => (<option key={element.id} value={element.warehouse_name}>{element.warehouse_name}</option>))}
                             </select>
                         </div>
                         <p className="form__error">
