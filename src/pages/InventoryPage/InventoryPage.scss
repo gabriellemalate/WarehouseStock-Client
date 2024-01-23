@@ -337,4 +337,12 @@
         margin: auto;
         max-width: 63.75rem;
     }
+
+    .mobile {
+        padding-top: 1.75rem;
+        
+        @include tablet {
+            padding-top: 0;
+        }
+    }
 }

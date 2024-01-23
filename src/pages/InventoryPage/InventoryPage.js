@@ -38,7 +38,7 @@ function InventoryPage() {
         <main className="inventory">
 
             <section className="inventory-container inventory__title-bar">
-                <h1>Inventory</h1>
+                <h1 className="mobile">Inventory</h1>
                 <div className="inventory__actions">
                     <form className="inventory__search">
                         <img className="inventory__search-icon" src={MagnifyingGlass} alt="Search" />
